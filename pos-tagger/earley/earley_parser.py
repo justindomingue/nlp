@@ -115,26 +115,37 @@ class EarleyParser:
 
     def enqueue(self, state, i):
         """ Enqueues State `state` at `i`-th level of self.chart """
-        if state not in self.chart[i]:
+        if not state in self.chart[i]:
             self.chart[i].append(state)
+        else: # state already in chart, append origin so we can trace back multiple parses
+            old = self.chart[i][self.chart[i].index(state)]
+            old.origin += state.origin
 
     def tree(self):
-        """Returns an NLTK.tree of a successful parse"""
-        #TODO handle returning multiple parses (ambiguous grammar)
+        """
+        Constructs parse trees for the sentence parsed by self.parse()
+        or returns the sentence verbatim if parsing was unsuccessful
 
+        Note. More than one trees will be returned if the grammar is ambiguous.
+
+        :return: [NLTK.tree]
+        """
         fin = State(self.DUMMY_CHAR, ["S"], 1, 0, len(self.words))
         last_chart = self.chart[len(self.chart) - 1]
 
         if fin in last_chart:
             index = last_chart.index(fin)
             root = last_chart[index]
+            self.treelist = []
 
-            print root.origin
-            tmp = []
-            for node in root.origin[0].origin:
-                tmp.append(self.treeRecursive(node))
+            for i in range(len(root.origin)):
+                self.treelist.append([])
 
-            self.treelist = Tree('S', tmp)
+                tmp = []
+                for node in root.origin[i].origin:
+                    tmp.append(self.treeRecursive(node))
+
+                self.treelist[i] = Tree('S', tmp)
 
             return self.treelist
         else:
