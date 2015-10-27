@@ -32,10 +32,8 @@ Example
 import sys
 
 from nltk.tree import Tree
-from nltk.draw import tree
 
 from state import State
-from grammar import Grammar
 
 
 class EarleyParser:
@@ -77,7 +75,10 @@ class EarleyParser:
         return self.chart
 
     def predictor(self, state):
-        # print "Predictor > {0}".format(state)
+        """
+        Creates new states representing top-down expaectations generated during the parsing process
+        :param state: A -> C @ B D [i,j]
+        """
         B = state.after_dot()
         j = state.j
 
@@ -85,7 +86,10 @@ class EarleyParser:
             self.enqueue(State(B, y, 0, j, j), j)
 
     def scanner(self, state):
-        # print "Scanner > {0}".format(state)
+        """
+        Examine the input and incorporate a state corresponding to the predicted POS in the chart
+        :param state: A -> C @ B D [i,j]
+        """
         B = state.after_dot()
         j = state.j
 
@@ -95,7 +99,10 @@ class EarleyParser:
                 self.enqueue(State(B, [word], 1, j, j + 1), j + 1)
 
     def completer(self, state):
-        # print "Completer > {0}".format(state)
+        """
+        Find and advance all previously created states that were looking for this grammatical category at this position in the input
+        :param state: B -> y @ [j,k]
+        """
         B = state.l
         j, k = state.i, state.j
 
@@ -107,18 +114,22 @@ class EarleyParser:
                 self.enqueue(State(old.l, old.r, old.dot + 1, i, k, origin), k)
 
     def enqueue(self, state, i):
+        """ Enqueues State `state` at `i`-th level of self.chart """
         if state not in self.chart[i]:
             self.chart[i].append(state)
 
     def tree(self):
-        fin = State(self.DUMMY_CHAR, ["S"], 1, 0, len(self.words))
+        """Returns an NLTK.tree of a successful parse"""
+        #TODO handle returning multiple parses (ambiguous grammar)
 
+        fin = State(self.DUMMY_CHAR, ["S"], 1, 0, len(self.words))
         last_chart = self.chart[len(self.chart) - 1]
 
         if fin in last_chart:
             index = last_chart.index(fin)
             root = last_chart[index]
 
+            print root.origin
             tmp = []
             for node in root.origin[0].origin:
                 tmp.append(self.treeRecursive(node))
@@ -132,7 +143,7 @@ class EarleyParser:
     def treeRecursive(self, node):
         # base case - node of the form Det->That, []
         if node.origin == []:
-            return Tree(node.l, [node.r])
+            return Tree(node.l, node.r)
 
         ret = []
         for n in node.origin:

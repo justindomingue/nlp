@@ -7,6 +7,7 @@ Test grammar and string taken from
 """
 
 from unittest import TestCase
+from nltk import Tree
 
 from earley_parser import EarleyParser
 from grammar import Grammar
@@ -92,4 +93,27 @@ class TestEarleyParser(TestCase):
         self.earley.enqueue(State('VP', ['V'], 0, 0, 0), 1)
         self.assertEqual(len(self.earley.chart[1]), 2)
 
+    def test_tree(self):
+        # No parse for sentence
+        self.earley.parse('Not valid')
+        self.assertEqual('Not valid', self.earley.tree())
+
+        # Sentence has parse
+        self.earley.parse('a circle touches a triangle')
+        actual = self.earley.tree()
+        expected = Tree('S', [Tree('NP', [Tree('Det', ['a']), Tree('N', ['circle'])]), Tree('VP', [Tree('VT', ['touches']), Tree('NP', [Tree('Det', ['a']), Tree('N', ['triangle'])])])])
+        self.assertEqual(expected, actual)
+
+    # def test_parse_with_ambiguity(self):
+    #     # Define new rules
+    #     rules = ['S->NP | VP', 'NP->book', 'VP->book']
+    #     earley = EarleyParser(Grammar(rules))
+    #     earley.parse('book')
+    #
+    #     self.assertIn(State(earley.DUMMY_CHAR,['S'],1,0,1), earley.chart[1])
+    #     self.assertIn(State('S',['NP'],1,0,1), earley.chart[1])
+    #     self.assertIn(State('S',['VP'],1,0,1), earley.chart[1])
+    #
+    #     print earley.chart
+    #     self.assertItemsEqual([Tree('S', [Tree('NP', ['book'])]), Tree('S', [Tree('VP', ['book'])])], earley.tree())
 
