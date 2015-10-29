@@ -10,7 +10,7 @@ from unittest import TestCase
 from nltk import Tree
 
 from earley_parser import EarleyParser
-from grammar import Grammar
+from utilities.grammar import Grammar
 from state import State
 
 

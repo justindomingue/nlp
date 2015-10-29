@@ -77,6 +77,18 @@ class Grammar:
                             self.word_pos[w.lower()].append(l)
         return self.word_pos[word.lower()] if self.word_pos.has_key(word.lower()) else []
 
+    @property
+    def terminals(self):
+        if not hasattr(self, '_terminals'):
+            self._terminals = set()
+            for _,right in self.grammar.iteritems():    #right: [[string]]
+                for r in right:     #r: [string]
+                    for rr in r:    #rr: string
+                        if len(self.get(rr)) is 0:
+                            self._terminals.add(rr)
+
+        return self._terminals
+
     def __repr__(self):
         print "Grammar ["
         for k, v in self.grammar.iteritems():
