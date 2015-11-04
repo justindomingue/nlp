@@ -54,12 +54,16 @@ def simple_lesk(word, sentence):
     Evaluating Variants of the Lesk Approach for Disambiguating Words. LREC, Portugal.
     """
 
-    best_sense = wn.synsets(word)[0] # most frequent sense for word
+    synsets = wn.synsets(word)
+    if not synsets:
+        return []
+
+    best_sense = synsets[0] # most frequent sense for word
 
     max_overlap = 0
     context = sentence.split(' ')
 
-    for sense in wn.synsets(word):
+    for sense in synsets:
         examples = [e.split(' ') for e in sense.examples()]
         examples_flat = [val for sublist in examples for val in sublist]
         definitions = sense.definition().split(' ')
@@ -74,16 +78,21 @@ def simple_lesk(word, sentence):
     return best_sense
 
 def disambiguate(sentence, lesk=simple_lesk):
-    """Disambiguates every word in `sentence` using function `lesk`
-    """
+    """Disambiguates every word in `sentence` using function `lesk` """
     words = sentence.split(' ')
 
     best_sense = []
 
     for word in words:
-        best_sense.append(lesk(word))
+        best_sense.append(lesk(word, sentence))
 
     return best_sense
 
+def define_each(synsets):
+    """Defines each synset in `synsets`"""
+    return [s.definition() for s in synsets if s]
+
+
 def compute_overlap(a,b):
+    """Computes the overlap between lists `a` and `b`"""
     return list((Counter(a) & Counter(b)).elements())
