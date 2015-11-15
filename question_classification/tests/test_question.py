@@ -28,6 +28,7 @@ class QuestionTests(unittest.TestCase):
 
         #should be word following how
         self.assertEqual(Question('how is').head_word(), 'is')
+        self.assertEqual(Question('how long is a race').head_word(), 'long')
 
         #test patterns
         #DESC:def pattern 1
