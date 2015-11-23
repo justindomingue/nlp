@@ -2,9 +2,16 @@
 
 from sklearn.svm import SVC
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report
+
 import numpy as np
 
-# from question import Question
+from question import Question
+
+v = DictVectorizer(sparse=False)
+le = LabelEncoder()
 
 def load_instances(f):
     '''
@@ -16,8 +23,8 @@ def load_instances(f):
     Example. DESC:manner How did serfdom develop in and then leave Russia ?
 
     '''
-    X = []
-    y = []
+    labels = []
+    questions = []
 
     with open(f, 'r') as file:
         for line in file:
@@ -25,28 +32,48 @@ def load_instances(f):
             label = line[0:split_point]
             text = line[split_point+1:].rstrip('\n')
 
-            # X.append(Question(text).features)
-            X.append(text)
-            y.append(label)
+            labels.append(label)
+            questions.append(Question(text))
 
-    return np.array(X), np.array(y)
+    return labels, questions
+
+
+def feature_vector(data):
+    '''Creates a feature vector from a dictionary of Question'''
+    return v.fit_transform([d.features() for d in data])
 
 if __name__ == "__main__":
     names = ['1000', '2000', '3000', '4000', '5500']
 
-    dev_X, dev_y = [], []
-    test_X, test_y= load_instances('data/TREC_10.label')
+    # Load the data set [(label, question)]
 
+    test_labels, test_questions = load_instances('data/TREC_10.label')
+
+    dev_labels, dev_questions = [], []
     for name in names:
-        X, y = load_instances('data/train_{0}.label'.format(name))
-        dev_X += X
-        dev_y += y
+        labels, questions = load_instances('data/train_{0}.label'.format(name))
+        dev_labels += labels
+        dev_questions += questions
+
+    # Make the feature vectors
+
+    le.fit(dev_labels+test_labels)
+
+    test_y = le.transform(test_labels)
+    test_X = feature_vector(test_questions)
+
+    dev_y = le.transform(dev_labels)
+    dev_X = feature_vector(dev_questions)
 
     models = [SVC(), MultinomialNB()]
+
+    print 'EXPERIMENT'
+    print 'Development set size: {0}'.format(dev_X.size)
+    print 'Test set size: {0}'.format(test_X.size)
 
     # fit each model
     for model in models:
         model.fit(dev_X, dev_y)
 
         predicted = model.predict(test_X)
-        print np.mean(predicted == test_y)
+        print(classification_report(test_y, predicted))

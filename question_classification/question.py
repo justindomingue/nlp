@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
 import re
-from string import punctuation
-# from bllipparser import RerankingParser, Tree, tokenize
+from bllipparser import RerankingParser, Tree, tokenize
 
-# rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
+print 'Loading parser...'
+rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
 
 class Question:
     """Question
@@ -17,6 +17,11 @@ class Question:
         type (string): wh_word of the question
 
     """
+
+    # Types of the different feature categories
+    # Useful for binarizing the features
+    types = ['what', "which", "when", "where", "who", "how", "why", "rest"]
+    word_shapes = ['all_lower', 'all_upper', 'mixed', 'all_digit', 'other']
 
     # Regex patterns to help question head word identification
     patterns = {
@@ -43,11 +48,10 @@ class Question:
 
         self.text = question
 
-        # self.words = tokenize(self.text)
-        self.words = self.text.split(' ')
+        self.words = tokenize(self.text)
 
         wh_word = self.words[0].lower()
-        self.type = wh_word if wh_word in ['what', "which", "when", "where", "who", "how", "why"] else "rest"
+        self.type = wh_word if wh_word in Question.types[:-1] else Question.types[-1]
 
     ### FEATURE EXTRACTOR
 
@@ -55,14 +59,32 @@ class Question:
         """
         Returns a dictionary of features
         """
-        return {
-            self.type: 1,
-            "word-shape": self.word_shape,
-            "head-word": self.head_word,
-            "unigrams": self.words,
-            "bigrams": self.ngrams(2),
-            "trigrams": self.ngrams(3)
-        }
+
+        # dictionary of features that will be returned
+        features = {}
+
+        # Wh-word type feature
+        for type in Question.types:
+            features[type] = 1 if self.type == type else 0
+
+        # features["head-word"] = self.head_word
+
+        # Word shape feature - activated if text contains shape
+        ws = self.word_shape
+        for shape in Question.word_shapes:
+            features[shape] = 1 if shape in ws else 0
+
+        ngrams = self.ngrams(2)
+        for ngram in ngrams:
+            features[ngram] = 1
+        # n-gram feature
+        # features.update({
+        #     "unigrams": self.words,
+        #     "bigrams": self.ngrams(2),
+        #     "trigrams": self.ngrams(3)
+        # })
+
+        return features
 
     ### SHAPE
 
@@ -109,27 +131,115 @@ class Question:
         if self.type == 'who' and re.match(Question.patterns['set2']['HUM:desc'], self.text):
             return 'HUM:desc'
 
-        return None
-
-    def apply_collins_rules_on(self, tree):
-        return
-
-    def extract_head_word(self):
-        sentence = self.words + ['?']               #add '?' so parser knows it's a question (parse differs otherwise)
-        tree = Tree(rrp.simple_parse(sentence))     #get the best parse
-
-        return self.apply_collins_rules_on(tree)
+        return HeadFinder.semantic_head(self.words)
 
     ### N-GRAMS
 
     def ngrams(self, n):
         return zip(*[self.words[i:] for i in range(n)])
 
-
     ### OTHER
     def __repr__(self):
-        return "Question({0}--{1})".format(self.type, self.text)
+        return "Question('{0}')".format(self.text)
 
     def __len__(self):
         return len(self.words)
 
+class HeadFinder:
+
+    def __init__(self, sentence):
+        '''Initializes a HeadFinder with a sentence
+
+        :param sentence (String or [String]) Sentence for which to find the semantic head word
+        '''
+        self.tree = Tree(rrp.simple_parse(sentence))
+
+    def semantic_head(self):
+        '''Extracts semantic head word from tree using Collins Rules'''
+
+        # Candidate head and tag
+        candidate, tag = self.head_recursive(self.tree.subtrees()[0])
+
+        print "Cand: {0}, tag: {1}".format(candidate, tag)
+        return candidate if tag.startswith("NN") else self.firstNN(self.tree)
+
+    def head_recursive(self, tree):
+        if tree.is_preterminal():
+            return tree.token
+
+        if tree.label == 'NP':
+            last_word = tree.subtrees()[-1]
+            if last_word.label == 'POS':  # last word is tag POS
+                return last_word.token, last_word.label
+
+            candidate = self.search(tree, 'right', ['NN', 'NNP', 'NNPS', 'NNS', 'NX', 'POS', 'JJR'])
+            if candidate is not None: return candidate.token, candidate.label
+
+            candidate = self.search(tree, 'left', ['NP'])
+            if candidate is not None: return candidate.token, candidate.label
+
+            candidate = self.search(tree, 'right', ['$', 'ADJP', 'PRN'])
+            if candidate is not None: return candidate.token, candidate.label
+
+            candidate = self.search(tree, 'right', ['CD'])
+            if candidate is not None: return candidate.token, candidate.label
+
+            candidate = self.search(tree, 'right', ['JJ', 'JJS', 'RB', 'QP'])
+            if candidate is not None: return candidate.token, candidate.label
+
+            return last_word.token, last_word.label
+
+        elif tree.label == 'CC':
+            raise NotImplementedError
+
+        collins_rules = {
+            'ADJP': ('left', ['NNS', 'QP', 'NN', '$', 'ADVP', 'JJ', 'VBN', 'ADJP', 'JJR', 'NP', 'JJS', 'DT', 'FW', 'RBR', 'RBS', 'SBAR', 'RB']),
+            'ADVP': ('right', ['RB','RBR','RBS','FW','ADVP','TO','CD','JJR','JJ','IN','NP','JJS','NN']),
+            'CONJP': ('right', ['CC','RB','IN']),
+            'FRAG': ('right', []),
+            'INTJ': ('left', []),
+            'LST': ('right', ['LS',':']),
+            'NAC': ('left', ['NN','NNS','NNP','NNPS','NP','NAC','EX','$','CD','QP','PRP','VBG','JJ','JJS','JJR','ADJP','FW']),
+            'PP': ('right', ['IN','TO','VBG','VBN','RP','FW']),
+            'PRN': ('left', [])
+        }
+
+
+    def search(self, tree, direction, tags, one_at_a_time=False):
+        """Searches `tree` in `direction` for node with label in `tags`
+
+        :param tree: Tree in which to perform the search
+        :param direction: Direction of the search. Either 'right-to-left- or 'left-to-right'
+        :param tags: List of tags to search for
+        :param one_at_a_time: True if the tags should be searched one at a time (order matters) or not
+        :return: The token of the matched node or None
+        """
+        enumerator = tree.subtrees() if direction == 'left' else reversed(tree.subtrees())
+        if one_at_a_time:
+            tags = [[tag] for tag in tags]
+        else:
+            tags = [tags]
+
+        for tag_list in tags:
+            for t in enumerator:
+                if t.label in tag_list:
+                    return t
+
+        return None
+
+
+    def last_word(self, tree):
+        '''Returns the right-most tree in `tree`'''
+        while tree.subtrees() != []:
+            tree = tree.subtrees()[-1]
+        return tree
+
+    def firstNN(self, tree):
+        '''Returns the first word whose tag starts with 'NN'''''
+        return tree.tokens()[next(i for i,tag in enumerate(tree.tags()) if tag.startswith("NN"))]
+
+if __name__ == "__main__":
+    print 'Finding head'
+    head = HeadFinder('the titanic').semantic_head()
+
+    print head

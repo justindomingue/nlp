@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
 import unittest
-from question_classification.question import Question
+from question import Question
+from question import HeadFinder
 
 
 class QuestionTests(unittest.TestCase):
@@ -75,3 +76,24 @@ class QuestionTests(unittest.TestCase):
         self.assertEqual(Question('what is a group of turkeys called ?'), 'turkeys')
         self.assertEqual(Question('what year did the titanic sink ?'), 'year')
         self.assertEqual(Question('what is the sales tax in Minnesota ?'), 'tax')
+
+
+class HeadFinderTests(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def test_head(self):
+
+        #What year did the Titanic sink?
+        self.assertEqual(HeadFinder('the Titanic').semantic_head(), 'Titanic')
+        self.assertEqual(HeadFinder('the Titanic sink').semantic_head(), 'Titanic')
+        self.assertEqual(HeadFinder('did the titanic sink').semantic_head(), 'Titanic')
+        self.assertEqual(HeadFinder('what year').semantic_head(), 'year')
+        self.assertEqual(HeadFinder('what year did the titanic sink ?').semantic_head(), 'year')
+
+        #what is the sales tax in Minnesota?
+        self.assertEqual(HeadFinder.semantic_head('in Minnesota').semantic_head(), 'in')
+        self.assertEqual(HeadFinder.semantic_head('the sales tax').semantic_head(), 'tax')
+        self.assertEqual(HeadFinder.semantic_head('the sales tax in Minnesota').semantic_head(), 'tax')
+        self.assertEqual(HeadFinder.semantic_head('is the sales tax in Minnesota').semantic_head(), 'tax')
+        self.assertEqual(HeadFinder.semantic_head('What is the sales tax in Minnesota ?').semantic_head(), 'tax')
