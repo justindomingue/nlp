@@ -1,7 +1,14 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import re
 from bllipparser import RerankingParser, Tree, tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk import word_tokenize
+
+wordnet_lemmatizer = WordNetLemmatizer()
+stop = stopwords.words('english')
 
 print 'Loading parser...'
 rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
@@ -10,6 +17,8 @@ class Question:
     """Question
 
     Encapsulates a question
+            print label
+            print  text.strip()
 
     Attributes:
         text (string): text of the question
@@ -49,9 +58,19 @@ class Question:
         self.text = question
 
         self.words = tokenize(self.text)
+        # self.words = word_tokenize(self.text)
+        self.normalized_words = self.normalize(self.words)  # used when generating bigrams
 
         wh_word = self.words[0].lower()
         self.type = wh_word if wh_word in Question.types[:-1] else Question.types[-1]
+
+    def normalize(self, words):
+        for word in words:
+            word = wordnet_lemmatizer.lemmatize(word)
+            word = word.lower()
+        words = [word for word in words if word not in stop]
+
+        return words
 
     ### FEATURE EXTRACTOR
 
@@ -136,7 +155,7 @@ class Question:
     ### N-GRAMS
 
     def ngrams(self, n):
-        return zip(*[self.words[i:] for i in range(n)])
+        return zip(*[self.normalized_words[i:] for i in range(n)])
 
     ### OTHER
     def __repr__(self):
@@ -146,6 +165,33 @@ class Question:
         return len(self.words)
 
 class HeadFinder:
+
+    # Rules used to find heads of constituents in the treebank
+    collins_rules = {
+        'ADJP'  : ('left',  ['NNS','QP','NN','$','ADVP','JJ','VBN','ADJP','JJR','NP','JJS','DT','FW','RBR','RBS','SBAR','RB']),
+        'ADVP'  : ('right', ['RB','RBR','RBS','FW','ADVP','TO','CD','JJR','JJ','IN','NP','JJS','NN']),
+        'CONJP' : ('right', ['CC','RB','IN']),
+        'FRAG'  : ('right', []),
+        'INTJ'  : ('left',  []),
+        'LST'   : ('right', ['LS',':']),
+        'NAC'   : ('left',  ['NN','NNS','NNP','NNPS','NP','NAC','EX','$','CD','QP','PRP','VBG','JJ','JJS','JJR','ADJP','FW']),
+        'PP'    : ('right', ['IN','TO','VBG','VBN','RP','FW']),
+        'PRN'   : ('left',  []),
+        'PRT'   : ('right', ['RP']),
+        'QP'    : ('left',  ['$','IN','NNS','NN','JJ','RB','DT','CD','NCD','QP','JJR','JJS']),
+        'RRC'   : ('right', ['VP','NP','ADVP','ADJP','PP']),
+        'S'     : ('left',  ['TO','IN','VP','S','SBAR','ADJP','UCP','NP']),
+        'SBAR'  : ('left',  ['WHNP','VVHPP','WHADVP','WHADJP','IN','DT','S','SQ','SINV','SBAR','FRAG']),
+        'SBARQ' : ('left',  ['WHNP', 'SQ','S','SINV','SBARQ','FRAG']),
+        'SINV'  : ('left',  ['NP','VBZ','VBD','VBP','VB','MD','VP','S','SINV','ADJP']),
+        'SQ'    : ('left',  ['NN','NNS','NNP','NNPS','NP','SQ']),
+        'UCP'   : ('right', []),
+        'VP'    : ('left',  ['TO','NN','NNS','NP','VBD','VBN','MD','VBZ','VB','VBC','VBP','VP','ADJP']),
+        'WHADJP': ('left',  ['CC','WRB','JJ','ADJP']),
+        'WHADVP': ('right', ['CC','WRB']),
+        'WHNP'  : ('left',  ['WDT','WP','WP','$','WHADJP','WHPP','WHNP']),
+        'WHPP'  : ('right', ['IN','TO','FW'])
+    }
 
     def __init__(self, sentence):
         '''Initializes a HeadFinder with a sentence
@@ -158,51 +204,51 @@ class HeadFinder:
         '''Extracts semantic head word from tree using Collins Rules'''
 
         # Candidate head and tag
-        candidate, tag = self.head_recursive(self.tree.subtrees()[0])
+        print self.tree
+        candidate, tag = self.head_recursive(self.tree)
 
         print "Cand: {0}, tag: {1}".format(candidate, tag)
         return candidate if tag.startswith("NN") else self.firstNN(self.tree)
 
     def head_recursive(self, tree):
         if tree.is_preterminal():
-            return tree.token
+            return tree.token, tree.label
+        if tree.label == "S1":
+            return self.head_recursive(tree.subtrees()[0])
 
         if tree.label == 'NP':
             last_word = tree.subtrees()[-1]
             if last_word.label == 'POS':  # last word is tag POS
-                return last_word.token, last_word.label
+                return self.head_recursive(last_word)
 
             candidate = self.search(tree, 'right', ['NN', 'NNP', 'NNPS', 'NNS', 'NX', 'POS', 'JJR'])
-            if candidate is not None: return candidate.token, candidate.label
+            if candidate: return self.head_recursive(candidate)
 
             candidate = self.search(tree, 'left', ['NP'])
-            if candidate is not None: return candidate.token, candidate.label
+            if candidate: return self.head_recursive(candidate)
 
             candidate = self.search(tree, 'right', ['$', 'ADJP', 'PRN'])
-            if candidate is not None: return candidate.token, candidate.label
+            if candidate: return self.head_recursive(candidate)
 
             candidate = self.search(tree, 'right', ['CD'])
-            if candidate is not None: return candidate.token, candidate.label
+            if candidate: return self.head_recursive(candidate)
 
             candidate = self.search(tree, 'right', ['JJ', 'JJS', 'RB', 'QP'])
-            if candidate is not None: return candidate.token, candidate.label
+            if candidate: return self.head_recursive(candidate)
 
-            return last_word.token, last_word.label
+            return self.head_recursive(last_word)
 
         elif tree.label == 'CC':
             raise NotImplementedError
 
-        collins_rules = {
-            'ADJP': ('left', ['NNS', 'QP', 'NN', '$', 'ADVP', 'JJ', 'VBN', 'ADJP', 'JJR', 'NP', 'JJS', 'DT', 'FW', 'RBR', 'RBS', 'SBAR', 'RB']),
-            'ADVP': ('right', ['RB','RBR','RBS','FW','ADVP','TO','CD','JJR','JJ','IN','NP','JJS','NN']),
-            'CONJP': ('right', ['CC','RB','IN']),
-            'FRAG': ('right', []),
-            'INTJ': ('left', []),
-            'LST': ('right', ['LS',':']),
-            'NAC': ('left', ['NN','NNS','NNP','NNPS','NP','NAC','EX','$','CD','QP','PRP','VBG','JJ','JJS','JJR','ADJP','FW']),
-            'PP': ('right', ['IN','TO','VBG','VBN','RP','FW']),
-            'PRN': ('left', [])
-        }
+        rule = HeadFinder.collins_rules[tree.label]
+        candidate = self.search(tree, rule[0], rule[1], one_at_a_time=True)
+        if candidate is not None:
+            return self.head_recursive(candidate)
+        else:
+            print 'YOYOYO'
+
+        return None, None
 
 
     def search(self, tree, direction, tags, one_at_a_time=False):
@@ -237,9 +283,3 @@ class HeadFinder:
     def firstNN(self, tree):
         '''Returns the first word whose tag starts with 'NN'''''
         return tree.tokens()[next(i for i,tag in enumerate(tree.tags()) if tag.startswith("NN"))]
-
-if __name__ == "__main__":
-    print 'Finding head'
-    head = HeadFinder('the titanic').semantic_head()
-
-    print head
