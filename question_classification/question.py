@@ -4,7 +4,7 @@
 import re
 from collections import defaultdict as dd
 from bllipparser import RerankingParser, Tree, tokenize
-from nltk.corpus import stopwords
+from nltk.corpus import stopwords, wordnet as wn
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
 from string import punctuation
@@ -13,8 +13,7 @@ wordnet_lemmatizer = WordNetLemmatizer()
 stop = stopwords.words('english') + list(punctuation)
 
 print 'Loading BLLIP reranking parser...'
-
-# rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
+rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
 
 class Question:
     """Question
@@ -52,22 +51,20 @@ class Question:
         }
     }
 
-    def __init__(self, question):
+    def __init__(self, question, head=None):
         """
         Creates a Question
         :param question: question text. Must be ended with a ' ?'
         """
 
         self.text = question
-
-        # self.words = tokenize(self.text)
-        self.words = word_tokenize(self.text)
-        self.normalized_words = self.normalize(self.words)  # used when generating bigrams
-
+        self.words = word_tokenize(self.text)   # use NLTK's tokenizer because Bllip's raises an encoding error
         self.normalized_text = self.normalize(self.words)
 
         wh_word = self.words[0].lower()
         self.type = wh_word if wh_word in Question.types[:-1] else Question.types[-1]
+
+        self.head = head
 
     def normalize(self, words):
         normalized = []
@@ -78,35 +75,6 @@ class Question:
         # words = [word for word in words if word not in stop]
 
         return ' '.join(normalized)
-
-    ### FEATURE EXTRACTOR
-
-    def features(self):
-        """
-        Returns a dictionary of features
-        """
-
-        # dictionary of features that will be returned
-        features = dd(int)
-
-        # Wh-word type feature
-        # for type in Question.types:
-        #     features[type] = 1 if self.type == type else 0
-
-        # features["head-word"] = self.head_word
-
-        # Word shape feature - activated if text contains shape
-        # ws = self.word_shape
-        # for shape in Question.word_shapes:
-        #     features[shape] = 1 if shape in ws else 0
-
-        # N-gram features
-        for ngram in self.normalized_words: #n=1
-            features[ngram] += 1
-        # for ngram in self.ngrams(2):        #n=2
-        #     features[ngram] += 1
-
-        return features
 
     ### SHAPE
 
@@ -139,6 +107,11 @@ class Question:
         From Huang et al. 2008)
         """
 
+        # If head word already found, return it
+        if self.head is not None: return self.head
+
+        # Find the head word
+
         if self.type in ['when', 'where', 'why']:
             return None
 
@@ -153,12 +126,28 @@ class Question:
         if self.type == 'who' and re.match(Question.patterns['set2']['HUM:desc'], self.text):
             return 'HUM:desc'
 
-        return HeadFinder(self.words).semantic_head()
+        head = HeadFinder(self.words).semantic_head()
+        self.head = head
 
-    ### N-GRAMS
+        print head,': ',self.text
 
-    def ngrams(self, n):
-        return zip(*[self.normalized_words[i:] for i in range(n)])
+        return head
+
+    ### HYPERNYM
+
+    def hypernym(self, level=1):
+        # 1. Get POS - actually we know it's a noun because that's what we've extracted
+        pos = 'n'
+
+        # 2. Which sense of the word is needed to be augmented
+        sense = wn.synsets(self.head_word, pos)[0]  # get the best sense. Performance of ~55%, better than most Lesk algorithms
+
+        for _ in range(level):
+            hypernyms = sense.hypernyms()
+            if len(hypernyms)==0: break
+            sense = hypernyms[0]
+
+        return sense
 
     ### OTHER
     def __repr__(self):
@@ -252,9 +241,6 @@ class HeadFinder:
         candidate = self.search(tree, rule[0], rule[1], one_at_a_time=True)
         return self.head_recursive(candidate)
 
-        return None, None
-
-
     def search(self, tree, direction, tags, one_at_a_time=False):
         """Searches `tree` in `direction` for node with label in `tags`
 
@@ -290,7 +276,7 @@ class HeadFinder:
             return tree.tokens()[next(i for i,tag in enumerate(tree.tags()) if tag.startswith("NN"))]
         except StopIteration:
             if tag != "JJ":
-                return self.firstNN(self, tree, "JJ")
+                return self.firstNN(tree, "JJ")
             else:
                 return None
 
@@ -305,3 +291,6 @@ class Label:
         coarse, fine = label.split(':')
         self.coarse = coarse
         self.fine = label
+
+    def get(self, name):
+        return self.fine if name == 'fine' else self.coarse
