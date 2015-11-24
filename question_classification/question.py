@@ -2,16 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import re
+from collections import defaultdict as dd
 from bllipparser import RerankingParser, Tree, tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
+from string import punctuation
 
 wordnet_lemmatizer = WordNetLemmatizer()
-stop = stopwords.words('english')
+stop = stopwords.words('english') + list(punctuation)
 
 print 'Loading parser...'
-rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
+# rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
 
 class Question:
     """Question
@@ -57,8 +59,8 @@ class Question:
 
         self.text = question
 
-        self.words = tokenize(self.text)
-        # self.words = word_tokenize(self.text)
+        # self.words = tokenize(self.text)
+        self.words = word_tokenize(self.text)
         self.normalized_words = self.normalize(self.words)  # used when generating bigrams
 
         wh_word = self.words[0].lower()
@@ -80,28 +82,24 @@ class Question:
         """
 
         # dictionary of features that will be returned
-        features = {}
+        features = dd(int)
 
         # Wh-word type feature
-        for type in Question.types:
-            features[type] = 1 if self.type == type else 0
+        # for type in Question.types:
+        #     features[type] = 1 if self.type == type else 0
 
         # features["head-word"] = self.head_word
 
         # Word shape feature - activated if text contains shape
-        ws = self.word_shape
-        for shape in Question.word_shapes:
-            features[shape] = 1 if shape in ws else 0
+        # ws = self.word_shape
+        # for shape in Question.word_shapes:
+        #     features[shape] = 1 if shape in ws else 0
 
-        ngrams = self.ngrams(2)
-        for ngram in ngrams:
-            features[ngram] = 1
-        # n-gram feature
-        # features.update({
-        #     "unigrams": self.words,
-        #     "bigrams": self.ngrams(2),
-        #     "trigrams": self.ngrams(3)
-        # })
+        # N-gram features
+        for ngram in self.normalized_words: #n=1
+            features[ngram] += 1
+        # for ngram in self.ngrams(2):        #n=2
+        #     features[ngram] += 1
 
         return features
 
@@ -150,7 +148,7 @@ class Question:
         if self.type == 'who' and re.match(Question.patterns['set2']['HUM:desc'], self.text):
             return 'HUM:desc'
 
-        return HeadFinder.semantic_head(self.words)
+        return HeadFinder(self.words).semantic_head()
 
     ### N-GRAMS
 
@@ -171,7 +169,7 @@ class HeadFinder:
         'ADJP'  : ('left',  ['NNS','QP','NN','$','ADVP','JJ','VBN','ADJP','JJR','NP','JJS','DT','FW','RBR','RBS','SBAR','RB']),
         'ADVP'  : ('right', ['RB','RBR','RBS','FW','ADVP','TO','CD','JJR','JJ','IN','NP','JJS','NN']),
         'CONJP' : ('right', ['CC','RB','IN']),
-        'FRAG'  : ('right', []),
+        'FRAG'  : ('right', ['SBAR']),
         'INTJ'  : ('left',  []),
         'LST'   : ('right', ['LS',':']),
         'NAC'   : ('left',  ['NN','NNS','NNP','NNPS','NP','NAC','EX','$','CD','QP','PRP','VBG','JJ','JJS','JJR','ADJP','FW']),
@@ -204,13 +202,17 @@ class HeadFinder:
         '''Extracts semantic head word from tree using Collins Rules'''
 
         # Candidate head and tag
-        print self.tree
         candidate, tag = self.head_recursive(self.tree)
 
-        print "Cand: {0}, tag: {1}".format(candidate, tag)
-        return candidate if tag.startswith("NN") else self.firstNN(self.tree)
+        if candidate is not None and tag.startswith("NN"):
+            return candidate
+        else:
+            return self.firstNN(self.tree)
 
     def head_recursive(self, tree):
+        if tree is None:
+            return None, None
+
         if tree.is_preterminal():
             return tree.token, tree.label
         if tree.label == "S1":
@@ -243,10 +245,7 @@ class HeadFinder:
 
         rule = HeadFinder.collins_rules[tree.label]
         candidate = self.search(tree, rule[0], rule[1], one_at_a_time=True)
-        if candidate is not None:
-            return self.head_recursive(candidate)
-        else:
-            print 'YOYOYO'
+        return self.head_recursive(candidate)
 
         return None, None
 
@@ -280,6 +279,12 @@ class HeadFinder:
             tree = tree.subtrees()[-1]
         return tree
 
-    def firstNN(self, tree):
+    def firstNN(self, tree, tag="NN"):
         '''Returns the first word whose tag starts with 'NN'''''
-        return tree.tokens()[next(i for i,tag in enumerate(tree.tags()) if tag.startswith("NN"))]
+        try:
+            return tree.tokens()[next(i for i,tag in enumerate(tree.tags()) if tag.startswith("NN"))]
+        except StopIteration:
+            if tag != "JJ":
+                return self.firstNN(self, tree, "JJ")
+            else:
+                return None

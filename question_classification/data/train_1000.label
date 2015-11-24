@@ -63,7 +63,7 @@ DESC:def What does `` extended definition '' mean and how would one write a pape
 LOC:country What country 's capital is Tirana ?
 DESC:def What is titanium ?
 HUM:ind Who do Herb and Tootsie live next door to ?
-LOC:city Which city has the oldest relationship as a sisterðcity with Los Angeles ?
+LOC:city Which city has the oldest relationship as a sister city with Los Angeles ?
 DESC:def What is a caldera ?
 DESC:reason Why do people get calluses ?
 LOC:other What are the names of the tourist attractions in Reims ?
@@ -77,7 +77,7 @@ DESC:manner How do I make fuel bricks from recycled newspaper ?
 HUM:ind What 19th-century painter died in the Marquesas Islands ?
 ENTY:body The corpus callosum is in what part of the body ?
 DESC:manner How do I log on to home page at Headquarters U.S. European Command ?
-LOC:country What country did the Nazis occupy for 1 , CD NNS IN NNP NNP NNP .
+LOC:country What country did the Nazis occupy ?
 ENTY:other What is Nebraska 's most valuable resource ?
 NUM:count How many species of the Great White shark are there ?
 DESC:desc What is the origin of head lice ?
@@ -244,14 +244,14 @@ NUM:count How many South American countries have the letter Z in their names ?
 DESC:def What is the contents of proposition 98 ?
 LOC:other Where was George Washington born ?
 NUM:count How many people on the ground were killed from the bombing of Pan Am Flight 103 over Lockerbie , Scotland , December 21 , CD .
-HUM:ind Who wrote NN DT NNP NNP '' ?
+HUM:ind Who wrote the book ?
 DESC:def What is paracetamol ?
 DESC:desc What are the powers and weaknesses of Green Lantern 's ring ?
-ENTY:animal Which mosquito 's bite draws blood , DT NN CC DT NN .
+ENTY:animal Which mosquito 's bite draws blood ?
 NUM:date When was the first steel mill in the United States built ?
 HUM:ind What diminutive American female gymnast stole the show at the 1984 Olympics ?
 DESC:desc What is the origin of the name Katie ?
-HUM:gr What schools in the Washington , DC NN NN VBP NN NN NN NN .
+HUM:gr What schools in the Washington are the most popular?
 NUM:date When did the Berlin Wall go up ?
 HUM:desc Who is Terrence Malick ?
 ENTY:instru What instrument is Ray Charles best known for playing ?
@@ -848,7 +848,7 @@ HUM:desc Who is Colin Powell ?
 ENTY:animal What species is a colt ?
 ABBR:exp What is the full name of the PLO ?
 LOC:country What is the smallest country in Africa ?
-HUM:ind Who coined the term NN cyberspace `` in his novel NN Neuromancer '' ?
+HUM:ind Who coined the term cyberspace in his novel Neuromancer '' ?
 ENTY:event What age followed the Bronze Age ?
 HUM:title What is her profession ?
 HUM:ind What is the full name of the man who invented the multicolored game cube that has 42.3 quintillion potential combinations ?

@@ -1,16 +1,20 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
-from sklearn.svm import SVC
+import codecs
+from sklearn.svm import SVC, LinearSVC
+from sklearn.feature_selection import SelectFromModel
+from sklearn.pipeline import Pipeline
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score
 
 import numpy as np
 
 from question import Question
 
-v = DictVectorizer(sparse=False)
+dictVectorizer = DictVectorizer(sparse=False)
 le = LabelEncoder()
 
 def load_instances(f):
@@ -26,7 +30,7 @@ def load_instances(f):
     labels = []
     questions = []
 
-    with open(f, 'r') as file:
+    with codecs.open(f, 'r', encoding='utf-8') as file:
         for line in file:
             split_point = line.find(' ')    # find first space
             label = line[0:split_point]
@@ -38,12 +42,15 @@ def load_instances(f):
     return labels, questions
 
 
-def feature_vector(data):
+def feature_vector(data, fit=False):
     '''Creates a feature vector from a dictionary of Question'''
-    return v.fit_transform([d.features() for d in data])
+    if fit:
+        return dictVectorizer.fit_transform([d.features() for d in data])
+    else:
+        return dictVectorizer.transform([d.features() for d in data])
 
 if __name__ == "__main__":
-    names = ['1000', '2000', '3000', '4000', '5500']
+    names = ['1000']#, '2000', '3000', '4000', '5500']
 
     # Load the data set [(label, question)]
 
@@ -59,11 +66,11 @@ if __name__ == "__main__":
 
     le.fit(dev_labels+test_labels)
 
-    test_y = le.transform(test_labels)
-    test_X = feature_vector(test_questions)
-
     dev_y = le.transform(dev_labels)
-    dev_X = feature_vector(dev_questions)
+    test_y = le.transform(test_labels)
+
+    dev_X = feature_vector(dev_questions, fit=True)
+    test_X = feature_vector(test_questions, fit=False)
 
     models = [SVC(), MultinomialNB()]
 
@@ -76,4 +83,4 @@ if __name__ == "__main__":
         model.fit(dev_X, dev_y)
 
         predicted = model.predict(test_X)
-        print(classification_report(test_y, predicted))
+        print(accuracy_score(test_y, predicted))
