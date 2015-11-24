@@ -2,17 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import codecs
-from sklearn.svm import SVC, LinearSVC
-from sklearn.feature_selection import SelectFromModel
-from sklearn.pipeline import Pipeline
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import SGDClassifier
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.preprocessing import LabelEncoder
+from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score
+
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.pipeline import Pipeline
 
 import numpy as np
 
-from question import Question
+from question import Question, Label
 
 dictVectorizer = DictVectorizer(sparse=False)
 le = LabelEncoder()
@@ -36,8 +38,8 @@ def load_instances(f):
             label = line[0:split_point]
             text = line[split_point+1:].rstrip('\n')
 
-            labels.append(label)
-            questions.append(Question(text))
+            labels.append(Label(label).coarse)
+            questions.append(Question(text).normalized_text)
 
     return labels, questions
 
@@ -50,37 +52,38 @@ def feature_vector(data, fit=False):
         return dictVectorizer.transform([d.features() for d in data])
 
 if __name__ == "__main__":
-    names = ['1000']#, '2000', '3000', '4000', '5500']
+    dev_filename = 'data/train_5500.label'
+    test_filename = 'data/TREC_10.label'
 
     # Load the data set [(label, question)]
 
-    test_labels, test_questions = load_instances('data/TREC_10.label')
+    dev_labels, dev_questions = load_instances(dev_filename)
+    test_labels, test_questions = load_instances(test_filename)
 
-    dev_labels, dev_questions = [], []
-    for name in names:
-        labels, questions = load_instances('data/train_{0}.label'.format(name))
-        dev_labels += labels
-        dev_questions += questions
+    dev = {'data': dev_questions, 'target': dev_labels}
+    test = {'data': test_questions, 'target': test_labels}
 
-    # Make the feature vectors
+    parameters = {'vect__ngram_range': [(1,1), (1,2)],
+                  'vect__stop_words': ('english', None),
+                  'tfidf__use_idf': (True, False),
+                  'tfidf__norm': ('l1', 'l2'),
+                  'clf__alpha': (1e-3, 1e-4, 2e-4, 3e-4),
+                  'clf__loss': ('hinge', 'modified_huber', 'log', 'squared_hinge', 'perceptron'),
+    }
 
-    le.fit(dev_labels+test_labels)
+    # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+    # for explanation on model used
 
-    dev_y = le.transform(dev_labels)
-    test_y = le.transform(test_labels)
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', SGDClassifier(n_iter=15, shuffle=True, n_jobs=-1)),
+                         ])
+    gs_clf = GridSearchCV(text_clf, parameters, n_jobs=-1)
+    _ = gs_clf.fit(dev['data'], dev['target'])
+    predicted = gs_clf.predict(test['data'])
 
-    dev_X = feature_vector(dev_questions, fit=True)
-    test_X = feature_vector(test_questions, fit=False)
+    best_parameters, score, _ = max(gs_clf.grid_scores_, key=lambda x: x[1])
+    for param_name in sorted(parameters.keys()):
+        print "{0}: {1}".format(param_name, best_parameters[param_name])
 
-    models = [SVC(), MultinomialNB()]
-
-    print 'EXPERIMENT'
-    print 'Development set size: {0}'.format(dev_X.size)
-    print 'Test set size: {0}'.format(test_X.size)
-
-    # fit each model
-    for model in models:
-        model.fit(dev_X, dev_y)
-
-        predicted = model.predict(test_X)
-        print(accuracy_score(test_y, predicted))
+    print score

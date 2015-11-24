@@ -12,7 +12,8 @@ from string import punctuation
 wordnet_lemmatizer = WordNetLemmatizer()
 stop = stopwords.words('english') + list(punctuation)
 
-print 'Loading parser...'
+print 'Loading BLLIP reranking parser...'
+
 # rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
 
 class Question:
@@ -63,16 +64,20 @@ class Question:
         self.words = word_tokenize(self.text)
         self.normalized_words = self.normalize(self.words)  # used when generating bigrams
 
+        self.normalized_text = self.normalize(self.words)
+
         wh_word = self.words[0].lower()
         self.type = wh_word if wh_word in Question.types[:-1] else Question.types[-1]
 
     def normalize(self, words):
+        normalized = []
         for word in words:
             word = wordnet_lemmatizer.lemmatize(word)
-            word = word.lower()
-        words = [word for word in words if word not in stop]
+            # word = word.lower()
+            normalized.append(word)
+        # words = [word for word in words if word not in stop]
 
-        return words
+        return ' '.join(normalized)
 
     ### FEATURE EXTRACTOR
 
@@ -288,3 +293,15 @@ class HeadFinder:
                 return self.firstNN(self, tree, "JJ")
             else:
                 return None
+
+class Label:
+    '''Represents a question label
+
+    Form: `DESC:manner`
+        where DESC is the coarse class and manner is the fine class
+    '''
+
+    def __init__(self, label):
+        coarse, fine = label.split(':')
+        self.coarse = coarse
+        self.fine = label
