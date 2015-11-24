@@ -1,0 +1,111 @@
+WORD SHAPE
+----------
+
+Accuracy increases if one considers higher-order n-gram models. Maybe because the shape of a sentence defines a type.
+
+SGD Classifier parameters
+    COARSE:
+        0.422
+                     precision    recall  f1-score   support
+               ABBR       1.00      0.11      0.20         9
+               DESC       0.65      0.84      0.73       138
+               ENTY       0.34      0.69      0.46        94
+                HUM       0.23      0.45      0.30        65
+                LOC       0.00      0.00      0.00        81
+                NUM       0.00      0.00      0.00       113
+        avg / total       0.29      0.42      0.33       500
+
+        clf__alpha: 0.001
+        clf__loss: modified_huber
+        tfidf__norm: l1
+        tfidf__use_idf: True
+        vect__ngram_range: (1, 5)
+        vect__stop_words: english
+
+    FINE:
+        accuracy score 0.312
+
+                     precision    recall  f1-score   support
+           ABBR:abb       0.00      0.00      0.00         1
+           ABBR:exp       0.83      0.62      0.71         8
+           DESC:def       0.63      0.91      0.74       123
+          DESC:desc       0.00      0.00      0.00         7
+        DESC:manner       0.00      0.00      0.00         2
+        DESC:reason       0.00      0.00      0.00         6
+        ENTY:animal       0.00      0.00      0.00        16
+          ENTY:body       0.00      0.00      0.00         2
+         ENTY:color       0.00      0.00      0.00        10
+        ENTY:currency       0.00      0.00      0.00         6
+        ENTY:dismed       0.00      0.00      0.00         2
+         ENTY:event       0.00      0.00      0.00         2
+          ENTY:food       0.00      0.00      0.00         4
+        ENTY:instru       0.00      0.00      0.00         1
+          ENTY:lang       0.00      0.00      0.00         2
+         ENTY:other       0.00      0.00      0.00        12
+         ENTY:plant       0.00      0.00      0.00         5
+        ENTY:product       0.00      0.00      0.00         4
+         ENTY:sport       0.00      0.00      0.00         1
+        ENTY:substance       0.00      0.00      0.00        15
+        ENTY:techmeth       0.00      0.00      0.00         1
+        ENTY:termeq       0.00      0.00      0.00         7
+           ENTY:veh       0.00      0.00      0.00         4
+           HUM:desc       0.00      0.00      0.00         3
+             HUM:gr       0.00      0.00      0.00         6
+            HUM:ind       0.13      0.71      0.22        55
+          HUM:title       0.00      0.00      0.00         1
+           LOC:city       0.00      0.00      0.00        18
+        LOC:country       0.00      0.00      0.00         3
+          LOC:mount       0.00      0.00      0.00         3
+          LOC:other       0.00      0.00      0.00        50
+          LOC:state       0.00      0.00      0.00         7
+          NUM:count       0.00      0.00      0.00         9
+           NUM:date       0.00      0.00      0.00        47
+           NUM:dist       0.00      0.00      0.00        16
+          NUM:money       0.00      0.00      0.00         3
+          NUM:other       0.00      0.00      0.00        12
+           NUM:perc       0.00      0.00      0.00         3
+         NUM:period       0.00      0.00      0.00         8
+          NUM:speed       0.00      0.00      0.00         6
+           NUM:temp       0.00      0.00      0.00         5
+         NUM:weight       0.00      0.00      0.00         4
+
+        avg / total       0.18      0.31      0.22       500
+
+        clf__alpha: 0.0001
+        clf__loss: log
+        tfidf__norm: l1
+        tfidf__use_idf: True
+        vect__ngram_range: (1, 2)
+        vect__stop_words: english
+
+N-GRAMS
+-------
+
+SGD Classifier parameters
+    COARSE:
+        accuracy: 0.894
+
+                     precision    recall  f1-score   support
+               ABBR       1.00      0.78      0.88         9
+               DESC       0.82      0.99      0.90       138
+               ENTY       0.87      0.71      0.78        94
+                HUM       0.91      0.94      0.92        65
+                LOC       0.92      0.89      0.91        81
+                NUM       1.00      0.91      0.95       113
+
+        avg / total       0.90      0.89      0.89       500
+
+        clf__alpha: 0.0001
+        clf__loss: modified_huber
+        tfidf__norm: l2
+        tfidf__use_idf: True
+        vect__ngram_range: (1, 2)
+        vect__stop_words: None
+
+    FINE:
+        clf__alpha: 0.0001
+        clf__loss: hinge
+        tfidf__norm: l2
+        tfidf__use_idf: True
+        vect__ngram_range: (1, 2)
+        vect__stop_words: None
