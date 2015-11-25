@@ -1,500 +1,500 @@
-(u'DESC', u'How far is it from Denver to Aspen ?', u'far')
-(u'ENTY', u'What county is Modesto , California in ?', 'county')
-(u'DESC', u'Who was Galileo ?', 'Galileo')
-(u'ENTY', u'What is an atom ?', 'atom')
-(u'ABBR', u'When did Hawaii become a state ?', None)
-(u'HUM', u'How tall is the Sears Building ?', u'tall')
-(u'HUM', u'George Bush purchased a small interest in which baseball team ?', 'interest')
-(u'HUM', u"What is Australia 's national flower ?", 'Australia')
-(u'DESC', u'Why does the moon turn orange ?', None)
-(u'HUM', u'What is autism ?', 'autism')
-(u'NUM', u'What city had a world fair in 1900 ?', 'fair')
-(u'DESC', u"What person 's head is on a dime ?", 'person')
-(u'HUM', u'What is the average weight of a Yellow Labrador ?', 'weight')
-(u'HUM', u'Who was the first man to fly across the Pacific Ocean ?', 'man')
-(u'ENTY', u'When did Idaho become a state ?', None)
-(u'LOC', u'What is the life expectancy for crickets ?', 'life')
-(u'DESC', u'What metal has the highest melting point ?', 'metal')
-(u'NUM', u'Who developed the vaccination against polio ?', 'vaccination')
-(u'DESC', u'What is epilepsy ?', 'epilepsy')
-(u'DESC', u'What year did the Titanic sink ?', 'year')
-(u'NUM', u'Who was the first American to walk in space ?', 'American')
-(u'ENTY', u'What is a biosphere ?', 'biosphere')
-(u'HUM', u'What river in the US is known as the Big Muddy ?', 'river')
-(u'DESC', u'What is bipolar disorder ?', 'disorder')
-(u'DESC', u'What is cholesterol ?', 'cholesterol')
-(u'ENTY', u'Who developed the Macintosh computer ?', 'Macintosh')
-(u'HUM', u'What is caffeine ?', 'caffeine')
-(u'LOC', u'What imaginary line is halfway between the North and South Poles ?', 'line')
-(u'ENTY', u'Where is John Wayne airport ?', None)
-(u'LOC', u'What hemisphere is the Philippines in ?', 'hemisphere')
-(u'ABBR', u'What is the average speed of the horses at the Kentucky Derby ?', 'speed')
-(u'ENTY', u'Where are the Rocky Mountains ?', None)
-(u'NUM', u'What are invertebrates ?', 'invertebrates')
-(u'HUM', u'What is the temperature at the center of the earth ?', 'temperature')
-(u'NUM', u'When did John F. Kennedy get elected as President ?', None)
-(u'DESC', u'How old was Elvis Presley when he died ?', u'old')
-(u'NUM', u'Where is the Orinoco River ?', None)
-(u'ENTY', u'How far is the service line from the net in tennis ?', u'far')
-(u'LOC', u'How much fiber should you have per day ?', u'much')
-(u'ENTY', u'How many Great Lakes are there ?', u'many')
-(u'DESC', u'Material called linen is made from what plant ?', 'Material')
-(u'ENTY', u'What is Teflon ?', 'Teflon')
-(u'NUM', u'What is amitriptyline ?', 'amitriptyline')
-(u'NUM', u'What is a shaman ?', 'shaman')
-(u'DESC', u'What is the proper name for a female walrus ?', 'name')
-(u'HUM', u'What is a group of turkeys called ?', 'group')
-(u'ENTY', u'How long did Rip Van Winkle sleep ?', u'long')
-(u'HUM', u'What are triglycerides ?', 'triglycerides')
-(u'DESC', u'How many liters in a gallon ?', u'many')
-(u'ENTY', u'What is the name of the chocolate company in San Francisco ?', 'name')
-(u'LOC', u'What are amphibians ?', 'amphibians')
-(u'DESC', u'Who discovered x-rays ?', 'x-rays')
-(u'HUM', u"Which comedian 's signature line is `` Can we talk '' ?", 'comedian')
-(u'DESC', u'What is fibromyalgia ?', 'fibromyalgia')
-(u'HUM', u'What is done with worn or outdated flags ?', 'flags')
-(u'DESC', u'What does cc in engines mean ?', 'cc')
-(u'ENTY', u'When did Elvis Presley die ?', None)
-(u'ENTY', u'What is the capital of Yugoslavia ?', 'capital')
-(u'LOC', u'Where is Milan ?', None)
-(u'DESC', u'What is the speed hummingbirds fly ?', 'speed')
-(u'LOC', u'What is the oldest city in the United States ?', 'city')
-(u'DESC', u"What was W.C. Fields ' real name ?", 'W.C.')
-(u'LOC', u'What river flows between Fargo , North Dakota and Moorhead , Minnesota ?', 'river')
-(u'DESC', u'What do bats eat ?', 'bats')
-(u'HUM', u'What state did the Battle of Bighorn take place in ?', 'state')
-(u'LOC', u'Who was Abraham Lincoln ?', 'Abraham')
-(u'DESC', u'What do you call a newborn kangaroo ?', 'kangaroo')
-(u'DESC', u'What are spider veins ?', 'spider')
-(u'LOC', u'What day and month did John Lennon die ?', 'day')
-(u'DESC', u'What strait separates North America from Asia ?', 'strait')
-(u'LOC', u'What is the population of Seattle ?', 'population')
-(u'HUM', u'How much was a ticket for the Titanic ?', u'much')
-(u'ENTY', u'What is the largest city in the world ?', 'city')
-(u'DESC', u"What American composer wrote the music for `` West Side Story '' ?", 'American')
-(u'HUM', u'Where is the Mall of the America ?', None)
-(u'DESC', u'What is the pH scale ?', 'scale')
-(u'HUM', u'What type of currency is used in Australia ?', 'type')
-(u'ENTY', u'How tall is the Gateway Arch in St. Louis , MO ?', u'tall')
-(u'DESC', u'How much does the human adult female brain weigh ?', u'much')
-(u'LOC', u'Who was the first governor of Alaska ?', 'governor')
-(u'ENTY', u'What is a prism ?', 'prism')
-(u'NUM', u'When was the first liver transplant ?', None)
-(u'DESC', u'Who was elected president of South Africa in 1994 ?', 'president')
-(u'LOC', u'What is the population of China ?', 'population')
-(u'ENTY', u'When was Rosa Parks born ?', None)
-(u'NUM', u'Why is a ladybug helpful ?', None)
-(u'LOC', u'What is amoxicillin ?', 'amoxicillin')
-(u'ENTY', u'Who was the first female United States Representative ?', 'United')
-(u'HUM', u'What are xerophytes ?', 'xerophytes')
-(u'NUM', u'What country did Ponce de Leon come from ?', 'country')
-(u'NUM', u'The U.S. Department of Treasury first issued paper currency for the U.S. during which war ?', 'currency')
-(u'DESC', u'What is desktop publishing ?', 'desktop')
-(u'DESC', u"What is the temperature of the sun 's surface ?", 'temperature')
-(u'ENTY', u'What year did Canada join the United Nations ?', 'year')
-(u'DESC', u'What is the oldest university in the US ?', 'university')
-(u'DESC', u'Where is Prince Edward Island ?', None)
-(u'HUM', u'Mercury , what year was it discovered ?', 'Mercury')
-(u'DESC', u'What is cryogenics ?', None)
-(u'NUM', u'What are coral reefs ?', 'reefs')
-(u'LOC', u'What is the longest major league baseball-winning streak ?', 'league')
-(u'HUM', u'What is neurology ?', 'neurology')
-(u'DESC', u'Who invented the calculator ?', 'calculator')
-(u'DESC', u'How do you measure earthquakes ?', u'do')
-(u'ENTY', u'Who is Duke Ellington ?', 'Duke')
-(u'HUM', u'What county is Phoenix , AZ in ?', 'county')
-(u'HUM', u'What is a micron ?', 'micron')
-(u'DESC', u"The sun 's core , what is the temperature ?", 'sun')
-(u'LOC', u'What is the Ohio state bird ?', 'Ohio')
-(u'ENTY', u"When were William Shakespeare 's twins born ?", None)
-(u'LOC', u'What is the highest dam in the U.S. ?', 'dam')
-(u'DESC', u'What color is a poison arrow frog ?', 'color')
-(u'LOC', u'What is acupuncture ?', 'acupuncture')
-(u'LOC', u'What is the length of the coastline of the state of Alaska ?', 'length')
-(u'ENTY', u"What is the name of Neil Armstrong 's wife ?", 'name')
-(u'ENTY', u"What is Hawaii 's state flower ?", 'Hawaii')
-(u'ENTY', u'Who won Ms. American in 1989 ?', 'Ms.')
-(u'LOC', u'When did the Hindenberg crash ?', None)
-(u'NUM', u'What mineral helps prevent osteoporosis ?', 'mineral')
-(u'ENTY', u'What was the last year that the Chicago Cubs won the World Series ?', 'year')
-(u'DESC', u'Where is Perth ?', None)
-(u'LOC', u'What year did WWII begin ?', 'year')
-(u'ENTY', u'What is the diameter of a golf ball ?', 'diameter')
-(u'DESC', u'What is an eclipse ?', 'eclipse')
-(u'NUM', u'Who discovered America ?', 'America')
-(u'DESC', u"What is the earth 's diameter ?", 'earth')
-(u'DESC', u'Which president was unmarried ?', 'president')
-(u'DESC', u'How wide is the Milky Way galaxy ?', u'wide')
-(u'HUM', u'During which season do most thunderstorms occur ?', 'thunderstorms')
-(u'HUM', u'What is Wimbledon ?', 'Wimbledon')
-(u'NUM', u'What is the gestation period for a cat ?', 'period')
-(u'ENTY', u'How far is a nautical mile ?', u'far')
-(u'DESC', u"Who was the abolitionist who led the raid on Harper 's Ferry in 1859 ?", 'abolitionist')
-(u'ENTY', u'What does target heart rate mean ?', 'target')
-(u'ENTY', u'What was the first satellite to go into space ?', 'satellite')
-(u'ENTY', u'What is foreclosure ?', 'foreclosure')
-(u'NUM', u'What is the major fault line near Kentucky ?', 'fault')
-(u'HUM', u'Where is the Holland Tunnel ?', None)
-(u'DESC', u"Who wrote the hymn `` Amazing Grace '' ?", 'hymn')
-(u'DESC', u'What position did Willie Davis play in baseball ?', 'position')
-(u'NUM', u'What are platelets ?', 'platelets')
-(u'LOC', u'What is severance pay ?', 'severance')
-(u'ENTY', u"What is the name of Roy Roger 's dog ?", 'name')
-(u'LOC', u'Where are the National Archives ?', None)
-(u'ENTY', u'What is a baby turkey called ?', 'baby')
-(u'DESC', u'What is poliomyelitis ?', 'poliomyelitis')
-(u'NUM', u'What is the longest bone in the human body ?', 'bone')
-(u'DESC', u'Who is a German philosopher ?', 'German')
-(u'ABBR', u"What were Christopher Columbus ' three ships ?", 'Christopher')
-(u'HUM', u'What does Phi Beta Kappa mean ?', 'Phi')
-(u'HUM', u'What is nicotine ?', 'nicotine')
-(u'HUM', u'What is another name for vitamin B1 ?', 'name')
-(u'HUM', u'Who discovered radium ?', 'radium')
-(u'NUM', u'What are sunspots ?', 'sunspots')
-(u'HUM', u'When was Algeria colonized ?', None)
-(u'ENTY', u'What baseball team was the first to make numbers part of their uniform ?', 'baseball')
-(u'HUM', u'What continent is Egypt on ?', 'continent')
-(u'LOC', u'What is the capital of Mongolia ?', 'capital')
-(u'ENTY', u'What is nanotechnology ?', 'nanotechnology')
-(u'ENTY', u"In the late 1700 's British convicts were used to populate which colony ?", 'colony')
-(u'DESC', u'What state is the geographic center of the lower 48 states ?', 'state')
-(u'ENTY', u'What is an obtuse angle ?', 'angle')
-(u'NUM', u'What are polymers ?', 'polymers')
-(u'ENTY', u'When is hurricane season in the Caribbean ?', None)
-(u'DESC', u'Where is the volcano Mauna Loa ?', None)
-(u'LOC', u'What is another astronomic term for the Northern Lights ?', 'term')
-(u'HUM', u'What peninsula is Spain part of ?', 'peninsula')
-(u'HUM', u'When was Lyndon B. Johnson born ?', None)
-(u'LOC', u'What is acetaminophen ?', 'acetaminophen')
-(u'NUM', u'What state has the least amount of rain per year ?', 'state')
-(u'NUM', u'Who founded American Red Cross ?', 'American')
-(u'LOC', u'What year did the Milwaukee Braves become the Atlanta Braves ?', 'year')
-(u'NUM', u'How fast is alcohol absorbed ?', u'fast')
-(u'HUM', u'When is the summer solstice ?', None)
-(u'HUM', u'What is supernova ?', 'supernova')
-(u'ENTY', u'Where is the Shawnee National Forest ?', None)
-(u'HUM', u"What U.S. state 's motto is `` Live free or Die '' ?", 'U.S.')
-(u'DESC', u'Where is the Lourve ?', None)
-(u'DESC', u'When was the first stamp issued ?', None)
-(u'NUM', u'What primary colors do you mix to make orange ?', 'colors')
-(u'LOC', u'How far is Pluto from the sun ?', u'far')
-(u'LOC', u'What body of water are the Canary Islands in ?', 'body')
-(u'ENTY', u'What is neuropathy ?', 'neuropathy')
-(u'HUM', u'Where is the Euphrates River ?', None)
-(u'HUM', u'What is cryptography ?', 'cryptography')
-(u'DESC', u'What is natural gas composed of ?', 'gas')
-(u'DESC', u'Who is the Prime Minister of Canada ?', 'Prime')
-(u'DESC', u'What French ruler was defeated at the battle of Waterloo ?', 'ruler')
-(u'NUM', u'What is leukemia ?', 'leukemia')
-(u'DESC', u'Where did Howard Hughes die ?', None)
-(u'LOC', u'What is the birthstone for June ?', 'birthstone')
-(u'ENTY', u'What is the sales tax in Minnesota ?', 'sales')
-(u'LOC', u'What is the distance in miles from the earth to the sun ?', 'distance')
-(u'HUM', u'What is the average life span for a chicken ?', 'life')
-(u'LOC', u'When was the first Wal-Mart store opened ?', None)
-(u'ENTY', u'What is relative humidity ?', 'humidity')
-(u'HUM', u'What city has the zip code of 35824 ?', 'city')
-(u'HUM', u'What currency is used in Algeria ?', 'currency')
-(u'NUM', u'Who invented the hula hoop ?', 'hoop')
-(u'LOC', u'What was the most popular toy in 1957 ?', 'toy')
-(u'DESC', u'What is pastrami made of ?', 'pastrami')
-(u'HUM', u'What is the name of the satellite that the Soviet Union sent into space in 1957 ?', 'name')
-(u'DESC', u"What city 's newspaper is called `` The Enquirer '' ?", 'city')
-(u'DESC', u'Who invented the slinky ?', None)
-(u'NUM', u"What are the animals that don 't have backbones called ?", 'animals')
-(u'HUM', u'What is the melting point of copper ?', 'melting')
-(u'HUM', u'Where is the volcano Olympus Mons located ?', None)
-(u'NUM', u'Who was the 23rd president of the United States ?', 'president')
-(u'ENTY', u'What is the average body temperature ?', 'body')
-(u'DESC', u'What does a defibrillator do ?', 'defibrillator')
-(u'HUM', u'What is the effect of acid rain ?', 'effect')
-(u'ENTY', u'What year did the United States abolish the draft ?', 'year')
-(u'ENTY', u'How fast is the speed of light ?', u'fast')
-(u'LOC', u'What province is Montreal in ?', 'province')
-(u'DESC', u'What New York City structure is also known as the Twin Towers ?', 'New')
-(u'DESC', u'What is fungus ?', 'fungus')
-(u'NUM', u'What is the most frequently spoken language in the Netherlands ?', 'language')
-(u'DESC', u'What is sodium chloride ?', 'sodium')
-(u'NUM', u'What are the spots on dominoes called ?', 'spots')
-(u'ENTY', u'How many pounds in a ton ?', u'many')
-(u'HUM', u'What is influenza ?', 'influenza')
-(u'DESC', u'What is ozone depletion ?', 'ozone')
-(u'ABBR', u'What year was the Mona Lisa painted ?', 'year')
-(u'ENTY', u"What does `` Sitting Shiva '' mean ?", 'Shiva')
-(u'DESC', u'What is the electrical output in Madrid , Spain ?', 'output')
-(u'DESC', u'Which mountain range in North America stretches from Maine to Georgia ?', 'mountain')
-(u'ENTY', u'What is plastic made of ?', 'plastic')
-(u'NUM', u'What is the population of Nigeria ?', 'population')
-(u'DESC', u'What does your spleen do ?', 'spleen')
-(u'NUM', u'Where is the Grand Canyon ?', None)
-(u'NUM', u'Who invented the telephone ?', 'telephone')
-(u'LOC', u'What year did the U.S. buy Alaska ?', 'year')
-(u'DESC', u'What is the name of the leader of Ireland ?', 'name')
-(u'HUM', u'What is phenylalanine ?', 'phenylalanine')
-(u'DESC', u'How many gallons of water are there in a cubic foot ?', u'many')
-(u'HUM', u'What are the two houses of the Legislative branch ?', 'houses')
-(u'NUM', u'What is sonar ?', 'sonar')
-(u'LOC', u'In Poland , where do most people live ?', 'people')
-(u'LOC', u'What is phosphorus ?', 'phosphorus')
-(u'ENTY', u'What is the location of the Sea of Tranquility ?', 'location')
-(u'HUM', u'How fast is sound ?', u'fast')
-(u'ENTY', u'What French province is cognac produced in ?', 'province')
-(u'ENTY', u"What is Valentine 's Day ?", 'Valentine')
-(u'NUM', u'What causes gray hair ?', 'hair')
-(u'DESC', u'What is hypertension ?', 'hypertension')
-(u'LOC', u'What is bandwidth ?', 'bandwidth')
-(u'NUM', u'What is the longest suspension bridge in the U.S. ?', 'suspension')
-(u'HUM', u'What is a parasite ?', 'parasite')
-(u'DESC', u'What is home equity ?', 'home')
-(u'DESC', u'What do meteorologists do ?', 'meteorologists')
-(u'ENTY', u'What is the criterion for being legally blind ?', 'criterion')
-(u'NUM', u'Who is the tallest man in the world ?', 'man')
-(u'HUM', u'What are the twin cities ?', 'cities')
-(u'DESC', u'What did Edward Binney and Howard Smith invent in 1903 ?', 'Edward')
-(u'HUM', u'What is the statue of liberty made of ?', 'statue')
-(u'NUM', u'What is pilates ?', None)
-(u'HUM', u"What planet is known as the `` red '' planet ?", 'planet')
-(u'ENTY', u'What is the depth of the Nile river ?', 'depth')
-(u'DESC', u'What is the colorful Korean traditional dress called ?', 'Korean')
-(u'ENTY', u'What is Mardi Gras ?', 'Mardi')
-(u'LOC', u'Mexican pesos are worth what in U.S. dollars ?', 'pesos')
-(u'NUM', u'Who was the first African American to play for the Brooklyn Dodgers ?', 'African')
-(u'ABBR', u'Who was the first Prime Minister of Canada ?', 'Prime')
-(u'NUM', u'How many Admirals are there in the U.S. Navy ?', u'many')
-(u'NUM', u'What instrument did Glenn Miller play ?', 'instrument')
-(u'DESC', u'How old was Joan of Arc when she died ?', u'old')
-(u'LOC', u'What does the word fortnight mean ?', 'word')
-(u'DESC', u'What is dianetics ?', 'dianetics')
-(u'DESC', u'What is the capital of Ethiopia ?', 'capital')
-(u'ENTY', u'For how long is an elephant pregnant ?', 'elephant')
-(u'HUM', u'How did Janice Joplin die ?', u'did')
-(u'ENTY', u'What is the primary language in Iceland ?', 'language')
-(u'ENTY', u'What is the difference between AM radio stations and FM radio stations ?', 'difference')
-(u'ENTY', u'What is osteoporosis ?', 'osteoporosis')
-(u'HUM', u'Who was the first woman governor in the U.S. ?', 'woman')
-(u'HUM', u'What is peyote ?', 'peyote')
-(u'HUM', u'What is the esophagus used for ?', 'esophagus')
-(u'DESC', u'What is viscosity ?', 'viscosity')
-(u'NUM', u'What year did Oklahoma become a state ?', 'year')
-(u'ENTY', u'What is the abbreviation for Texas ?', 'abbreviation')
-(u'NUM', u'What is a mirror made out of ?', 'mirror')
-(u'NUM', u'Where on the body is a mortarboard worn ?', None)
-(u'ENTY', u"What was J.F.K. 's wife 's name ?", 'J.F.K')
-(u'NUM', u'What does I.V. stand for ?', 'I.V')
-(u'NUM', u'What is the chunnel ?', 'chunnel')
-(u'ENTY', u'Where is Hitler buried ?', None)
-(u'LOC', u'What are antacids ?', 'antacids')
-(u'HUM', u'What is pulmonary fibrosis ?', 'fibrosis')
-(u'HUM', u'What are Quaaludes ?', 'Quaaludes')
-(u'LOC', u'What is naproxen ?', 'naproxen')
-(u'DESC', u'What is strep throat ?', 'throat')
-(u'DESC', u'What is the largest city in the U.S. ?', 'city')
-(u'LOC', u'What is foot and mouth disease ?', 'foot')
-(u'ENTY', u'What is the life expectancy of a dollar bill ?', 'life')
-(u'DESC', u'What do you call a professional map drawer ?', 'map')
-(u'ABBR', u'What are Aborigines ?', 'Aborigines')
-(u'LOC', u'What is hybridization ?', 'hybridization')
-(u'ENTY', u'What color is indigo ?', 'color')
-(u'ENTY', u'How old do you have to be in order to rent a car in Italy ?', u'old')
-(u'LOC', u'What does a barometer measure ?', 'barometer')
-(u'ENTY', u"What color is a giraffe 's tongue ?", 'color')
-(u'ENTY', u'What does USPS stand for ?', 'USPS')
-(u'HUM', u'What year did the NFL go on strike ?', 'year')
-(u'ENTY', u'What is solar wind ?', 'wind')
-(u'HUM', u'What date did Neil Armstrong land on the moon ?', 'date')
-(u'ABBR', u'When was Hiroshima bombed ?', None)
-(u'ENTY', u'Where is the Savannah River ?', None)
-(u'HUM', u'Who was the first woman killed in the Vietnam War ?', 'woman')
-(u'ABBR', u'What planet has the strongest magnetic field of all the planets ?', 'planet')
-(u'ABBR', u'Who is the governor of Alaska ?', 'governor')
-(u'ENTY', u'What year did Mussolini seize power in Italy ?', 'year')
-(u'LOC', u'What is the capital of Persia ?', 'capital')
-(u'HUM', u'Where is the Eiffel Tower ?', None)
-(u'DESC', u'How many hearts does an octopus have ?', u'many')
-(u'NUM', u'What is pneumonia ?', 'pneumonia')
-(u'NUM', u'What is the deepest lake in the US ?', 'lake')
-(u'HUM', u'What is a fuel cell ?', 'fuel')
-(u'LOC', u'Who was the first U.S. president to appear on TV ?', 'U.S.')
-(u'ENTY', u'Where is the Little League Museum ?', None)
-(u'LOC', u'What are the two types of twins ?', 'types')
-(u'HUM', u'What is the brightest star ?', 'star')
-(u'DESC', u'What is diabetes ?', 'diabetes')
-(u'NUM', u'When was President Kennedy shot ?', None)
-(u'LOC', u'What is TMJ ?', 'TMJ')
-(u'ENTY', u'What color is yak milk ?', 'color')
-(u'DESC', u'What date was Dwight D. Eisenhower born ?', 'date')
-(u'NUM', u'What does the technical term ISDN mean ?', 'term')
-(u'HUM', u'Why is the sun yellow ?', None)
-(u'LOC', u'What is the conversion rate between dollars and pounds ?', 'conversion')
-(u'HUM', u'When was Abraham Lincoln born ?', None)
-(u'DESC', u'What is the Milky Way ?', 'Way')
-(u'DESC', u'What is mold ?', 'mold')
-(u'NUM', u'What year was Mozart born ?', 'year')
-(u'NUM', u'What is a group of frogs called ?', 'group')
-(u'NUM', u"What is the name of William Penn 's ship ?", 'name')
-(u'DESC', u'What is the melting point of gold ?', 'melting')
-(u'ENTY', u'What is the street address of the White House ?', 'street')
-(u'HUM', u'What is semolina ?', None)
-(u'HUM', u'What fruit is Melba sauce made from ?', 'fruit')
-(u'ENTY', u'What is Ursa Major ?', 'Ursa')
-(u'HUM', u'What is the percentage of water content in the human body ?', 'percentage')
-(u'ENTY', u'How much does water weigh ?', u'much')
-(u'LOC', u"What was President Lyndon Johnson 's reform program called ?", 'President')
-(u'LOC', u'What is the murder rate in Windsor , Ontario ?', 'murder')
-(u'HUM', u'Who is the only president to serve 2 non-consecutive terms ?', 'president')
-(u'HUM', u'What is the population of Australia ?', 'population')
-(u'ENTY', u'Who painted the ceiling of the Sistine Chapel ?', 'ceiling')
-(u'HUM', u'Name a stimulant .', 'stimulant')
-(u'NUM', u'What is the effect of volcanoes on the climate ?', 'effect')
-(u'ENTY', u'What year did the Andy Griffith show begin ?', 'year')
-(u'DESC', u'What is acid rain ?', 'acid')
-(u'HUM', u"What is the date of Mexico 's independence ?", 'date')
-(u'NUM', u'What is the location of Lake Champlain ?', 'location')
-(u'ENTY', u'What is the Illinois state flower ?', 'Illinois')
-(u'HUM', u"What is Maryland 's state bird ?", 'Maryland')
-(u'LOC', u'What is quicksilver ?', 'quicksilver')
-(u'HUM', u"Who wrote `` The Divine Comedy '' ?", 'Divine')
-(u'NUM', u'What is the speed of light ?', 'speed')
-(u'NUM', u'What is the width of a football field ?', 'width')
-(u'DESC', u'Why in tennis are zero points called love ?', None)
-(u'HUM', u'What kind of dog was Toto in the Wizard of Oz ?', 'kind')
-(u'HUM', u'What is a thyroid ?', 'thyroid')
-(u'DESC', u'What does ciao mean ?', 'ciao')
-(u'LOC', u'What is the only artery that carries blue blood from the heart to the lungs ?', 'artery')
-(u'DESC', u'How often does Old Faithful erupt at Yellowstone National Park ?', u'often')
-(u'ENTY', u'What is acetic acid ?', 'acid')
-(u'HUM', u'What is the elevation of St. Louis , MO ?', 'elevation')
-(u'DESC', u'What color does litmus paper turn when it comes into contact with a strong acid ?', 'color')
-(u'ENTY', u'What are the colors of the German flag ?', 'colors')
-(u'DESC', u'What is the Moulin Rouge ?', 'Moulin')
-(u'NUM', u'What soviet seaport is on the Black Sea ?', 'seaport')
-(u'HUM', u'What is the atomic weight of silver ?', 'weight')
-(u'ENTY', u'What currency do they use in Brazil ?', 'currency')
-(u'HUM', u'What are pathogens ?', 'pathogens')
-(u'LOC', u'What is mad cow disease ?', 'cow')
-(u'ENTY', u'Name a food high in zinc .', 'high')
-(u'HUM', u'When did North Carolina enter the union ?', None)
-(u'LOC', u'Where do apple snails live ?', None)
-(u'ENTY', u'What are ethics ?', 'ethics')
-(u'HUM', u'What does CPR stand for ?', 'CPR')
-(u'NUM', u'What is an annuity ?', 'annuity')
-(u'HUM', u'Who killed John F. Kennedy ?', 'John')
-(u'ABBR', u'Who was the first vice president of the U.S. ?', 'vice')
-(u'LOC', u'What birthstone is turquoise ?', 'birthstone')
-(u'HUM', u'Who was the first US President to ride in an automobile to his inauguration ?', 'US')
-(u'DESC', u'How old was the youngest president of the United States ?', u'old')
-(u'LOC', u'When was Ulysses S. Grant born ?', None)
-(u'NUM', u'What is Muscular Dystrophy ?', 'Dystrophy')
-(u'ENTY', u'Who lived in the Neuschwanstein castle ?', 'Neuschwanstein')
-(u'ENTY', u'What is propylene glycol ?', 'propylene')
-(u'DESC', u'What is a panic disorder ?', 'panic')
-(u'HUM', u'Who invented the instant Polaroid camera ?', 'Polaroid')
-(u'HUM', u'What is a carcinogen ?', 'carcinogen')
-(u'ENTY', u'What is a baby lion called ?', 'baby')
-(u'LOC', u"What is the world 's population ?", 'world')
-(u'ENTY', u'What is nepotism ?', 'nepotism')
-(u'NUM', u'What is die-casting ?', None)
-(u'DESC', u'What is myopia ?', 'myopia')
-(u'ENTY', u'What is the sales tax rate in New York ?', 'tax')
-(u'DESC', u"Developing nations comprise what percentage of the world 's population ?", 'percentage')
-(u'NUM', u'What is the fourth highest mountain in the world ?', 'mountain')
-(u'ENTY', u"What is Shakespeare 's nickname ?", 'Shakespeare')
-(u'LOC', u'What is the heaviest naturally occurring element ?', 'element')
-(u'NUM', u"When is Father 's Day ?", None)
-(u'ENTY', u'What does the acronym NASA stand for ?', 'acronym')
-(u'ENTY', u'How long is the Columbia River in miles ?', u'long')
-(u'DESC', u"What city 's newspaper is called `` The Star '' ?", 'city')
-(u'DESC', u'What is carbon dioxide ?', 'carbon')
-(u'ENTY', u'Where is the Mason/Dixon line ?', None)
-(u'NUM', u'When was the Boston tea party ?', None)
-(u'ENTY', u'What is metabolism ?', 'metabolism')
-(u'ENTY', u"Which U.S.A. president appeared on `` Laugh-In '' ?", 'U.S.A.')
-(u'DESC', u'What are cigarettes made of ?', 'cigarettes')
-(u'LOC', u'What is the capital of Zimbabwe ?', 'capital')
-(u'LOC', u'What does NASA stand for ?', 'NASA')
-(u'LOC', u'What is the state flower of Michigan ?', 'state')
-(u'NUM', u'What are semiconductors ?', 'semiconductors')
-(u'HUM', u'What is nuclear power ?', 'power')
-(u'ENTY', u'What is a tsunami ?', 'tsunami')
-(u'LOC', u'Who is the congressman from state of Texas on the armed forces committee ?', 'congressman')
-(u'HUM', u'Who was president in 1913 ?', 'president')
-(u'DESC', u'When was the first kidney transplant ?', None)
-(u'LOC', u"What are Canada 's two territories ?", 'Canada')
-(u'DESC', u'What was the name of the plane Lindbergh flew solo across the Atlantic ?', 'name')
-(u'LOC', u'What is genocide ?', 'genocide')
-(u'DESC', u'What continent is Argentina on ?', 'continent')
-(u'NUM', u'What monastery was raided by Vikings in the late eighth century ?', 'monastery')
-(u'HUM', u'What is an earthquake ?', 'earthquake')
-(u'ENTY', u'Where is the tallest roller coaster located ?', None)
-(u'DESC', u'What are enzymes ?', 'enzymes')
-(u'ENTY', u'Who discovered oxygen ?', 'oxygen')
-(u'NUM', u'What is bangers and mash ?', 'bangers')
-(u'HUM', u'What is the name given to the Tiger at Louisiana State University ?', 'name')
-(u'HUM', u'Where are the British crown jewels kept ?', None)
-(u'DESC', u'Who was the first person to reach the North Pole ?', 'person')
-(u'HUM', u'What is an ulcer ?', 'ulcer')
-(u'LOC', u'What is vertigo ?', 'vertigo')
-(u'LOC', u'What is the spirometer test ?', 'test')
-(u'LOC', u'When is the official first day of summer ?', None)
-(u'ENTY', u'What does the abbreviation SOS mean ?', 'abbreviation')
-(u'DESC', u'What is the smallest bird in Britain ?', 'bird')
-(u'ENTY', u'Who invented Trivial Pursuit ?', 'Pursuit')
-(u'NUM', u'What gasses are in the troposphere ?', 'gasses')
-(u'NUM', u'Which country has the most water pollution ?', 'country')
-(u'ABBR', u'What is the scientific name for elephant ?', 'name')
-(u'DESC', u"Who is the actress known for her role in the movie `` Gypsy '' ?", 'actress')
-(u'ENTY', u'What breed of hunting dog did the Beverly Hillbillies own ?', 'breed')
-(u'ENTY', u'What is the rainiest place on Earth ?', 'place')
-(u'DESC', u'Who was the first African American to win the Nobel Prize in literature ?', 'African')
-(u'NUM', u"When is St. Patrick 's Day ?", None)
-(u'DESC', u"What was FDR 's dog 's name ?", 'FDR')
-(u'HUM', u'What colors need to be mixed to get the color pink ?', 'colors')
-(u'HUM', u'What is the most popular sport in Japan ?', 'sport')
-(u'LOC', u'What is the active ingredient in baking soda ?', 'ingredient')
-(u'DESC', u'When was Thomas Jefferson born ?', None)
-(u'HUM', u'How cold should a refrigerator be ?', u'cold')
-(u'LOC', u'When was the telephone invented ?', None)
-(u'ENTY', u'What is the most common eye color ?', 'eye')
-(u'ENTY', u'Where was the first golf course in the United States ?', None)
-(u'LOC', u'What is schizophrenia ?', 'schizophrenia')
-(u'DESC', u'What is angiotensin ?', 'angiotensin')
-(u'HUM', u'What did Jesse Jackson organize ?', 'Jesse')
-(u'ENTY', u"What is New York 's state bird ?", 'New')
-(u'LOC', u'What is the National Park in Utah ?', 'National')
-(u'HUM', u"What is Susan B. Anthony 's birthday ?", 'Susan')
-(u'NUM', u'In which state would you find the Catskill Mountains ?', 'state')
-(u'LOC', u'What do you call a word that is spelled the same backwards and forwards ?', 'word')
-(u'LOC', u'What are pediatricians ?', 'pediatricians')
-(u'ENTY', u'What chain store is headquartered in Bentonville , Arkansas ?', 'chain')
-(u'HUM', u'What are solar cells ?', 'cells')
-(u'ENTY', u'What is compounded interest ?', 'interest')
-(u'LOC', u'What are capers ?', 'capers')
-(u'HUM', u'What is an antigen ?', 'antigen')
-(u'ENTY', u'What currency does Luxembourg use ?', 'currency')
-(u'HUM', u'What is the population of Venezuela ?', 'population')
-(u'DESC', u'What type of polymer is used for bulletproof vests ?', 'type')
-(u'ENTY', u'What currency does Argentina use ?', 'currency')
-(u'HUM', u'What is a thermometer ?', 'thermometer')
-(u'NUM', u'What Canadian city has the largest population ?', 'Canadian')
-(u'ENTY', u'What color are crickets ?', 'color')
-(u'ENTY', u'Which country gave New York the Statue of Liberty ?', 'country')
-(u'DESC', u'What was the name of the first U.S. satellite sent into space ?', 'name')
-(u'DESC', u'What precious stone is a form of pure carbon ?', 'stone')
-(u'NUM', u'What kind of gas is in a fluorescent bulb ?', 'kind')
-(u'HUM', u'What is rheumatoid arthritis ?', 'arthritis')
-(u'ENTY', u'What river runs through Rowe , Italy ?', 'river')
-(u'ENTY', u'What is cerebral palsy ?', 'palsy')
-(u'HUM', u"What city is also known as `` The Gateway to the West '' ?", 'city')
-(u'HUM', u'How far away is the moon ?', u'far')
-(u'LOC', u'What is the source of natural gas ?', 'source')
-(u'HUM', u'In what spacecraft did U.S. astronaut Alan Shepard make his historic 1961 flight ?', 'spacecraft')
-(u'ENTY', u'What is pectin ?', 'pectin')
-(u'HUM', u'What is bio-diversity ?', 'bio-diversity')
-(u'LOC', u"What 's the easiest way to remove wallpaper ?", 'way')
-(u'NUM', u'What year did the Titanic start on its journey ?', 'year')
-(u'HUM', u'How much of an apple is water ?', u'much')
-(u'ENTY', u'Who was the 22nd President of the US ?', 'President')
-(u'DESC', u'What is the money they use in Zambia ?', 'money')
-(u'DESC', u'How many feet in a mile ?', u'many')
-(u'HUM', u'What is the birthstone of October ?', 'birthstone')
-(u'HUM', u'What is e-coli ?', 'e-coli')
+DESC:manner How far is it from Denver to Aspen ? far
+ENTY:cremat What county is Modesto , California in ? county
+DESC:manner Who was Galileo ? Galileo
+ENTY:animal What is an atom ? atom
+ABBR:exp When did Hawaii become a state ? None
+HUM:ind How tall is the Sears Building ? tall
+HUM:gr George Bush purchased a small interest in which baseball team ? interest
+HUM:title What is Australia 's national flower ? Australia
+DESC:def Why does the moon turn orange ? None
+HUM:ind What is autism ? autism
+NUM:date What city had a world fair in 1900 ? fair
+DESC:reason What person 's head is on a dime ? person
+HUM:ind What is the average weight of a Yellow Labrador ? weight
+HUM:ind Who was the first man to fly across the Pacific Ocean ? man
+ENTY:event When did Idaho become a state ? None
+LOC:state What is the life expectancy for crickets ? life
+DESC:desc What metal has the highest melting point ? metal
+NUM:count Who developed the vaccination against polio ? vaccination
+DESC:def What is epilepsy ? epilepsy
+DESC:def What year did the Titanic sink ? year
+NUM:date Who was the first American to walk in space ? American
+ENTY:other What is a biosphere ? biosphere
+HUM:ind What river in the US is known as the Big Muddy ? river
+DESC:desc What is bipolar disorder ? disorder
+DESC:desc What is cholesterol ? cholesterol
+ENTY:letter Who developed the Macintosh computer ? Macintosh
+HUM:ind What is caffeine ? caffeine
+LOC:other What imaginary line is halfway between the North and South Poles ? line
+ENTY:other Where is John Wayne airport ? None
+LOC:state What hemisphere is the Philippines in ? hemisphere
+ABBR:exp What is the average speed of the horses at the Kentucky Derby ? speed
+ENTY:other Where are the Rocky Mountains ? None
+NUM:count What are invertebrates ? invertebrates
+HUM:gr What is the temperature at the center of the earth ? temperature
+NUM:count When did John F. Kennedy get elected as President ? None
+DESC:desc How old was Elvis Presley when he died ? old
+NUM:date Where is the Orinoco River ? None
+ENTY:religion How far is the service line from the net in tennis ? far
+LOC:other How much fiber should you have per day ? much
+ENTY:animal How many Great Lakes are there ? many
+DESC:manner Material called linen is made from what plant ? Material
+ENTY:other What is Teflon ? Teflon
+NUM:count What is amitriptyline ? amitriptyline
+NUM:count What is a shaman ? shaman
+DESC:manner What is the proper name for a female walrus ? name
+HUM:ind What is a group of turkeys called ? group
+ENTY:food How long did Rip Van Winkle sleep ? long
+HUM:gr What are triglycerides ? triglycerides
+DESC:manner How many liters in a gallon ? many
+ENTY:other What is the name of the chocolate company in San Francisco ? name
+LOC:country What are amphibians ? amphibians
+DESC:def Who discovered x-rays ? x-rays
+HUM:ind Which comedian 's signature line is `` Can we talk '' ? comedian
+DESC:desc What is fibromyalgia ? fibromyalgia
+HUM:ind What is done with worn or outdated flags ? flags
+DESC:def What does cc in engines mean ? cc
+ENTY:color When did Elvis Presley die ? None
+ENTY:termeq What is the capital of Yugoslavia ? capital
+LOC:state Where is Milan ? None
+DESC:def What is the speed hummingbirds fly ? speed
+LOC:other What is the oldest city in the United States ? city
+DESC:def What was W.C. Fields ' real name ? W.C.
+LOC:country What river flows between Fargo , North Dakota and Moorhead , Minnesota ? river
+DESC:def What do bats eat ? bats
+HUM:ind What state did the Battle of Bighorn take place in ? state
+LOC:city Who was Abraham Lincoln ? Abraham
+DESC:def What do you call a newborn kangaroo ? kangaroo
+DESC:reason What are spider veins ? spider
+LOC:other What day and month did John Lennon die ? day
+DESC:reason What strait separates North America from Asia ? strait
+LOC:other What is the population of Seattle ? population
+HUM:ind How much was a ticket for the Titanic ? much
+ENTY:other What is the largest city in the world ? city
+DESC:desc What American composer wrote the music for `` West Side Story '' ? American
+HUM:ind Where is the Mall of the America ? None
+DESC:manner What is the pH scale ? scale
+HUM:ind What type of currency is used in Australia ? type
+ENTY:body How tall is the Gateway Arch in St. Louis , MO ? tall
+DESC:manner How much does the human adult female brain weigh ? much
+LOC:country Who was the first governor of Alaska ? governor
+ENTY:other What is a prism ? prism
+NUM:count When was the first liver transplant ? None
+DESC:desc Who was elected president of South Africa in 1994 ? president
+LOC:state What is the population of China ? population
+ENTY:animal When was Rosa Parks born ? None
+NUM:count Why is a ladybug helpful ? None
+LOC:country What is amoxicillin ? amoxicillin
+ENTY:dismed Who was the first female United States Representative ? United
+HUM:ind What are xerophytes ? xerophytes
+NUM:date What country did Ponce de Leon come from ? country
+NUM:date The U.S. Department of Treasury first issued paper currency for the U.S. during which war ? currency
+DESC:reason What is desktop publishing ? desktop
+DESC:def What is the temperature of the sun 's surface ? temperature
+ENTY:cremat What year did Canada join the United Nations ? year
+DESC:def What is the oldest university in the US ? university
+DESC:def Where is Prince Edward Island ? None
+HUM:gr Mercury , what year was it discovered ? Mercury
+DESC:def What is cryogenics ? None
+NUM:date What are coral reefs ? reefs
+LOC:country What is the longest major league baseball-winning streak ? league
+HUM:ind What is neurology ? neurology
+DESC:desc Who invented the calculator ? calculator
+DESC:desc How do you measure earthquakes ? do
+ENTY:animal Who is Duke Ellington ? Duke
+HUM:ind What county is Phoenix , AZ in ? county
+HUM:ind What is a micron ? micron
+DESC:manner The sun 's core , what is the temperature ? sun
+LOC:state What is the Ohio state bird ? Ohio
+ENTY:animal When were William Shakespeare 's twins born ? None
+LOC:mount What is the highest dam in the U.S. ? dam
+DESC:desc What color is a poison arrow frog ? color
+LOC:other What is acupuncture ? acupuncture
+LOC:other What is the length of the coastline of the state of Alaska ? length
+ENTY:cremat What is the name of Neil Armstrong 's wife ? name
+ENTY:animal What is Hawaii 's state flower ? Hawaii
+ENTY:cremat Who won Ms. American in 1989 ? Ms.
+LOC:other When did the Hindenberg crash ? None
+NUM:money What mineral helps prevent osteoporosis ? mineral
+ENTY:termeq What was the last year that the Chicago Cubs won the World Series ? year
+DESC:def Where is Perth ? None
+LOC:other What year did WWII begin ? year
+ENTY:product What is the diameter of a golf ball ? diameter
+DESC:manner What is an eclipse ? eclipse
+NUM:period Who discovered America ? America
+DESC:manner What is the earth 's diameter ? earth
+DESC:desc Which president was unmarried ? president
+DESC:manner How wide is the Milky Way galaxy ? wide
+HUM:ind During which season do most thunderstorms occur ? thunderstorms
+HUM:gr What is Wimbledon ? Wimbledon
+NUM:date What is the gestation period for a cat ? period
+ENTY:cremat How far is a nautical mile ? far
+DESC:def Who was the abolitionist who led the raid on Harper 's Ferry in 1859 ? abolitionist
+ENTY:cremat What does target heart rate mean ? target
+ENTY:animal What was the first satellite to go into space ? satellite
+ENTY:substance What is foreclosure ? foreclosure
+NUM:money What is the major fault line near Kentucky ? fault
+HUM:ind Where is the Holland Tunnel ? None
+DESC:def Who wrote the hymn `` Amazing Grace '' ? hymn
+DESC:def What position did Willie Davis play in baseball ? position
+NUM:count What are platelets ? platelets
+LOC:other What is severance pay ? severance
+ENTY:animal What is the name of Roy Roger 's dog ? name
+LOC:city Where are the National Archives ? None
+ENTY:cremat What is a baby turkey called ? baby
+DESC:desc What is poliomyelitis ? poliomyelitis
+NUM:count What is the longest bone in the human body ? bone
+DESC:manner Who is a German philosopher ? German
+ABBR:exp What were Christopher Columbus ' three ships ? Christopher
+HUM:gr What does Phi Beta Kappa mean ? Phi
+HUM:ind What is nicotine ? nicotine
+HUM:ind What is another name for vitamin B1 ? name
+HUM:ind Who discovered radium ? radium
+NUM:count What are sunspots ? sunspots
+HUM:ind When was Algeria colonized ? None
+ENTY:body What baseball team was the first to make numbers part of their uniform ? baseball
+HUM:ind What continent is Egypt on ? continent
+LOC:country What is the capital of Mongolia ? capital
+ENTY:cremat What is nanotechnology ? nanotechnology
+ENTY:cremat In the late 1700 's British convicts were used to populate which colony ? colony
+DESC:def What state is the geographic center of the lower 48 states ? state
+ENTY:event What is an obtuse angle ? angle
+NUM:date What are polymers ? polymers
+ENTY:body When is hurricane season in the Caribbean ? None
+DESC:def Where is the volcano Mauna Loa ? None
+LOC:other What is another astronomic term for the Northern Lights ? term
+HUM:gr What peninsula is Spain part of ? peninsula
+HUM:ind When was Lyndon B. Johnson born ? None
+LOC:other What is acetaminophen ? acetaminophen
+NUM:date What state has the least amount of rain per year ? state
+NUM:count Who founded American Red Cross ? American
+LOC:other What year did the Milwaukee Braves become the Atlanta Braves ? year
+NUM:date How fast is alcohol absorbed ? fast
+HUM:ind When is the summer solstice ? None
+HUM:ind What is supernova ? supernova
+ENTY:cremat Where is the Shawnee National Forest ? None
+HUM:gr What U.S. state 's motto is `` Live free or Die '' ? U.S.
+DESC:desc Where is the Lourve ? None
+DESC:reason When was the first stamp issued ? None
+NUM:count What primary colors do you mix to make orange ? colors
+LOC:city How far is Pluto from the sun ? far
+LOC:other What body of water are the Canary Islands in ? body
+ENTY:sport What is neuropathy ? neuropathy
+HUM:ind Where is the Euphrates River ? None
+HUM:title What is cryptography ? cryptography
+DESC:reason What is natural gas composed of ? gas
+DESC:def Who is the Prime Minister of Canada ? Prime
+DESC:reason What French ruler was defeated at the battle of Waterloo ? ruler
+NUM:date What is leukemia ? leukemia
+DESC:def Where did Howard Hughes die ? None
+LOC:country What is the birthstone for June ? birthstone
+ENTY:dismed What is the sales tax in Minnesota ? sales
+LOC:other What is the distance in miles from the earth to the sun ? distance
+HUM:gr What is the average life span for a chicken ? life
+LOC:city When was the first Wal-Mart store opened ? None
+ENTY:body What is relative humidity ? humidity
+HUM:ind What city has the zip code of 35824 ? city
+HUM:ind What currency is used in Algeria ? currency
+NUM:date Who invented the hula hoop ? hoop
+LOC:country What was the most popular toy in 1957 ? toy
+DESC:manner What is pastrami made of ? pastrami
+HUM:ind What is the name of the satellite that the Soviet Union sent into space in 1957 ? name
+DESC:def What city 's newspaper is called `` The Enquirer '' ? city
+DESC:manner Who invented the slinky ? None
+NUM:date What are the animals that don 't have backbones called ? animals
+HUM:ind What is the melting point of copper ? melting
+HUM:ind Where is the volcano Olympus Mons located ? None
+NUM:date Who was the 23rd president of the United States ? president
+ENTY:termeq What is the average body temperature ? body
+DESC:reason What does a defibrillator do ? defibrillator
+HUM:gr What is the effect of acid rain ? effect
+ENTY:event What year did the United States abolish the draft ? year
+ENTY:other How fast is the speed of light ? fast
+LOC:city What province is Montreal in ? province
+DESC:manner What New York City structure is also known as the Twin Towers ? New
+DESC:reason What is fungus ? fungus
+NUM:count What is the most frequently spoken language in the Netherlands ? language
+DESC:def What is sodium chloride ? sodium
+NUM:count What are the spots on dominoes called ? spots
+ENTY:plant How many pounds in a ton ? many
+HUM:gr What is influenza ? influenza
+DESC:desc What is ozone depletion ? ozone
+ABBR:exp What year was the Mona Lisa painted ? year
+ENTY:techmeth What does `` Sitting Shiva '' mean ? Shiva
+DESC:desc What is the electrical output in Madrid , Spain ? output
+DESC:def Which mountain range in North America stretches from Maine to Georgia ? mountain
+ENTY:other What is plastic made of ? plastic
+NUM:volsize What is the population of Nigeria ? population
+DESC:manner What does your spleen do ? spleen
+NUM:date Where is the Grand Canyon ? None
+NUM:money Who invented the telephone ? telephone
+LOC:country What year did the U.S. buy Alaska ? year
+DESC:def What is the name of the leader of Ireland ? name
+HUM:ind What is phenylalanine ? phenylalanine
+DESC:reason How many gallons of water are there in a cubic foot ? many
+HUM:ind What are the two houses of the Legislative branch ? houses
+NUM:count What is sonar ? sonar
+LOC:mount In Poland , where do most people live ? people
+LOC:other What is phosphorus ? phosphorus
+ENTY:techmeth What is the location of the Sea of Tranquility ? location
+HUM:ind How fast is sound ? fast
+ENTY:dismed What French province is cognac produced in ? province
+ENTY:food What is Valentine 's Day ? Valentine
+NUM:count What causes gray hair ? hair
+DESC:def What is hypertension ? hypertension
+LOC:other What is bandwidth ? bandwidth
+NUM:count What is the longest suspension bridge in the U.S. ? suspension
+HUM:ind What is a parasite ? parasite
+DESC:def What is home equity ? home
+DESC:desc What do meteorologists do ? meteorologists
+ENTY:animal What is the criterion for being legally blind ? criterion
+NUM:date Who is the tallest man in the world ? man
+HUM:ind What are the twin cities ? cities
+DESC:desc What did Edward Binney and Howard Smith invent in 1903 ? Edward
+HUM:gr What is the statue of liberty made of ? statue
+NUM:date What is pilates ? None
+HUM:desc What planet is known as the `` red '' planet ? planet
+ENTY:instru What is the depth of the Nile river ? depth
+DESC:def What is the colorful Korean traditional dress called ? Korean
+ENTY:other What is Mardi Gras ? Mardi
+LOC:other Mexican pesos are worth what in U.S. dollars ? pesos
+NUM:date Who was the first African American to play for the Brooklyn Dodgers ? African
+ABBR:exp Who was the first Prime Minister of Canada ? Prime
+NUM:date How many Admirals are there in the U.S. Navy ? many
+NUM:count What instrument did Glenn Miller play ? instrument
+DESC:def How old was Joan of Arc when she died ? old
+LOC:city What does the word fortnight mean ? word
+DESC:manner What is dianetics ? dianetics
+DESC:def What is the capital of Ethiopia ? capital
+ENTY:other For how long is an elephant pregnant ? elephant
+HUM:ind How did Janice Joplin die ? did
+ENTY:techmeth What is the primary language in Iceland ? language
+ENTY:food What is the difference between AM radio stations and FM radio stations ? difference
+ENTY:color What is osteoporosis ? osteoporosis
+HUM:ind Who was the first woman governor in the U.S. ? woman
+HUM:ind What is peyote ? peyote
+HUM:ind What is the esophagus used for ? esophagus
+DESC:def What is viscosity ? viscosity
+NUM:date What year did Oklahoma become a state ? year
+ENTY:other What is the abbreviation for Texas ? abbreviation
+NUM:date What is a mirror made out of ? mirror
+NUM:count Where on the body is a mortarboard worn ? None
+ENTY:animal What was J.F.K. 's wife 's name ? J.F.K
+NUM:date What does I.V. stand for ? I.V
+NUM:volsize What is the chunnel ? chunnel
+ENTY:animal Where is Hitler buried ? None
+LOC:city What are antacids ? antacids
+HUM:ind What is pulmonary fibrosis ? fibrosis
+HUM:ind What are Quaaludes ? Quaaludes
+LOC:country What is naproxen ? naproxen
+DESC:manner What is strep throat ? throat
+DESC:desc What is the largest city in the U.S. ? city
+LOC:other What is foot and mouth disease ? foot
+ENTY:termeq What is the life expectancy of a dollar bill ? life
+DESC:manner What do you call a professional map drawer ? map
+ABBR:exp What are Aborigines ? Aborigines
+LOC:other What is hybridization ? hybridization
+ENTY:termeq What color is indigo ? color
+ENTY:animal How old do you have to be in order to rent a car in Italy ? old
+LOC:city What does a barometer measure ? barometer
+ENTY:termeq What color is a giraffe 's tongue ? color
+ENTY:dismed What does USPS stand for ? USPS
+HUM:gr What year did the NFL go on strike ? year
+ENTY:sport What is solar wind ? wind
+HUM:ind What date did Neil Armstrong land on the moon ? date
+ABBR:abb When was Hiroshima bombed ? None
+ENTY:other Where is the Savannah River ? None
+HUM:gr Who was the first woman killed in the Vietnam War ? woman
+ABBR:exp What planet has the strongest magnetic field of all the planets ? planet
+ABBR:exp Who is the governor of Alaska ? governor
+ENTY:other What year did Mussolini seize power in Italy ? year
+LOC:other What is the capital of Persia ? capital
+HUM:ind Where is the Eiffel Tower ? None
+DESC:reason How many hearts does an octopus have ? many
+NUM:other What is pneumonia ? pneumonia
+NUM:date What is the deepest lake in the US ? lake
+HUM:ind What is a fuel cell ? fuel
+LOC:state Who was the first U.S. president to appear on TV ? U.S.
+ENTY:techmeth Where is the Little League Museum ? None
+LOC:state What are the two types of twins ? types
+HUM:gr What is the brightest star ? star
+DESC:manner What is diabetes ? diabetes
+NUM:count When was President Kennedy shot ? None
+LOC:other What is TMJ ? TMJ
+ENTY:color What color is yak milk ? color
+DESC:manner What date was Dwight D. Eisenhower born ? date
+NUM:other What does the technical term ISDN mean ? term
+HUM:ind Why is the sun yellow ? None
+LOC:other What is the conversion rate between dollars and pounds ? conversion
+HUM:ind When was Abraham Lincoln born ? None
+DESC:manner What is the Milky Way ? Way
+DESC:manner What is mold ? mold
+NUM:other What year was Mozart born ? year
+NUM:other What is a group of frogs called ? group
+NUM:count What is the name of William Penn 's ship ? name
+DESC:def What is the melting point of gold ? melting
+ENTY:animal What is the street address of the White House ? street
+HUM:ind What is semolina ? None
+HUM:ind What fruit is Melba sauce made from ? fruit
+ENTY:substance What is Ursa Major ? Ursa
+HUM:ind What is the percentage of water content in the human body ? percentage
+ENTY:other How much does water weigh ? much
+LOC:other What was President Lyndon Johnson 's reform program called ? President
+LOC:other What is the murder rate in Windsor , Ontario ? murder
+HUM:ind Who is the only president to serve 2 non-consecutive terms ? president
+HUM:gr What is the population of Australia ? population
+ENTY:product Who painted the ceiling of the Sistine Chapel ? ceiling
+HUM:ind Name a stimulant . stimulant
+NUM:count What is the effect of volcanoes on the climate ? effect
+ENTY:techmeth What year did the Andy Griffith show begin ? year
+DESC:manner What is acid rain ? acid
+HUM:ind What is the date of Mexico 's independence ? date
+NUM:speed What is the location of Lake Champlain ? location
+ENTY:other What is the Illinois state flower ? Illinois
+HUM:ind What is Maryland 's state bird ? Maryland
+LOC:other What is quicksilver ? quicksilver
+HUM:ind Who wrote `` The Divine Comedy '' ? Divine
+NUM:date What is the speed of light ? speed
+NUM:count What is the width of a football field ? width
+DESC:reason Why in tennis are zero points called love ? None
+HUM:ind What kind of dog was Toto in the Wizard of Oz ? kind
+HUM:gr What is a thyroid ? thyroid
+DESC:def What does ciao mean ? ciao
+LOC:city What is the only artery that carries blue blood from the heart to the lungs ? artery
+DESC:def How often does Old Faithful erupt at Yellowstone National Park ? often
+ENTY:other What is acetic acid ? acid
+HUM:ind What is the elevation of St. Louis , MO ? elevation
+DESC:manner What color does litmus paper turn when it comes into contact with a strong acid ? color
+ENTY:event What are the colors of the German flag ? colors
+DESC:manner What is the Moulin Rouge ? Moulin
+NUM:speed What soviet seaport is on the Black Sea ? seaport
+HUM:ind What is the atomic weight of silver ? weight
+ENTY:animal What currency do they use in Brazil ? currency
+HUM:ind What are pathogens ? pathogens
+LOC:other What is mad cow disease ? cow
+ENTY:cremat Name a food high in zinc . high
+HUM:ind When did North Carolina enter the union ? None
+LOC:other Where do apple snails live ? None
+ENTY:event What are ethics ? ethics
+HUM:ind What does CPR stand for ? CPR
+NUM:count What is an annuity ? annuity
+HUM:ind Who killed John F. Kennedy ? John
+ABBR:abb Who was the first vice president of the U.S. ? vice
+LOC:mount What birthstone is turquoise ? birthstone
+HUM:ind Who was the first US President to ride in an automobile to his inauguration ? US
+DESC:reason How old was the youngest president of the United States ? old
+LOC:other When was Ulysses S. Grant born ? None
+NUM:count What is Muscular Dystrophy ? Dystrophy
+ENTY:dismed Who lived in the Neuschwanstein castle ? Neuschwanstein
+ENTY:cremat What is propylene glycol ? propylene
+DESC:desc What is a panic disorder ? panic
+HUM:ind Who invented the instant Polaroid camera ? Polaroid
+HUM:ind What is a carcinogen ? carcinogen
+ENTY:cremat What is a baby lion called ? baby
+LOC:other What is the world 's population ? world
+ENTY:product What is nepotism ? nepotism
+NUM:date What is die-casting ? None
+DESC:def What is myopia ? myopia
+ENTY:other What is the sales tax rate in New York ? tax
+DESC:def Developing nations comprise what percentage of the world 's population ? percentage
+NUM:count What is the fourth highest mountain in the world ? mountain
+ENTY:food What is Shakespeare 's nickname ? Shakespeare
+LOC:city What is the heaviest naturally occurring element ? element
+NUM:count When is Father 's Day ? None
+ENTY:cremat What does the acronym NASA stand for ? acronym
+ENTY:animal How long is the Columbia River in miles ? long
+DESC:desc What city 's newspaper is called `` The Star '' ? city
+DESC:manner What is carbon dioxide ? carbon
+ENTY:food Where is the Mason/Dixon line ? None
+NUM:other When was the Boston tea party ? None
+ENTY:techmeth What is metabolism ? metabolism
+ENTY:other Which U.S.A. president appeared on `` Laugh-In '' ? U.S.A.
+DESC:manner What are cigarettes made of ? cigarettes
+LOC:mount What is the capital of Zimbabwe ? capital
+LOC:other What does NASA stand for ? NASA
+LOC:country What is the state flower of Michigan ? state
+NUM:date What are semiconductors ? semiconductors
+HUM:gr What is nuclear power ? power
+ENTY:cremat What is a tsunami ? tsunami
+LOC:city Who is the congressman from state of Texas on the armed forces committee ? congressman
+HUM:ind Who was president in 1913 ? president
+DESC:reason When was the first kidney transplant ? None
+LOC:other What are Canada 's two territories ? Canada
+DESC:desc What was the name of the plane Lindbergh flew solo across the Atlantic ? name
+LOC:state What is genocide ? genocide
+DESC:desc What continent is Argentina on ? continent
+NUM:date What monastery was raided by Vikings in the late eighth century ? monastery
+HUM:ind What is an earthquake ? earthquake
+ENTY:animal Where is the tallest roller coaster located ? None
+DESC:reason What are enzymes ? enzymes
+ENTY:other Who discovered oxygen ? oxygen
+NUM:money What is bangers and mash ? bangers
+HUM:ind What is the name given to the Tiger at Louisiana State University ? name
+HUM:desc Where are the British crown jewels kept ? None
+DESC:def Who was the first person to reach the North Pole ? person
+HUM:ind What is an ulcer ? ulcer
+LOC:mount What is vertigo ? vertigo
+LOC:other What is the spirometer test ? test
+LOC:other When is the official first day of summer ? None
+ENTY:other What does the abbreviation SOS mean ? abbreviation
+DESC:reason What is the smallest bird in Britain ? bird
+ENTY:dismed Who invented Trivial Pursuit ? Pursuit
+NUM:count What gasses are in the troposphere ? gasses
+NUM:count Which country has the most water pollution ? country
+ABBR:exp What is the scientific name for elephant ? name
+DESC:def Who is the actress known for her role in the movie `` Gypsy '' ? actress
+ENTY:cremat What breed of hunting dog did the Beverly Hillbillies own ? breed
+ENTY:sport What is the rainiest place on Earth ? place
+DESC:manner Who was the first African American to win the Nobel Prize in literature ? African
+NUM:date When is St. Patrick 's Day ? None
+DESC:reason What was FDR 's dog 's name ? FDR
+HUM:ind What colors need to be mixed to get the color pink ? colors
+HUM:ind What is the most popular sport in Japan ? sport
+LOC:other What is the active ingredient in baking soda ? ingredient
+DESC:reason When was Thomas Jefferson born ? None
+HUM:ind How cold should a refrigerator be ? cold
+LOC:other When was the telephone invented ? None
+ENTY:word What is the most common eye color ? eye
+ENTY:instru Where was the first golf course in the United States ? None
+LOC:other What is schizophrenia ? schizophrenia
+DESC:reason What is angiotensin ? angiotensin
+HUM:ind What did Jesse Jackson organize ? Jesse
+ENTY:body What is New York 's state bird ? New
+LOC:country What is the National Park in Utah ? National
+HUM:ind What is Susan B. Anthony 's birthday ? Susan
+NUM:speed In which state would you find the Catskill Mountains ? state
+LOC:other What do you call a word that is spelled the same backwards and forwards ? word
+LOC:other What are pediatricians ? pediatricians
+ENTY:cremat What chain store is headquartered in Bentonville , Arkansas ? chain
+HUM:ind What are solar cells ? cells
+ENTY:cremat What is compounded interest ? interest
+LOC:other What are capers ? capers
+HUM:desc What is an antigen ? antigen
+ENTY:lang What currency does Luxembourg use ? currency
+HUM:ind What is the population of Venezuela ? population
+DESC:def What type of polymer is used for bulletproof vests ? type
+ENTY:cremat What currency does Argentina use ? currency
+HUM:gr What is a thermometer ? thermometer
+NUM:count What Canadian city has the largest population ? Canadian
+ENTY:food What color are crickets ? color
+ENTY:termeq Which country gave New York the Statue of Liberty ? country
+DESC:desc What was the name of the first U.S. satellite sent into space ? name
+DESC:reason What precious stone is a form of pure carbon ? stone
+NUM:date What kind of gas is in a fluorescent bulb ? kind
+HUM:ind What is rheumatoid arthritis ? arthritis
+ENTY:cremat What river runs through Rowe , Italy ? river
+ENTY:other What is cerebral palsy ? palsy
+HUM:ind What city is also known as `` The Gateway to the West '' ? city
+HUM:gr How far away is the moon ? far
+LOC:city What is the source of natural gas ? source
+HUM:ind In what spacecraft did U.S. astronaut Alan Shepard make his historic 1961 flight ? spacecraft
+ENTY:food What is pectin ? pectin
+HUM:ind What is bio-diversity ? bio-diversity
+LOC:other What 's the easiest way to remove wallpaper ? way
+NUM:count What year did the Titanic start on its journey ? year
+HUM:ind How much of an apple is water ? much
+ENTY:cremat Who was the 22nd President of the US ? President
+DESC:reason What is the money they use in Zambia ? money
+DESC:def How many feet in a mile ? many
+HUM:ind What is the birthstone of October ? birthstone
+HUM:gr What is e-coli ? e-coli
