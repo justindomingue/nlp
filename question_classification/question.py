@@ -10,10 +10,10 @@ from nltk import word_tokenize
 from string import punctuation
 
 wordnet_lemmatizer = WordNetLemmatizer()
-stop = stopwords.words('english') + list(punctuation)
+# stop = stopwords.words('english') + list(punctuation)
 
-print 'Loading BLLIP reranking parser...'
-rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
+# print 'Loading BLLIP reranking parser...'
+# rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
 
 class Question:
     """Question
@@ -129,8 +129,6 @@ class Question:
         head = HeadFinder(self.words).semantic_head()
         self.head = head
 
-        print head,': ',self.text
-
         return head
 
     ### HYPERNYM
@@ -140,14 +138,17 @@ class Question:
         pos = 'n'
 
         # 2. Which sense of the word is needed to be augmented
-        sense = wn.synsets(self.head_word, pos)[0]  # get the best sense. Performance of ~55%, better than most Lesk algorithms
+        try:
+            sense = wn.synsets(self.head_word, pos)[0]  # get the best sense. Performance of ~55%, better than most Lesk algorithms
 
-        for _ in range(level):
-            hypernyms = sense.hypernyms()
-            if len(hypernyms)==0: break
-            sense = hypernyms[0]
+            for _ in range(level):
+                hypernyms = sense.hypernyms()
+                if len(hypernyms)==0: break
+                sense = hypernyms[0]
 
-        return sense
+            return sense.name()
+        except IndexError:
+            return ''
 
     ### OTHER
     def __repr__(self):

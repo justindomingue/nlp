@@ -1,3 +1,54 @@
+WH-WORD + HEAD WORD
+
+    COARSE
+        0.2
+                     precision    recall  f1-score   support
+
+               ABBR       0.00      0.00      0.00        11
+               DESC       0.34      0.10      0.15       113
+               ENTY       0.22      0.47      0.30       113
+                HUM       0.20      0.11      0.14       110
+                LOC       0.15      0.14      0.15        78
+                NUM       0.14      0.17      0.15        75
+
+        avg / total       0.22      0.20      0.18       500
+
+        clf__alpha: 0.0001
+        clf__loss: hinge
+
+WH-WORD + HEAD WORD + HYPERNYM
+
+D=3
+    COARSE
+        0.212
+                     precision    recall  f1-score   support
+               ABBR       0.00      0.00      0.00        11
+               DESC       0.25      0.34      0.28       113
+               ENTY       0.25      0.19      0.21       113
+                HUM       0.24      0.19      0.21       110
+                LOC       0.15      0.14      0.15        78
+                NUM       0.15      0.20      0.17        75
+
+        avg / total       0.21      0.21      0.21       500
+
+        clf__alpha: 0.001
+        clf__loss: modified_huber
+D=6
+    COARSE
+        0.196
+                     precision    recall  f1-score   support
+               ABBR       0.00      0.00      0.00        11
+               DESC       0.23      0.22      0.22       113
+               ENTY       0.22      0.26      0.24       113
+                HUM       0.22      0.16      0.19       110
+                LOC       0.15      0.14      0.15        78
+                NUM       0.15      0.20      0.17        75
+
+        avg / total       0.20      0.20      0.19       500
+
+        clf__alpha: 0.001
+        clf__loss: modified_huber
+
 WORD SHAPE
 ----------
 
