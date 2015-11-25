@@ -10,7 +10,7 @@ from nltk import word_tokenize
 from string import punctuation
 
 wordnet_lemmatizer = WordNetLemmatizer()
-# stop = stopwords.words('english') + list(punctuation)
+stop = stopwords.words('english')
 
 # print 'Loading BLLIP reranking parser...'
 # rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
@@ -69,10 +69,11 @@ class Question:
     def normalize(self, words):
         normalized = []
         for word in words:
+            word = word.lower()
             word = wordnet_lemmatizer.lemmatize(word)
-            # word = word.lower()
             normalized.append(word)
-        # words = [word for word in words if word not in stop]
+        normalized = [word for word in normalized if word not in punctuation]
+        # normalized = [word for word in normalized if word not in stop]
 
         return ' '.join(normalized)
 

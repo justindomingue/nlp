@@ -51,13 +51,18 @@ class WordShapeExtractor(BaseEstimator, TransformerMixin):
 
 class TextExtractor(BaseEstimator, TransformerMixin):
     """ Extract text from each question to be used for language modelling """
+    def __init__(self, normalized=False):
+        self.normalized = normalized
 
     def fit(self, x, y=None):
         return self
 
     def transform(self, questions):
-        print 'TextExtractor> transforming'
-        return [q.normalized_text for q in questions]
+        print 'TextExtractor> transforming '
+        if self.normalized:
+            return [q.normalized_text for q in questions]
+        else:
+            return [q.text for q in questions]
 
 
 
@@ -123,7 +128,7 @@ if __name__ == "__main__":
     dev_labels, dev_questions = load_instances(dev_filename, head_present=not extract_head)
     test_labels, test_questions = load_instances(test_filename, head_present=not extract_head)
 
-    dev  = {"data": dev_questions,  "target": [l.get(granularity) for l in dev_labels]},
+    dev  = {"data": dev_questions,  "target": [l.get(granularity) for l in dev_labels]}
     test = {"data": test_questions, "target": [l.get(granularity) for l in test_labels]}
 
     ##########
@@ -134,59 +139,62 @@ if __name__ == "__main__":
         extract_heads_persistent(dev_labels, test_questions, test_filename)
         exit()
 
-    parameters = {'union__ngrams__vect__ngram_range': [(1,1), (1,2), (1,3), (1,4), (1,5)],
-                  'union__ngrams__vect__stop_words': ('english', None),
-                  'union__ngrams__tfidf__use_idf': (True, False),
-                  'union__ngrams__tfidf__norm': ('l1', 'l2'),
-                  'union__word_shape__vect__ngram_range': [(1,1), (1,2), (1,3), (1,4), (1,5)],
-                  'union__word_shape__vect__stop_words': ('english', None),
-                  'union__word_shape__tfidf__use_idf': (True, False),
-                  'union__word_shape__tfidf__norm': ('l1', 'l2'),
-                  'clf__alpha': (1e-1, 1e-2, 1e-3, 1e-4),
-                  'clf__loss': ('hinge', 'modified_huber', 'log', 'squared_hinge', 'perceptron'),
+    parameters = {'union__ngrams__vect__ngram_range': [(1,1), (1,2)],
+                  # 'union__ngrams__vect__stop_words': ('english', None),
+                  # 'union__ngrams__tfidf__use_idf': (True, False),
+                  # 'union__ngrams__tfidf__norm': ('l1', 'l2'),
+                  'union__ngrams__extractor__normalized': (True, False),
+                  # 'union__word_shape__vect__ngram_range': [(1,1), (1,2)],
+                  # 'union__word_shape__vect__stop_words': ('english', None),
+                  # 'union__word_shape__tfidf__use_idf': (True, False),
+                  # 'union__word_shape__tfidf__norm': ('l1', 'l2'),
+                  # 'clf__alpha': (1e-1, 1e-2, 1e-3, 1e-4),
+                  'clf__loss': ('hinge', 'modified_huber'), #'log', 'squared_hinge', 'perceptron'),
                   }
 
     pipeline = Pipeline([
         # Use FeatureUnion to combine the features
         ('union', FeatureUnion(
             transformer_list=[
-
-                # WH-WORD AND HEAD WORDS
-                ('wh+head-word', Pipeline([
-                    ('selector', HeadWordExtractorPlus(semantic_features=False, wordnet_depth=1)),
-                    ('vect', DictVectorizer())
-                ])),
-
-                # WORD SHAPE
-                ('word_shape', Pipeline([
-                    ('selector', WordShapeExtractor()),
-                    ('vect', CountVectorizer()),
-                    ('tfidf', TfidfTransformer()),
-                    # ('best')  #TODO
-                ])),
+                #
+                # # WH-WORD AND HEAD WORDS
+                # ('wh+head-word', Pipeline([
+                #     ('selector', HeadWordExtractorPlus(semantic_features=False, wordnet_depth=1)),
+                #     ('vect', DictVectorizer())
+                # ])),
+                #
+                # # WORD SHAPE
+                # ('word_shape', Pipeline([
+                #     ('selector', WordShapeExtractor()),
+                #     ('vect', CountVectorizer(ngram_range=(1,5))),
+                #     ('tfidf', TfidfTransformer(use_idf=True, norm='l2')),
+                #     # ('best')  #TODO
+                # ])),
 
                 # N-GRAMS
                 ('ngrams', Pipeline([
-                    ('selector', TextExtractor()),       # returns a list of strings
-                    ('vect', CountVectorizer()),
-                    ('tfidf', TfidfTransformer()),
-                    # ('best',) #TODO
+                    ('extractor', TextExtractor()),       # returns a list of strings
+                    ('vect', CountVectorizer(analyzer='word', strip_accents='ascii')),
+                    ('tfidf', TfidfTransformer(use_idf=True, norm='l2')), #TODO
                 ])),
             ],
 
-            transformer_weights= {
-                'wh+head-word'  : 1.0,
-                'word_shape'    : 1.0,
-                'ngrams'        : 1.0,
-            },
+            # transformer_weights= {
+            #     'wh+head-word'  : 1.0,
+            #     'word_shape'    : 1.0,
+            #     'ngrams'        : 1.0,
+            # },
         )),
 
-        ('clf', SGDClassifier(shuffle=True, n_jobs=-1, verbose=1)),  # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+        ('clf', SGDClassifier(n_jobs=-1, verbose=0, alpha=1e-4)),  # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
     ])
 
+    # clf = pipeline.fit(dev['data'], dev['target'])
+    # predicted = clf.predict(test['data'])
 
     gs_clf = GridSearchCV(pipeline, parameters, n_jobs=1)
     _ = gs_clf.fit(dev['data'], dev['target'])
+
     predicted = gs_clf.predict(test['data'])
 
     print accuracy_score(test["target"], predicted)
