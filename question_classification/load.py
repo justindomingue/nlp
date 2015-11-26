@@ -121,8 +121,8 @@ if __name__ == "__main__":
 
     extract_head = False # load the question list, and extract heads with persistence
 
-    granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
-    # granularity = 'fine'
+    # granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
+    granularity = 'fine'
 
     # Load the data set (label, question)
     dev_labels, dev_questions = load_instances(dev_filename, head_present=not extract_head)
@@ -143,7 +143,7 @@ if __name__ == "__main__":
                   # 'union__ngrams__vect__stop_words': ('english', None),
                   # 'union__ngrams__tfidf__use_idf': (True, False),
                   # 'union__ngrams__tfidf__norm': ('l1', 'l2'),
-                  'union__ngrams__extractor__normalized': (True, False),
+                  # 'union__ngrams__extractor__normalized': (True, False),
                   # 'union__word_shape__vect__ngram_range': [(1,1), (1,2)],
                   # 'union__word_shape__vect__stop_words': ('english', None),
                   # 'union__word_shape__tfidf__use_idf': (True, False),
@@ -173,7 +173,7 @@ if __name__ == "__main__":
 
                 # N-GRAMS
                 ('ngrams', Pipeline([
-                    ('extractor', TextExtractor()),       # returns a list of strings
+                    ('extractor', TextExtractor(normalized=True)),       # returns a list of strings
                     ('vect', CountVectorizer(analyzer='word', strip_accents='ascii')),
                     ('tfidf', TfidfTransformer(use_idf=True, norm='l2')), #TODO
                 ])),
