@@ -121,8 +121,8 @@ if __name__ == "__main__":
 
     extract_head = False # load the question list, and extract heads with persistence
 
-    # granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
-    granularity = 'fine'
+    granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
+    # granularity = 'fine'
 
     # Load the data set (label, question)
     dev_labels, dev_questions = load_instances(dev_filename, head_present=not extract_head)
@@ -139,22 +139,22 @@ if __name__ == "__main__":
         extract_heads_persistent(dev_labels, test_questions, test_filename)
         exit()
 
-    parameters = {'union__ngrams__vect__ngram_range': [(1,1), (1,2)],
-                  # 'union__ngrams__vect__stop_words': ('english', None),
-                  # 'union__ngrams__tfidf__use_idf': (True, False),
-                  # 'union__ngrams__tfidf__norm': ('l1', 'l2'),
-                  # 'union__ngrams__extractor__normalized': (True, False),
-                  # 'union__word_shape__vect__ngram_range': [(1,1), (1,2)],
-                  # 'union__word_shape__vect__stop_words': ('english', None),
-                  # 'union__word_shape__tfidf__use_idf': (True, False),
-                  # 'union__word_shape__tfidf__norm': ('l1', 'l2'),
-                  # 'clf__alpha': (1e-1, 1e-2, 1e-3, 1e-4),
+    parameters = {'features__ngrams__vect__ngram_range': [(1,1), (1,2)],
+                  # 'features__ngrams__vect__stop_words': ('english', None),
+                  # 'features__ngrams__tfidf__use_idf': (True, False),
+                  # 'features__ngrams__tfidf__norm': ('l1', 'l2'),
+                  # 'features__ngrams__extractor__normalized': (True, False),
+                  # 'features__word_shape__vect__ngram_range': [(1,1), (1,2)],
+                  # 'features__word_shape__vect__stop_words': ('english', None),
+                  # 'features__word_shape__tfidf__use_idf': (True, False),
+                  # 'features__word_shape__tfidf__norm': ('l1', 'l2'),
+                  'clf__alpha': (1e-3, 1e-4),
                   'clf__loss': ('hinge', 'modified_huber'), #'log', 'squared_hinge', 'perceptron'),
                   }
 
     pipeline = Pipeline([
         # Use FeatureUnion to combine the features
-        ('union', FeatureUnion(
+        ('features', FeatureUnion(
             transformer_list=[
                 #
                 # # WH-WORD AND HEAD WORDS
@@ -186,21 +186,21 @@ if __name__ == "__main__":
             # },
         )),
 
-        ('clf', SGDClassifier(n_jobs=-1, verbose=0, alpha=1e-4)),  # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+        ('clf', SGDClassifier(n_jobs=-1, verbose=0)),  # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
     ])
 
-    # clf = pipeline.fit(dev['data'], dev['target'])
-    # predicted = clf.predict(test['data'])
+    clf = pipeline.fit(dev['data'], dev['target'])
+    predicted = clf.predict(test['data'])
 
-    gs_clf = GridSearchCV(pipeline, parameters, n_jobs=1)
-    _ = gs_clf.fit(dev['data'], dev['target'])
+    # gs_clf = GridSearchCV(pipeline, parameters, n_jobs=1)
+    # _ = gs_clf.fit(dev['data'], dev['target'])
 
-    predicted = gs_clf.predict(test['data'])
+    predicted = clf.predict(test['data'])
 
     print accuracy_score(test["target"], predicted)
     print classification_report(test["target"], predicted)
 
-    best_parameters, score, _ = max(gs_clf.grid_scores_, key=lambda x: x[1])
-    for param_name in sorted(parameters.keys()):
-        print "{0}: {1}".format(param_name, best_parameters[param_name])
+    # best_parameters, score, _ = max(gs_clf.grid_scores_, key=lambda x: x[1])
+    # for param_name in sorted(parameters.keys()):
+    #     print "{0}: {1}".format(param_name, best_parameters[param_name])
 
