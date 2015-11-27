@@ -10,17 +10,15 @@ from nltk import word_tokenize
 from string import punctuation
 
 wordnet_lemmatizer = WordNetLemmatizer()
-stop = stopwords.words('english')
+# stop = stopwords.words('english')
 
-# print 'Loading BLLIP reranking parser...'
-# rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
+print 'Loading BLLIP reranking parser...'
+rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
 
 class Question:
     """Question
 
     Encapsulates a question
-            print label
-            print  text.strip()
 
     Attributes:
         text (string): text of the question
@@ -101,6 +99,12 @@ class Question:
         return [self.shape(word) for word in self.words[:-1]]
 
     ### HEAD WORD
+
+    @property
+    def tree(self):
+        tree = rrp.simple_parse(self.words)
+        print tree
+        return tree
 
     @property
     def head_word(self):

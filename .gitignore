@@ -1,2 +1,4 @@
 *.idea
 *.pyc
+question_classification/resources
+question_classification/resources/*

@@ -1,0 +1,51 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import codecs
+import sys
+import json
+from question_classification.resources.stanford_corenlp_python.jsonrpc import ServerProxy, JsonRpc20, TransportTcpIp, RPCTransportError
+
+
+class StanfordNLP:
+    def __init__(self):
+        self.server = ServerProxy(JsonRpc20(),
+                                  TransportTcpIp(addr=("127.0.0.1", 8080)))
+
+    def parse(self, text):
+        try:
+            return json.loads(self.server.parse(text))
+        except RPCTransportError:
+            print 'Error parsing. Is the server up at 127.0.0.1:8080?'
+            exit()
+
+if __name__ == "__main__":
+    print 'Head Finder'
+
+    if len(sys.argv) is 1:
+        print 'Usage: head_finder filename (<type>HeadFinder)'
+        exit()
+
+    filename = sys.argv[1]
+
+    try:
+        head_finder = sys.argv[2]
+    except IndexError:
+        print 'Using SemanticHeadFinder'
+        head_finder = 'SemanticHeadFinder'
+
+    heads = []
+    with codecs.open(filename, 'r', encoding='ascii') as file:
+        nlp = StanfordNLP()
+
+        for line in file:
+            _, text = line.split(' ', 1)
+            result = nlp.parse(text.strip())
+            print result['sentences'][0]['parsetree']
+
+            # heads_ = [s['parsetree'] for s in result['sentences']]
+            # heads.append(heads_)
+            #
+            # print "{0} : {1}".format(heads_, line)
+
+
