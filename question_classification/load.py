@@ -114,11 +114,12 @@ def extract_heads_persistent(labels, questions, filename):
             print>>file, "{0} {1} {2}".format(item[0], item[1], item[2])
 
 def extract_trees_persistent(questions, filename):
+    print 'Extracting trees from {0}'.format(filename)
     trees = [q.tree for q in questions]
 
     name, extension = filename.split('.')
     f = "{0}+trees.{1}".format(name, extension)
-    with codecs.open(filename, 'w') as file:
+    with codecs.open(f, 'w') as file:
         for t in trees:
             print>>file, t
 
@@ -137,8 +138,8 @@ if __name__ == "__main__":
     dev_labels, dev_questions = load_instances(dev_filename, head_present=load_heads)
     test_labels, test_questions = load_instances(test_filename, head_present=load_heads)
 
-    dev  = {"data": dev_questions,  "target": [l.get(granularity) for l in dev_labels]}
     test = {"data": test_questions, "target": [l.get(granularity) for l in test_labels]}
+    dev  = {"data": dev_questions,  "target": [l.get(granularity) for l in dev_labels]}
 
     ##########
     # Routine to extra the heads of the questions so they don't need to be extracted every time
@@ -148,7 +149,6 @@ if __name__ == "__main__":
         extract_heads_persistent(test_labels, test_questions, test_filename)
         exit()
     if extract_trees:
-        print 'Extracting trees from {0} and {1}'.format(dev_filename, test_filename)
         extract_trees_persistent(dev_questions, dev_filename)
         extract_trees_persistent(test_questions, test_filename)
         exit()
