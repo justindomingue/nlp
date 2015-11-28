@@ -12,23 +12,19 @@ class TestCollinsHeadFinder(unittest.TestCase):
 
         trees = [
             "(S1 (S (WHNP (WP What) (NN year)) (VP (VBD did) (S (NP (DT the) (NNP Titanic)) (VP (VB sink))))))",
-            "(S1 (SBARQ (WHADVP (WRB How)) (SQ (VBD did) (NP (NN serfdom)) (VP (VP (VB develop) (PRT (RP in))) (CC and) (RB then) (VP (VB leave) (NP (NNP Russia))))) (. ?)))",
-            "(S1 (SBARQ (WHNP (WDT What) (NNS films)) (SQ (VP (VBD featured) (NP (DT the) (NN character)) (NP (NNP Popeye) (NNP Doyle)))) (. ?)))",
-            "(S1 (SBARQ (WHADVP (WRB How)) (SQ (MD can) (NP (PRP I)) (VP (VB find) (NP (NP (DT a) (NN list)) (PP (IN of) (NP (NP (NNS celebrities) (POS ')) (JJ real) (NNS names)))))) (. ?)))",
-            "(S1 (S (NP (WP What) (NN fowl)) (VP (NNS grabs) (NP (DT the) (NN spotlight)) (PP (IN after) (NP (NP (DT the) (NNP Chinese) (NNP Year)) (PP (IN of) (NP (DT the) (NNP Monkey)))))) (. ?)))",
-            "(S1 (SBARQ (WHNP (WP What)) (SQ (VP (VBZ is) (NP (NP (DT the) (JJ full) (NN form)) (PP (IN of) (NP (NN .com)))))) (. ?)))",
-            "(S1 (SBARQ (WHNP (WP What) (JJ contemptible) (NN scoundrel)) (SQ (VP (VBD stole) (NP (DT the) (NN cork)) (PP (IN from) (NP (PRP$ my) (NN lunch))))) (. ?)))",
+            "(S1 (SBARQ (WHADVP (WRB How) (RB far)) (SQ (VBZ is) (NP (PRP it)) (PP (PP (IN from) (NP (NNP Denver))) (PP (TO to) (NP (NNP Aspen))))) (. ?)))",
+            "(S1 (SBARQ (WHNP (WP What) (NN county)) (SQ (VBZ is) (NP (NP (NNP Modesto)) (, ,) (NP (NNP California))) (ADVP (RB in))) (. ?)))",
+            "(S1 (SBARQ (WHNP (WP Who)) (SQ (VP (VBD was) (NP (NNP Galileo)))) (. ?)))",
+            "(S1 (SBARQ (WHNP (WP What)) (SQ (VBZ is) (NP (DT an) (NN atom))) (. ?)))",
+            "(S1 (SBARQ (WHADVP (WRB When)) (SQ (VBD did) (NP (NNP Hawaii)) (VP (VB become) (NP (DT a) (NN state)))) (. ?)))",
+            "(S1 (SBARQ (WHNP (WRB How) (JJ tall)) (SQ (VP (VBZ is) (NP (DT the) (NNP Sears) (NNP Building)))) (. ?)))",
+            "(S1 (S (NP (NNP George) (NNP Bush)) (VP (VBD purchased) (NP (NP (DT a) (JJ small) (NN interest)) (PP (IN in) (WHNP (WDT which) (NN baseball) (NN team))))) (. ?)))",
+            "(S1 (SBARQ (WHNP (WP What)) (SQ (VBZ is) (NP (NP (NNP Australia) (POS 's)) (JJ national) (NN flower))) (. ?)))",
+            "(S1 (SBARQ (WHADVP (WRB Why)) (SQ (VBZ does) (NP (DT the) (NN moon)) (VP (VB turn) (NP (NN orange)))) (. ?)))",
+            "(S1 (SBARQ (WHNP (WP What)) (SQ (VBZ is) (NP (NN autism))) (. ?)))",
         ]
 
-        heads = [
-            "did",
-            "did",
-            "featured",
-            "find",
-            "grabs",
-            "is",
-            "stole"
-        ]
+        heads = [ "did", "is", "is", "was", "is", "did", "is", "purchased", "is", "does", "is", ]
 
         assert len(heads) == len(trees)
 
