@@ -3,17 +3,18 @@
 
 import re
 from collections import defaultdict as dd
-from bllipparser import RerankingParser, Tree, tokenize
+# from bllipparser import RerankingParser, Tree, tokenize
 from nltk.corpus import stopwords, wordnet as wn
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
 from string import punctuation
+from semantics.head_finder import SemanticHeadFinder
 
 wordnet_lemmatizer = WordNetLemmatizer()
 # stop = stopwords.words('english')
 
-print 'Loading BLLIP reranking parser...'
-rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
+# print 'Loading BLLIP reranking parser...'
+# rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
 
 class Question:
     """Question
@@ -49,7 +50,9 @@ class Question:
         }
     }
 
-    def __init__(self, question, head=None):
+    head_finder = SemanticHeadFinder()
+
+    def __init__(self, question, head=None, tree=None):
         """
         Creates a Question
         :param question: question text. Must be ended with a ' ?'
@@ -62,7 +65,8 @@ class Question:
         wh_word = self.words[0].lower()
         self.type = wh_word if wh_word in Question.types[:-1] else Question.types[-1]
 
-        self.head = head
+        self._head = head
+        self._tree = tree
 
     def normalize(self, words):
         normalized = []
@@ -102,18 +106,15 @@ class Question:
 
     @property
     def tree(self):
-        tree = rrp.simple_parse(self.words)
-        print tree
-        return tree
+        if self._tree is None:
+            tree = rrp.simple_parse(self.words)
+        return self._tree
 
     @property
     def head_word(self):
         """head_word Gets the head word of the question
         From Huang et al. 2008)
         """
-
-        # If head word already found, return it
-        if self.head is not None: return self.head
 
         # Find the head word
 
@@ -131,8 +132,8 @@ class Question:
         if self.type == 'who' and re.match(Question.patterns['set2']['HUM:desc'], self.text):
             return 'HUM:desc'
 
-        head = HeadFinder(self.words).semantic_head()
-        self.head = head
+        head = Question.head_finder.determine_head(self.tree)
+        self._head = head
 
         return head
 

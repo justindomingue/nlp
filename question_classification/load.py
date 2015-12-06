@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
     load_heads = False
     extract_head = False    # load the question list, and extract heads with persistence
-    extract_trees = True    # load the question list, and extract trees with persistence
+    extract_trees = False # load the question list, and extract trees with persistence
 
     granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
     # granularity = 'fine'
