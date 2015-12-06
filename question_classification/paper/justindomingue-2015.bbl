@@ -1,0 +1,40 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{Huang \bgroup et al.\egroup }2008]{huang}
+Zhiheng Huang, Marcus Thint, and Zengchang Qin.
+\newblock 2008.
+\newblock Question classification using head words and their hypernyms.
+\newblock In {\em Proceedings of the Conference on Empirical Methods in Natural
+  Language Processing}, EMNLP '08, pages 927--936, Stroudsburg, PA, USA.
+  Association for Computational Linguistics.
+
+\bibitem[\protect\citename{Khoury}2011]{Khoury}
+Richard Khoury.
+\newblock 2011.
+\newblock Question type classification using a part-of-speech hierarchy.
+\newblock In Mohamed Kamel, Fakhri Karray, Wail Gueaieb, and Alaa Khamis,
+  editors, {\em Autonomous and Intelligent Systems}, volume 6752 of {\em
+  Lecture Notes in Computer Science}, pages 212--221. Springer Berlin
+  Heidelberg.
+
+\bibitem[\protect\citename{Li and Roth}2006]{li}
+Xin Li and Dan Roth.
+\newblock 2006.
+\newblock Learning question classifiers: The role of semantic information.
+\newblock {\em Nat. Lang. Eng.}, 12(3):229--249, September.
+
+\bibitem[\protect\citename{Pinto \bgroup et al.\egroup }2002]{pinto}
+David Pinto, Michael Branstein, Ryan Coleman, W.~Bruce Croft, Matthew King, Wei
+  Li, and Xing Wei.
+\newblock 2002.
+\newblock Quasm: A system for question answering using semi-structured data.
+\newblock In {\em In Proceedings of the Joint Conference on Digital Libraries
+  (JCDL) 2002}, pages 46--55.
+
+\bibitem[\protect\citename{Sundblad}2007]{sunblad}
+H{\aa}kan Sundblad.
+\newblock 2007.
+\newblock {\em Question Classification in Question Answering Systems}.
+\newblock {Ph.D.} thesis, Link{\"o}ping Studies in Science and Technology.
+
+\end{thebibliography}

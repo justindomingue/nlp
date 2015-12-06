@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage{acl2014}
+\usepackage{times}
+\usepackage{url}
+\usepackage{latexsym}
+
+%\setlength\titlebox{5cm}
+
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+
+\title{Question Type Classification using Head Words and Hypernyms}
+
+\author{Justin Domingue --
+  260588454 \\
+  {\tt justin.domingue@mail.mcgill.ca}
+  }
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+  This document contains the instructions for preparing a camera-ready
+  manuscript for the proceedings of ACL-2014. The document itself
+  conforms to its own specifications, and is therefore an example of
+  what your manuscript should look like. These instructions should be
+  used for both papers submitted for review and for final versions of
+  accepted papers.  Authors are asked to conform to all the directions
+  reported in this document.
+\end{abstract}
+
+\section{Introduction}
+
+Users have more and more expectations for web engines, requiring them not only to understand the nuances of languages better but also to give more meaningful answers to queries. By amassing a greater amount of knowledge in the Web, these engines become increasingly smarter. However, without some deeper analysis of that internal knowledge, web engines seem reach a plateau in terms of the meaningfulness of the information retrieved. The next step in information retrieval is to extract concise and succinct answers to user queries rather than giving back entire documents \cite{sunblad}.
+
+A Question Answering (QA) system can be built to respond to natural language questions by retrieving the relevant information from stored documents. However, without some sort of question classification, the range of answers is quite large. Question type classification plays a crucial role is bounding the type of the answers given by the QA. For instance, the answer to the question ?Where is Canada? should be a Location:city while that of ?Who is the president of the United States? should be a Human:ind. It is then unavailing to answer a question with the wrong type of answer. 
+
+Question type classification is then defined as ``the task of determining the correct type of the answer expected to a given query.'' \cite{Khoury} There are few ways of accomplishing this task. One could use rule-based classification; or a machine learning approach -- learning from a labeled data set. It seems obvious that simple rules cannot account for all the nuances of English syntax. Take for example a rule-based classification system which would attribute questions with a particular wh-word to a given category. Consider the sentences \textit{What is the capital of Canada?} and \textit{What is an espresso?}. The first sentence is of location (city) type while the second is of definition type. Clearly, a more sophisticated set of rules would need to be devised. On the other hand, a statistical approach has the advantage that "one can focus on designing insightful features, and rely on learning process to efficiently and effectively cope with the features." \cite{huang}.
+\\
+Work on machine learning approaches to question classification was initiated by Li and Roth in 2002 \cite{li}. Other work in this area include \cite{pinto} who employed entity tagging, part of speech tagging, regular expressions and language models, \cite{sunblad} who carried out a performance analysis of various machine learning algorithms applied to the question classification task, \cite{khoury} who introduced a Part-of-Speech Hierarchy coupled with informer spans. 
+\\
+More related to this paper, Huang et al. (2008) have built upon the work of Li and Roth and defined new features, namely head words and their hypernyms. They have found a significant increase of the model accuracy. In this paper, we follow the path of Huang et al. to confirm their results.
+
+\section{Classifiers}
+
+\section{Features}
+
+\section{Experimental Results}
+
+\section{Conclusion}
+
+% include your own bib file like this:
+\bibliographystyle{acl}
+\bibliography{bibliography}
+
+\end{document}
