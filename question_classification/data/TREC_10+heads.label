@@ -1,500 +1,500 @@
-DESC:manner How far is it from Denver to Aspen ? far
-ENTY:cremat What county is Modesto , California in ? county
-DESC:manner Who was Galileo ? Galileo
-ENTY:animal What is an atom ? atom
-ABBR:exp When did Hawaii become a state ? None
-HUM:ind How tall is the Sears Building ? tall
-HUM:gr George Bush purchased a small interest in which baseball team ? interest
-HUM:title What is Australia 's national flower ? Australia
-DESC:def Why does the moon turn orange ? None
-HUM:ind What is autism ? autism
-NUM:date What city had a world fair in 1900 ? fair
-DESC:reason What person 's head is on a dime ? person
-HUM:ind What is the average weight of a Yellow Labrador ? weight
+NUM:dist How far is it from Denver to Aspen ? far
+LOC:city What county is Modesto , California in ? county
+HUM:desc Who was Galileo ? Galileo
+DESC:def What is an atom ? atom
+NUM:date When did Hawaii become a state ? None
+NUM:dist How tall is the Sears Building ? tall
+HUM:gr George Bush purchased a small interest in which baseball team ? Bush
+ENTY:plant What is Australia 's national flower ? flower
+DESC:reason Why does the moon turn orange ? None
+DESC:def What is autism ? autism
+LOC:city What city had a world fair in 1900 ? city
+HUM:ind What person 's head is on a dime ? head
+NUM:weight What is the average weight of a Yellow Labrador ? weight
 HUM:ind Who was the first man to fly across the Pacific Ocean ? man
-ENTY:event When did Idaho become a state ? None
-LOC:state What is the life expectancy for crickets ? life
-DESC:desc What metal has the highest melting point ? metal
-NUM:count Who developed the vaccination against polio ? vaccination
+NUM:date When did Idaho become a state ? None
+NUM:other What is the life expectancy for crickets ? crickets
+ENTY:substance What metal has the highest melting point ? metal
+HUM:ind Who developed the vaccination against polio ? vaccination
 DESC:def What is epilepsy ? epilepsy
-DESC:def What year did the Titanic sink ? year
-NUM:date Who was the first American to walk in space ? American
-ENTY:other What is a biosphere ? biosphere
-HUM:ind What river in the US is known as the Big Muddy ? river
-DESC:desc What is bipolar disorder ? disorder
-DESC:desc What is cholesterol ? cholesterol
-ENTY:letter Who developed the Macintosh computer ? Macintosh
-HUM:ind What is caffeine ? caffeine
+NUM:date What year did the Titanic sink ? year
+HUM:ind Who was the first American to walk in space ? space
+DESC:def What is a biosphere ? biosphere
+LOC:other What river in the US is known as the Big Muddy ? river
+DESC:def What is bipolar disorder ? disorder
+DESC:def What is cholesterol ? cholesterol
+HUM:ind Who developed the Macintosh computer ? computer
+DESC:def What is caffeine ? caffeine
 LOC:other What imaginary line is halfway between the North and South Poles ? line
-ENTY:other Where is John Wayne airport ? None
-LOC:state What hemisphere is the Philippines in ? hemisphere
-ABBR:exp What is the average speed of the horses at the Kentucky Derby ? speed
-ENTY:other Where are the Rocky Mountains ? None
-NUM:count What are invertebrates ? invertebrates
-HUM:gr What is the temperature at the center of the earth ? temperature
-NUM:count When did John F. Kennedy get elected as President ? None
-DESC:desc How old was Elvis Presley when he died ? old
-NUM:date Where is the Orinoco River ? None
-ENTY:religion How far is the service line from the net in tennis ? far
-LOC:other How much fiber should you have per day ? much
-ENTY:animal How many Great Lakes are there ? many
-DESC:manner Material called linen is made from what plant ? Material
-ENTY:other What is Teflon ? Teflon
-NUM:count What is amitriptyline ? amitriptyline
-NUM:count What is a shaman ? shaman
-DESC:manner What is the proper name for a female walrus ? name
-HUM:ind What is a group of turkeys called ? group
-ENTY:food How long did Rip Van Winkle sleep ? long
-HUM:gr What are triglycerides ? triglycerides
-DESC:manner How many liters in a gallon ? many
-ENTY:other What is the name of the chocolate company in San Francisco ? name
-LOC:country What are amphibians ? amphibians
-DESC:def Who discovered x-rays ? x-rays
+LOC:other Where is John Wayne airport ? None
+LOC:other What hemisphere is the Philippines in ? hemisphere
+NUM:speed What is the average speed of the horses at the Kentucky Derby ? horses
+LOC:mount Where are the Rocky Mountains ? None
+DESC:def What are invertebrates ? invertebrates
+NUM:temp What is the temperature at the center of the earth ? earth
+NUM:date When did John F. Kennedy get elected as President ? None
+NUM:period How old was Elvis Presley when he died ? old
+LOC:other Where is the Orinoco River ? None
+NUM:dist How far is the service line from the net in tennis ? far
+NUM:count How much fiber should you have per day ? much
+NUM:count How many Great Lakes are there ? many
+ENTY:plant Material called linen is made from what plant ? linen
+DESC:def What is Teflon ? Teflon
+DESC:def What is amitriptyline ? amitriptyline
+DESC:def What is a shaman ? shaman
+ENTY:animal What is the proper name for a female walrus ? walrus
+ENTY:animal What is a group of turkeys called ? turkeys
+NUM:period How long did Rip Van Winkle sleep ? long
+DESC:def What are triglycerides ? triglycerides
+NUM:count How many liters in a gallon ? many
+HUM:gr What is the name of the chocolate company in San Francisco ? company
+DESC:def What are amphibians ? amphibians
+HUM:ind Who discovered x-rays ? x-rays
 HUM:ind Which comedian 's signature line is `` Can we talk '' ? comedian
-DESC:desc What is fibromyalgia ? fibromyalgia
-HUM:ind What is done with worn or outdated flags ? flags
-DESC:def What does cc in engines mean ? cc
-ENTY:color When did Elvis Presley die ? None
-ENTY:termeq What is the capital of Yugoslavia ? capital
-LOC:state Where is Milan ? None
-DESC:def What is the speed hummingbirds fly ? speed
-LOC:other What is the oldest city in the United States ? city
-DESC:def What was W.C. Fields ' real name ? W.C.
-LOC:country What river flows between Fargo , North Dakota and Moorhead , Minnesota ? river
-DESC:def What do bats eat ? bats
-HUM:ind What state did the Battle of Bighorn take place in ? state
-LOC:city Who was Abraham Lincoln ? Abraham
-DESC:def What do you call a newborn kangaroo ? kangaroo
-DESC:reason What are spider veins ? spider
-LOC:other What day and month did John Lennon die ? day
-DESC:reason What strait separates North America from Asia ? strait
-LOC:other What is the population of Seattle ? population
-HUM:ind How much was a ticket for the Titanic ? much
-ENTY:other What is the largest city in the world ? city
-DESC:desc What American composer wrote the music for `` West Side Story '' ? American
-HUM:ind Where is the Mall of the America ? None
-DESC:manner What is the pH scale ? scale
-HUM:ind What type of currency is used in Australia ? type
-ENTY:body How tall is the Gateway Arch in St. Louis , MO ? tall
-DESC:manner How much does the human adult female brain weigh ? much
-LOC:country Who was the first governor of Alaska ? governor
-ENTY:other What is a prism ? prism
-NUM:count When was the first liver transplant ? None
-DESC:desc Who was elected president of South Africa in 1994 ? president
-LOC:state What is the population of China ? population
-ENTY:animal When was Rosa Parks born ? None
-NUM:count Why is a ladybug helpful ? None
-LOC:country What is amoxicillin ? amoxicillin
-ENTY:dismed Who was the first female United States Representative ? United
-HUM:ind What are xerophytes ? xerophytes
-NUM:date What country did Ponce de Leon come from ? country
-NUM:date The U.S. Department of Treasury first issued paper currency for the U.S. during which war ? currency
-DESC:reason What is desktop publishing ? desktop
-DESC:def What is the temperature of the sun 's surface ? temperature
-ENTY:cremat What year did Canada join the United Nations ? year
-DESC:def What is the oldest university in the US ? university
-DESC:def Where is Prince Edward Island ? None
-HUM:gr Mercury , what year was it discovered ? Mercury
-DESC:def What is cryogenics ? None
-NUM:date What are coral reefs ? reefs
-LOC:country What is the longest major league baseball-winning streak ? league
-HUM:ind What is neurology ? neurology
-DESC:desc Who invented the calculator ? calculator
-DESC:desc How do you measure earthquakes ? do
-ENTY:animal Who is Duke Ellington ? Duke
-HUM:ind What county is Phoenix , AZ in ? county
-HUM:ind What is a micron ? micron
-DESC:manner The sun 's core , what is the temperature ? sun
-LOC:state What is the Ohio state bird ? Ohio
-ENTY:animal When were William Shakespeare 's twins born ? None
-LOC:mount What is the highest dam in the U.S. ? dam
-DESC:desc What color is a poison arrow frog ? color
-LOC:other What is acupuncture ? acupuncture
-LOC:other What is the length of the coastline of the state of Alaska ? length
-ENTY:cremat What is the name of Neil Armstrong 's wife ? name
-ENTY:animal What is Hawaii 's state flower ? Hawaii
-ENTY:cremat Who won Ms. American in 1989 ? Ms.
-LOC:other When did the Hindenberg crash ? None
-NUM:money What mineral helps prevent osteoporosis ? mineral
-ENTY:termeq What was the last year that the Chicago Cubs won the World Series ? year
-DESC:def Where is Perth ? None
-LOC:other What year did WWII begin ? year
-ENTY:product What is the diameter of a golf ball ? diameter
-DESC:manner What is an eclipse ? eclipse
-NUM:period Who discovered America ? America
-DESC:manner What is the earth 's diameter ? earth
-DESC:desc Which president was unmarried ? president
-DESC:manner How wide is the Milky Way galaxy ? wide
-HUM:ind During which season do most thunderstorms occur ? thunderstorms
-HUM:gr What is Wimbledon ? Wimbledon
-NUM:date What is the gestation period for a cat ? period
-ENTY:cremat How far is a nautical mile ? far
-DESC:def Who was the abolitionist who led the raid on Harper 's Ferry in 1859 ? abolitionist
-ENTY:cremat What does target heart rate mean ? target
-ENTY:animal What was the first satellite to go into space ? satellite
-ENTY:substance What is foreclosure ? foreclosure
-NUM:money What is the major fault line near Kentucky ? fault
-HUM:ind Where is the Holland Tunnel ? None
-DESC:def Who wrote the hymn `` Amazing Grace '' ? hymn
-DESC:def What position did Willie Davis play in baseball ? position
-NUM:count What are platelets ? platelets
-LOC:other What is severance pay ? severance
-ENTY:animal What is the name of Roy Roger 's dog ? name
-LOC:city Where are the National Archives ? None
-ENTY:cremat What is a baby turkey called ? baby
-DESC:desc What is poliomyelitis ? poliomyelitis
-NUM:count What is the longest bone in the human body ? bone
-DESC:manner Who is a German philosopher ? German
-ABBR:exp What were Christopher Columbus ' three ships ? Christopher
-HUM:gr What does Phi Beta Kappa mean ? Phi
-HUM:ind What is nicotine ? nicotine
-HUM:ind What is another name for vitamin B1 ? name
+DESC:def What is fibromyalgia ? fibromyalgia
+DESC:desc What is done with worn or outdated flags ? flags
+DESC:def What does cc in engines mean ? engines
+NUM:date When did Elvis Presley die ? None
+LOC:city What is the capital of Yugoslavia ? capital
+LOC:city Where is Milan ? None
+NUM:speed What is the speed hummingbirds fly ? fly
+LOC:city What is the oldest city in the United States ? city
+HUM:ind What was W.C. Fields ' real name ? name
+LOC:other What river flows between Fargo , North Dakota and Moorhead , Minnesota ? river
+ENTY:food What do bats eat ? bats
+LOC:state What state did the Battle of Bighorn take place in ? state
+HUM:desc Who was Abraham Lincoln ? Lincoln
+ENTY:termeq What do you call a newborn kangaroo ? you
+DESC:def What are spider veins ? veins
+NUM:date What day and month did John Lennon die ? day
+LOC:other What strait separates North America from Asia ? strait
+NUM:other What is the population of Seattle ? population
+NUM:money How much was a ticket for the Titanic ? much
+LOC:city What is the largest city in the world ? world
+HUM:ind What American composer wrote the music for `` West Side Story '' ? composer
+LOC:other Where is the Mall of the America ? None
+DESC:def What is the pH scale ? scale
+ENTY:currency What type of currency is used in Australia ? type
+NUM:dist How tall is the Gateway Arch in St. Louis , MO ? tall
+NUM:weight How much does the human adult female brain weigh ? much
+HUM:ind Who was the first governor of Alaska ? governor
+DESC:def What is a prism ? prism
+NUM:date When was the first liver transplant ? None
+HUM:ind Who was elected president of South Africa in 1994 ? president
+NUM:other What is the population of China ? population
+NUM:date When was Rosa Parks born ? None
+DESC:reason Why is a ladybug helpful ? None
+DESC:def What is amoxicillin ? amoxicillin
+HUM:ind Who was the first female United States Representative ? Representative
+DESC:def What are xerophytes ? xerophytes
+LOC:country What country did Ponce de Leon come from ? country
+ENTY:event The U.S. Department of Treasury first issued paper currency for the U.S. during which war ? Department
+DESC:def What is desktop publishing ? publishing
+NUM:temp What is the temperature of the sun 's surface ? surface
+NUM:date What year did Canada join the United Nations ? year
+HUM:gr What is the oldest university in the US ? university
+LOC:other Where is Prince Edward Island ? None
+NUM:date Mercury , what year was it discovered ? year
+DESC:def What is cryogenics ? is
+DESC:def What are coral reefs ? reefs
+ENTY:other What is the longest major league baseball-winning streak ? streak
+DESC:def What is neurology ? neurology
+HUM:ind Who invented the calculator ? calculator
+DESC:manner How do you measure earthquakes ? do
+HUM:desc Who is Duke Ellington ? Ellington
+LOC:city What county is Phoenix , AZ in ? county
+DESC:def What is a micron ? micron
+NUM:temp The sun 's core , what is the temperature ? core
+ENTY:animal What is the Ohio state bird ? bird
+NUM:date When were William Shakespeare 's twins born ? None
+LOC:other What is the highest dam in the U.S. ? dam
+ENTY:color What color is a poison arrow frog ? color
+DESC:def What is acupuncture ? acupuncture
+NUM:dist What is the length of the coastline of the state of Alaska ? state
+HUM:ind What is the name of Neil Armstrong 's wife ? wife
+ENTY:plant What is Hawaii 's state flower ? flower
+HUM:ind Who won Ms. American in 1989 ? American
+NUM:date When did the Hindenberg crash ? None
+ENTY:substance What mineral helps prevent osteoporosis ? mineral
+NUM:date What was the last year that the Chicago Cubs won the World Series ? year
+LOC:other Where is Perth ? None
+NUM:date What year did WWII begin ? year
+NUM:dist What is the diameter of a golf ball ? ball
+DESC:def What is an eclipse ? eclipse
+HUM:ind Who discovered America ? America
+NUM:dist What is the earth 's diameter ? diameter
+HUM:ind Which president was unmarried ? president
+NUM:dist How wide is the Milky Way galaxy ? wide
+NUM:date During which season do most thunderstorms occur ? season
+DESC:def What is Wimbledon ? Wimbledon
+NUM:period What is the gestation period for a cat ? cat
+NUM:dist How far is a nautical mile ? far
+HUM:ind Who was the abolitionist who led the raid on Harper 's Ferry in 1859 ? abolitionist
+DESC:def What does target heart rate mean ? rate
+ENTY:product What was the first satellite to go into space ? space
+DESC:def What is foreclosure ? foreclosure
+ENTY:other What is the major fault line near Kentucky ? line
+LOC:other Where is the Holland Tunnel ? None
+HUM:ind Who wrote the hymn `` Amazing Grace '' ? hymn
+HUM:title What position did Willie Davis play in baseball ? position
+DESC:def What are platelets ? platelets
+DESC:def What is severance pay ? pay
+ENTY:animal What is the name of Roy Roger 's dog ? dog
+LOC:other Where are the National Archives ? None
+ENTY:animal What is a baby turkey called ? turkey
+DESC:def What is poliomyelitis ? poliomyelitis
+ENTY:body What is the longest bone in the human body ? body
+HUM:ind Who is a German philosopher ? philosopher
+ENTY:veh What were Christopher Columbus ' three ships ? ships
+DESC:def What does Phi Beta Kappa mean ? Kappa
+DESC:def What is nicotine ? nicotine
+ENTY:termeq What is another name for vitamin B1 ? name
 HUM:ind Who discovered radium ? radium
-NUM:count What are sunspots ? sunspots
-HUM:ind When was Algeria colonized ? None
-ENTY:body What baseball team was the first to make numbers part of their uniform ? baseball
-HUM:ind What continent is Egypt on ? continent
-LOC:country What is the capital of Mongolia ? capital
-ENTY:cremat What is nanotechnology ? nanotechnology
-ENTY:cremat In the late 1700 's British convicts were used to populate which colony ? colony
-DESC:def What state is the geographic center of the lower 48 states ? state
-ENTY:event What is an obtuse angle ? angle
-NUM:date What are polymers ? polymers
-ENTY:body When is hurricane season in the Caribbean ? None
-DESC:def Where is the volcano Mauna Loa ? None
-LOC:other What is another astronomic term for the Northern Lights ? term
-HUM:gr What peninsula is Spain part of ? peninsula
-HUM:ind When was Lyndon B. Johnson born ? None
-LOC:other What is acetaminophen ? acetaminophen
-NUM:date What state has the least amount of rain per year ? state
-NUM:count Who founded American Red Cross ? American
-LOC:other What year did the Milwaukee Braves become the Atlanta Braves ? year
-NUM:date How fast is alcohol absorbed ? fast
-HUM:ind When is the summer solstice ? None
-HUM:ind What is supernova ? supernova
-ENTY:cremat Where is the Shawnee National Forest ? None
-HUM:gr What U.S. state 's motto is `` Live free or Die '' ? U.S.
-DESC:desc Where is the Lourve ? None
-DESC:reason When was the first stamp issued ? None
-NUM:count What primary colors do you mix to make orange ? colors
-LOC:city How far is Pluto from the sun ? far
+DESC:def What are sunspots ? sunspots
+NUM:date When was Algeria colonized ? None
+HUM:gr What baseball team was the first to make numbers part of their uniform ? team
+LOC:other What continent is Egypt on ? continent
+LOC:city What is the capital of Mongolia ? capital
+DESC:def What is nanotechnology ? nanotechnology
+LOC:other In the late 1700 's British convicts were used to populate which colony ? British
+LOC:state What state is the geographic center of the lower 48 states ? state
+DESC:def What is an obtuse angle ? angle
+DESC:def What are polymers ? polymers
+NUM:date When is hurricane season in the Caribbean ? None
+LOC:other Where is the volcano Mauna Loa ? None
+ENTY:termeq What is another astronomic term for the Northern Lights ? Lights
+LOC:other What peninsula is Spain part of ? peninsula
+NUM:date When was Lyndon B. Johnson born ? None
+DESC:def What is acetaminophen ? acetaminophen
+LOC:state What state has the least amount of rain per year ? state
+HUM:ind Who founded American Red Cross ? Cross
+NUM:date What year did the Milwaukee Braves become the Atlanta Braves ? year
+NUM:speed How fast is alcohol absorbed ? fast
+NUM:date When is the summer solstice ? None
+DESC:def What is supernova ? supernova
+LOC:other Where is the Shawnee National Forest ? None
+LOC:state What U.S. state 's motto is `` Live free or Die '' ? motto
+LOC:other Where is the Lourve ? None
+NUM:date When was the first stamp issued ? None
+ENTY:color What primary colors do you mix to make orange ? colors
+NUM:dist How far is Pluto from the sun ? far
 LOC:other What body of water are the Canary Islands in ? body
-ENTY:sport What is neuropathy ? neuropathy
-HUM:ind Where is the Euphrates River ? None
-HUM:title What is cryptography ? cryptography
-DESC:reason What is natural gas composed of ? gas
-DESC:def Who is the Prime Minister of Canada ? Prime
-DESC:reason What French ruler was defeated at the battle of Waterloo ? ruler
-NUM:date What is leukemia ? leukemia
-DESC:def Where did Howard Hughes die ? None
-LOC:country What is the birthstone for June ? birthstone
-ENTY:dismed What is the sales tax in Minnesota ? sales
-LOC:other What is the distance in miles from the earth to the sun ? distance
-HUM:gr What is the average life span for a chicken ? life
-LOC:city When was the first Wal-Mart store opened ? None
-ENTY:body What is relative humidity ? humidity
-HUM:ind What city has the zip code of 35824 ? city
-HUM:ind What currency is used in Algeria ? currency
-NUM:date Who invented the hula hoop ? hoop
-LOC:country What was the most popular toy in 1957 ? toy
-DESC:manner What is pastrami made of ? pastrami
-HUM:ind What is the name of the satellite that the Soviet Union sent into space in 1957 ? name
-DESC:def What city 's newspaper is called `` The Enquirer '' ? city
-DESC:manner Who invented the slinky ? None
-NUM:date What are the animals that don 't have backbones called ? animals
-HUM:ind What is the melting point of copper ? melting
-HUM:ind Where is the volcano Olympus Mons located ? None
-NUM:date Who was the 23rd president of the United States ? president
-ENTY:termeq What is the average body temperature ? body
-DESC:reason What does a defibrillator do ? defibrillator
-HUM:gr What is the effect of acid rain ? effect
-ENTY:event What year did the United States abolish the draft ? year
-ENTY:other How fast is the speed of light ? fast
-LOC:city What province is Montreal in ? province
-DESC:manner What New York City structure is also known as the Twin Towers ? New
-DESC:reason What is fungus ? fungus
-NUM:count What is the most frequently spoken language in the Netherlands ? language
-DESC:def What is sodium chloride ? sodium
-NUM:count What are the spots on dominoes called ? spots
-ENTY:plant How many pounds in a ton ? many
-HUM:gr What is influenza ? influenza
-DESC:desc What is ozone depletion ? ozone
-ABBR:exp What year was the Mona Lisa painted ? year
-ENTY:techmeth What does `` Sitting Shiva '' mean ? Shiva
-DESC:desc What is the electrical output in Madrid , Spain ? output
-DESC:def Which mountain range in North America stretches from Maine to Georgia ? mountain
-ENTY:other What is plastic made of ? plastic
-NUM:volsize What is the population of Nigeria ? population
-DESC:manner What does your spleen do ? spleen
-NUM:date Where is the Grand Canyon ? None
-NUM:money Who invented the telephone ? telephone
-LOC:country What year did the U.S. buy Alaska ? year
-DESC:def What is the name of the leader of Ireland ? name
-HUM:ind What is phenylalanine ? phenylalanine
-DESC:reason How many gallons of water are there in a cubic foot ? many
-HUM:ind What are the two houses of the Legislative branch ? houses
-NUM:count What is sonar ? sonar
-LOC:mount In Poland , where do most people live ? people
-LOC:other What is phosphorus ? phosphorus
-ENTY:techmeth What is the location of the Sea of Tranquility ? location
-HUM:ind How fast is sound ? fast
-ENTY:dismed What French province is cognac produced in ? province
-ENTY:food What is Valentine 's Day ? Valentine
-NUM:count What causes gray hair ? hair
+DESC:def What is neuropathy ? neuropathy
+LOC:other Where is the Euphrates River ? None
+DESC:def What is cryptography ? cryptography
+ENTY:substance What is natural gas composed of ? gas
+HUM:ind Who is the Prime Minister of Canada ? Minister
+HUM:ind What French ruler was defeated at the battle of Waterloo ? ruler
+DESC:def What is leukemia ? leukemia
+LOC:other Where did Howard Hughes die ? None
+ENTY:substance What is the birthstone for June ? birthstone
+ENTY:other What is the sales tax in Minnesota ? tax
+NUM:dist What is the distance in miles from the earth to the sun ? sun
+NUM:period What is the average life span for a chicken ? chicken
+NUM:date When was the first Wal-Mart store opened ? None
+DESC:def What is relative humidity ? humidity
+LOC:city What city has the zip code of 35824 ? city
+ENTY:currency What currency is used in Algeria ? currency
+HUM:ind Who invented the hula hoop ? hoop
+ENTY:product What was the most popular toy in 1957 ? toy
+ENTY:substance What is pastrami made of ? pastrami
+ENTY:product What is the name of the satellite that the Soviet Union sent into space in 1957 ? satellite
+LOC:city What city 's newspaper is called `` The Enquirer '' ? newspaper
+HUM:ind Who invented the slinky ? slinky
+ENTY:animal What are the animals that don 't have backbones called ? animals
+NUM:other What is the melting point of copper ? copper
+LOC:other Where is the volcano Olympus Mons located ? None
+HUM:ind Who was the 23rd president of the United States ? president
+NUM:temp What is the average body temperature ? temperature
+DESC:desc What does a defibrillator do ? defibrillator
+DESC:desc What is the effect of acid rain ? rain
+NUM:date What year did the United States abolish the draft ? year
+NUM:speed How fast is the speed of light ? fast
+LOC:state What province is Montreal in ? province
+LOC:other What New York City structure is also known as the Twin Towers ? structure
+DESC:def What is fungus ? fungus
+ENTY:lang What is the most frequently spoken language in the Netherlands ? language
+DESC:def What is sodium chloride ? chloride
+ENTY:termeq What are the spots on dominoes called ? dominoes
+NUM:count How many pounds in a ton ? many
+DESC:def What is influenza ? influenza
+DESC:def What is ozone depletion ? depletion
+NUM:date What year was the Mona Lisa painted ? year
+DESC:def What does `` Sitting Shiva '' mean ? does
+ENTY:other What is the electrical output in Madrid , Spain ? output
+LOC:mount Which mountain range in North America stretches from Maine to Georgia ? mountain
+ENTY:substance What is plastic made of ? plastic
+NUM:other What is the population of Nigeria ? population
+DESC:desc What does your spleen do ? spleen
+LOC:other Where is the Grand Canyon ? None
+HUM:ind Who invented the telephone ? telephone
+NUM:date What year did the U.S. buy Alaska ? year
+HUM:ind What is the name of the leader of Ireland ? leader
+DESC:def What is phenylalanine ? phenylalanine
+NUM:count How many gallons of water are there in a cubic foot ? many
+ENTY:other What are the two houses of the Legislative branch ? branch
+DESC:def What is sonar ? sonar
+LOC:other In Poland , where do most people live ? people
+DESC:def What is phosphorus ? phosphorus
+LOC:other What is the location of the Sea of Tranquility ? Tranquility
+NUM:speed How fast is sound ? fast
+LOC:state What French province is cognac produced in ? province
+DESC:def What is Valentine 's Day ? Day
+DESC:reason What causes gray hair ? hair
 DESC:def What is hypertension ? hypertension
-LOC:other What is bandwidth ? bandwidth
-NUM:count What is the longest suspension bridge in the U.S. ? suspension
-HUM:ind What is a parasite ? parasite
-DESC:def What is home equity ? home
+DESC:def What is bandwidth ? bandwidth
+LOC:other What is the longest suspension bridge in the U.S. ? bridge
+DESC:def What is a parasite ? parasite
+DESC:def What is home equity ? equity
 DESC:desc What do meteorologists do ? meteorologists
-ENTY:animal What is the criterion for being legally blind ? criterion
-NUM:date Who is the tallest man in the world ? man
-HUM:ind What are the twin cities ? cities
-DESC:desc What did Edward Binney and Howard Smith invent in 1903 ? Edward
-HUM:gr What is the statue of liberty made of ? statue
-NUM:date What is pilates ? None
-HUM:desc What planet is known as the `` red '' planet ? planet
-ENTY:instru What is the depth of the Nile river ? depth
-DESC:def What is the colorful Korean traditional dress called ? Korean
-ENTY:other What is Mardi Gras ? Mardi
-LOC:other Mexican pesos are worth what in U.S. dollars ? pesos
-NUM:date Who was the first African American to play for the Brooklyn Dodgers ? African
-ABBR:exp Who was the first Prime Minister of Canada ? Prime
-NUM:date How many Admirals are there in the U.S. Navy ? many
-NUM:count What instrument did Glenn Miller play ? instrument
-DESC:def How old was Joan of Arc when she died ? old
-LOC:city What does the word fortnight mean ? word
-DESC:manner What is dianetics ? dianetics
-DESC:def What is the capital of Ethiopia ? capital
-ENTY:other For how long is an elephant pregnant ? elephant
-HUM:ind How did Janice Joplin die ? did
-ENTY:techmeth What is the primary language in Iceland ? language
-ENTY:food What is the difference between AM radio stations and FM radio stations ? difference
-ENTY:color What is osteoporosis ? osteoporosis
-HUM:ind Who was the first woman governor in the U.S. ? woman
-HUM:ind What is peyote ? peyote
-HUM:ind What is the esophagus used for ? esophagus
+ENTY:other What is the criterion for being legally blind ? criterion
+HUM:ind Who is the tallest man in the world ? world
+LOC:city What are the twin cities ? cities
+ENTY:other What did Edward Binney and Howard Smith invent in 1903 ? Binney
+ENTY:substance What is the statue of liberty made of ? liberty
+DESC:def What is pilates ? is
+LOC:other What planet is known as the `` red '' planet ? planet
+NUM:dist What is the depth of the Nile river ? river
+ENTY:termeq What is the colorful Korean traditional dress called ? dress
+DESC:def What is Mardi Gras ? Gras
+NUM:money Mexican pesos are worth what in U.S. dollars ? pesos
+HUM:ind Who was the first African American to play for the Brooklyn Dodgers ? American
+HUM:ind Who was the first Prime Minister of Canada ? Minister
+NUM:count How many Admirals are there in the U.S. Navy ? many
+ENTY:instru What instrument did Glenn Miller play ? instrument
+NUM:period How old was Joan of Arc when she died ? old
+DESC:def What does the word fortnight mean ? fortnight
+DESC:def What is dianetics ? dianetics
+LOC:city What is the capital of Ethiopia ? capital
+NUM:period For how long is an elephant pregnant ? elephant
+DESC:manner How did Janice Joplin die ? did
+ENTY:lang What is the primary language in Iceland ? language
+DESC:desc What is the difference between AM radio stations and FM radio stations ? stations
+DESC:def What is osteoporosis ? osteoporosis
+HUM:ind Who was the first woman governor in the U.S. ? governor
+DESC:def What is peyote ? peyote
+DESC:reason What is the esophagus used for ? esophagus
 DESC:def What is viscosity ? viscosity
 NUM:date What year did Oklahoma become a state ? year
-ENTY:other What is the abbreviation for Texas ? abbreviation
-NUM:date What is a mirror made out of ? mirror
-NUM:count Where on the body is a mortarboard worn ? None
-ENTY:animal What was J.F.K. 's wife 's name ? J.F.K
-NUM:date What does I.V. stand for ? I.V
-NUM:volsize What is the chunnel ? chunnel
-ENTY:animal Where is Hitler buried ? None
-LOC:city What are antacids ? antacids
-HUM:ind What is pulmonary fibrosis ? fibrosis
-HUM:ind What are Quaaludes ? Quaaludes
-LOC:country What is naproxen ? naproxen
-DESC:manner What is strep throat ? throat
-DESC:desc What is the largest city in the U.S. ? city
-LOC:other What is foot and mouth disease ? foot
-ENTY:termeq What is the life expectancy of a dollar bill ? life
-DESC:manner What do you call a professional map drawer ? map
-ABBR:exp What are Aborigines ? Aborigines
-LOC:other What is hybridization ? hybridization
-ENTY:termeq What color is indigo ? color
-ENTY:animal How old do you have to be in order to rent a car in Italy ? old
-LOC:city What does a barometer measure ? barometer
-ENTY:termeq What color is a giraffe 's tongue ? color
-ENTY:dismed What does USPS stand for ? USPS
-HUM:gr What year did the NFL go on strike ? year
-ENTY:sport What is solar wind ? wind
-HUM:ind What date did Neil Armstrong land on the moon ? date
-ABBR:abb When was Hiroshima bombed ? None
-ENTY:other Where is the Savannah River ? None
-HUM:gr Who was the first woman killed in the Vietnam War ? woman
-ABBR:exp What planet has the strongest magnetic field of all the planets ? planet
-ABBR:exp Who is the governor of Alaska ? governor
-ENTY:other What year did Mussolini seize power in Italy ? year
-LOC:other What is the capital of Persia ? capital
-HUM:ind Where is the Eiffel Tower ? None
-DESC:reason How many hearts does an octopus have ? many
-NUM:other What is pneumonia ? pneumonia
-NUM:date What is the deepest lake in the US ? lake
-HUM:ind What is a fuel cell ? fuel
-LOC:state Who was the first U.S. president to appear on TV ? U.S.
-ENTY:techmeth Where is the Little League Museum ? None
-LOC:state What are the two types of twins ? types
-HUM:gr What is the brightest star ? star
-DESC:manner What is diabetes ? diabetes
-NUM:count When was President Kennedy shot ? None
-LOC:other What is TMJ ? TMJ
+ABBR:abb What is the abbreviation for Texas ? abbreviation
+ENTY:substance What is a mirror made out of ? mirror
+LOC:other Where on the body is a mortarboard worn ? None
+HUM:ind What was J.F.K. 's wife 's name ? J.F.K
+ABBR:exp What does I.V. stand for ? I.V
+DESC:def What is the chunnel ? chunnel
+LOC:other Where is Hitler buried ? None
+DESC:def What are antacids ? antacids
+DESC:def What is pulmonary fibrosis ? fibrosis
+DESC:def What are Quaaludes ? Quaaludes
+DESC:def What is naproxen ? naproxen
+DESC:def What is strep throat ? throat
+LOC:city What is the largest city in the U.S. ? city
+ENTY:dismed What is foot and mouth disease ? disease
+NUM:other What is the life expectancy of a dollar bill ? bill
+ENTY:termeq What do you call a professional map drawer ? you
+DESC:def What are Aborigines ? Aborigines
+DESC:def What is hybridization ? hybridization
+ENTY:color What color is indigo ? color
+NUM:period How old do you have to be in order to rent a car in Italy ? old
+ENTY:other What does a barometer measure ? barometer
+ENTY:color What color is a giraffe 's tongue ? color
+ABBR:exp What does USPS stand for ? USPS
+NUM:date What year did the NFL go on strike ? year
+DESC:def What is solar wind ? wind
+NUM:date What date did Neil Armstrong land on the moon ? date
+NUM:date When was Hiroshima bombed ? None
+LOC:other Where is the Savannah River ? None
+HUM:ind Who was the first woman killed in the Vietnam War ? woman
+LOC:other What planet has the strongest magnetic field of all the planets ? planet
+HUM:ind Who is the governor of Alaska ? governor
+NUM:date What year did Mussolini seize power in Italy ? year
+LOC:city What is the capital of Persia ? capital
+LOC:other Where is the Eiffel Tower ? None
+NUM:count How many hearts does an octopus have ? many
+DESC:def What is pneumonia ? pneumonia
+LOC:other What is the deepest lake in the US ? lake
+DESC:def What is a fuel cell ? cell
+HUM:ind Who was the first U.S. president to appear on TV ? president
+LOC:other Where is the Little League Museum ? None
+ENTY:other What are the two types of twins ? types
+LOC:other What is the brightest star ? star
+DESC:def What is diabetes ? diabetes
+NUM:date When was President Kennedy shot ? None
+ABBR:exp What is TMJ ? TMJ
 ENTY:color What color is yak milk ? color
-DESC:manner What date was Dwight D. Eisenhower born ? date
-NUM:other What does the technical term ISDN mean ? term
-HUM:ind Why is the sun yellow ? None
-LOC:other What is the conversion rate between dollars and pounds ? conversion
-HUM:ind When was Abraham Lincoln born ? None
-DESC:manner What is the Milky Way ? Way
-DESC:manner What is mold ? mold
-NUM:other What year was Mozart born ? year
-NUM:other What is a group of frogs called ? group
-NUM:count What is the name of William Penn 's ship ? name
-DESC:def What is the melting point of gold ? melting
-ENTY:animal What is the street address of the White House ? street
-HUM:ind What is semolina ? None
-HUM:ind What fruit is Melba sauce made from ? fruit
-ENTY:substance What is Ursa Major ? Ursa
-HUM:ind What is the percentage of water content in the human body ? percentage
-ENTY:other How much does water weigh ? much
-LOC:other What was President Lyndon Johnson 's reform program called ? President
-LOC:other What is the murder rate in Windsor , Ontario ? murder
+NUM:date What date was Dwight D. Eisenhower born ? date
+ABBR:exp What does the technical term ISDN mean ? ISDN
+DESC:reason Why is the sun yellow ? None
+NUM:money What is the conversion rate between dollars and pounds ? pounds
+NUM:date When was Abraham Lincoln born ? None
+DESC:def What is the Milky Way ? Way
+DESC:def What is mold ? mold
+NUM:date What year was Mozart born ? year
+ENTY:animal What is a group of frogs called ? frogs
+ENTY:veh What is the name of William Penn 's ship ? ship
+NUM:other What is the melting point of gold ? gold
+LOC:other What is the street address of the White House ? address
+DESC:def What is semolina ? is
+ENTY:food What fruit is Melba sauce made from ? fruit
+DESC:def What is Ursa Major ? Major
+NUM:perc What is the percentage of water content in the human body ? body
+NUM:weight How much does water weigh ? much
+ENTY:event What was President Lyndon Johnson 's reform program called ? program
+NUM:perc What is the murder rate in Windsor , Ontario ? rate
 HUM:ind Who is the only president to serve 2 non-consecutive terms ? president
-HUM:gr What is the population of Australia ? population
-ENTY:product Who painted the ceiling of the Sistine Chapel ? ceiling
-HUM:ind Name a stimulant . stimulant
-NUM:count What is the effect of volcanoes on the climate ? effect
-ENTY:techmeth What year did the Andy Griffith show begin ? year
-DESC:manner What is acid rain ? acid
-HUM:ind What is the date of Mexico 's independence ? date
-NUM:speed What is the location of Lake Champlain ? location
-ENTY:other What is the Illinois state flower ? Illinois
-HUM:ind What is Maryland 's state bird ? Maryland
-LOC:other What is quicksilver ? quicksilver
-HUM:ind Who wrote `` The Divine Comedy '' ? Divine
-NUM:date What is the speed of light ? speed
-NUM:count What is the width of a football field ? width
+NUM:other What is the population of Australia ? population
+HUM:ind Who painted the ceiling of the Sistine Chapel ? ceiling
+ENTY:dismed Name a stimulant . stimulant
+DESC:desc What is the effect of volcanoes on the climate ? climate
+NUM:date What year did the Andy Griffith show begin ? year
+DESC:def What is acid rain ? rain
+NUM:date What is the date of Mexico 's independence ? independence
+LOC:other What is the location of Lake Champlain ? location
+ENTY:plant What is the Illinois state flower ? flower
+ENTY:animal What is Maryland 's state bird ? bird
+DESC:def What is quicksilver ? quicksilver
+HUM:ind Who wrote `` The Divine Comedy '' ? Comedy
+NUM:speed What is the speed of light ? light
+NUM:dist What is the width of a football field ? field
 DESC:reason Why in tennis are zero points called love ? None
-HUM:ind What kind of dog was Toto in the Wizard of Oz ? kind
-HUM:gr What is a thyroid ? thyroid
+ENTY:animal What kind of dog was Toto in the Wizard of Oz ? kind
+DESC:def What is a thyroid ? thyroid
 DESC:def What does ciao mean ? ciao
-LOC:city What is the only artery that carries blue blood from the heart to the lungs ? artery
-DESC:def How often does Old Faithful erupt at Yellowstone National Park ? often
-ENTY:other What is acetic acid ? acid
-HUM:ind What is the elevation of St. Louis , MO ? elevation
-DESC:manner What color does litmus paper turn when it comes into contact with a strong acid ? color
-ENTY:event What are the colors of the German flag ? colors
-DESC:manner What is the Moulin Rouge ? Moulin
-NUM:speed What soviet seaport is on the Black Sea ? seaport
-HUM:ind What is the atomic weight of silver ? weight
-ENTY:animal What currency do they use in Brazil ? currency
-HUM:ind What are pathogens ? pathogens
-LOC:other What is mad cow disease ? cow
-ENTY:cremat Name a food high in zinc . high
-HUM:ind When did North Carolina enter the union ? None
+ENTY:body What is the only artery that carries blue blood from the heart to the lungs ? artery
+NUM:other How often does Old Faithful erupt at Yellowstone National Park ? often
+DESC:def What is acetic acid ? acid
+NUM:dist What is the elevation of St. Louis , MO ? elevation
+ENTY:color What color does litmus paper turn when it comes into contact with a strong acid ? color
+ENTY:color What are the colors of the German flag ? flag
+DESC:def What is the Moulin Rouge ? Rouge
+LOC:other What soviet seaport is on the Black Sea ? seaport
+NUM:weight What is the atomic weight of silver ? silver
+ENTY:currency What currency do they use in Brazil ? currency
+DESC:def What are pathogens ? pathogens
+DESC:def What is mad cow disease ? disease
+ENTY:food Name a food high in zinc . zinc
+NUM:date When did North Carolina enter the union ? None
 LOC:other Where do apple snails live ? None
-ENTY:event What are ethics ? ethics
-HUM:ind What does CPR stand for ? CPR
-NUM:count What is an annuity ? annuity
-HUM:ind Who killed John F. Kennedy ? John
-ABBR:abb Who was the first vice president of the U.S. ? vice
-LOC:mount What birthstone is turquoise ? birthstone
-HUM:ind Who was the first US President to ride in an automobile to his inauguration ? US
-DESC:reason How old was the youngest president of the United States ? old
-LOC:other When was Ulysses S. Grant born ? None
-NUM:count What is Muscular Dystrophy ? Dystrophy
-ENTY:dismed Who lived in the Neuschwanstein castle ? Neuschwanstein
-ENTY:cremat What is propylene glycol ? propylene
-DESC:desc What is a panic disorder ? panic
-HUM:ind Who invented the instant Polaroid camera ? Polaroid
-HUM:ind What is a carcinogen ? carcinogen
-ENTY:cremat What is a baby lion called ? baby
-LOC:other What is the world 's population ? world
-ENTY:product What is nepotism ? nepotism
-NUM:date What is die-casting ? None
+DESC:def What are ethics ? ethics
+ABBR:exp What does CPR stand for ? CPR
+DESC:def What is an annuity ? annuity
+HUM:ind Who killed John F. Kennedy ? Kennedy
+HUM:ind Who was the first vice president of the U.S. ? president
+ENTY:substance What birthstone is turquoise ? birthstone
+HUM:ind Who was the first US President to ride in an automobile to his inauguration ? President
+NUM:period How old was the youngest president of the United States ? old
+NUM:date When was Ulysses S. Grant born ? None
+DESC:def What is Muscular Dystrophy ? Dystrophy
+HUM:ind Who lived in the Neuschwanstein castle ? castle
+DESC:def What is propylene glycol ? glycol
+DESC:def What is a panic disorder ? disorder
+HUM:ind Who invented the instant Polaroid camera ? camera
+DESC:def What is a carcinogen ? carcinogen
+ENTY:animal What is a baby lion called ? lion
+NUM:other What is the world 's population ? population
+DESC:def What is nepotism ? nepotism
+DESC:def What is die-casting ? is
 DESC:def What is myopia ? myopia
-ENTY:other What is the sales tax rate in New York ? tax
-DESC:def Developing nations comprise what percentage of the world 's population ? percentage
-NUM:count What is the fourth highest mountain in the world ? mountain
-ENTY:food What is Shakespeare 's nickname ? Shakespeare
-LOC:city What is the heaviest naturally occurring element ? element
-NUM:count When is Father 's Day ? None
-ENTY:cremat What does the acronym NASA stand for ? acronym
-ENTY:animal How long is the Columbia River in miles ? long
-DESC:desc What city 's newspaper is called `` The Star '' ? city
-DESC:manner What is carbon dioxide ? carbon
-ENTY:food Where is the Mason/Dixon line ? None
-NUM:other When was the Boston tea party ? None
-ENTY:techmeth What is metabolism ? metabolism
-ENTY:other Which U.S.A. president appeared on `` Laugh-In '' ? U.S.A.
-DESC:manner What are cigarettes made of ? cigarettes
-LOC:mount What is the capital of Zimbabwe ? capital
-LOC:other What does NASA stand for ? NASA
-LOC:country What is the state flower of Michigan ? state
-NUM:date What are semiconductors ? semiconductors
-HUM:gr What is nuclear power ? power
-ENTY:cremat What is a tsunami ? tsunami
-LOC:city Who is the congressman from state of Texas on the armed forces committee ? congressman
+NUM:other What is the sales tax rate in New York ? rate
+NUM:perc Developing nations comprise what percentage of the world 's population ? nations
+LOC:mount What is the fourth highest mountain in the world ? world
+HUM:ind What is Shakespeare 's nickname ? nickname
+ENTY:substance What is the heaviest naturally occurring element ? element
+NUM:date When is Father 's Day ? None
+ABBR:exp What does the acronym NASA stand for ? NASA
+NUM:dist How long is the Columbia River in miles ? long
+LOC:city What city 's newspaper is called `` The Star '' ? newspaper
+DESC:def What is carbon dioxide ? dioxide
+LOC:other Where is the Mason/Dixon line ? None
+NUM:date When was the Boston tea party ? None
+DESC:def What is metabolism ? metabolism
+HUM:ind Which U.S.A. president appeared on `` Laugh-In '' ? ?
+ENTY:substance What are cigarettes made of ? cigarettes
+LOC:city What is the capital of Zimbabwe ? capital
+ABBR:exp What does NASA stand for ? NASA
+ENTY:plant What is the state flower of Michigan ? flower
+DESC:def What are semiconductors ? semiconductors
+DESC:def What is nuclear power ? power
+DESC:def What is a tsunami ? tsunami
+HUM:ind Who is the congressman from state of Texas on the armed forces committee ? committee
 HUM:ind Who was president in 1913 ? president
-DESC:reason When was the first kidney transplant ? None
-LOC:other What are Canada 's two territories ? Canada
-DESC:desc What was the name of the plane Lindbergh flew solo across the Atlantic ? name
-LOC:state What is genocide ? genocide
-DESC:desc What continent is Argentina on ? continent
-NUM:date What monastery was raided by Vikings in the late eighth century ? monastery
-HUM:ind What is an earthquake ? earthquake
-ENTY:animal Where is the tallest roller coaster located ? None
-DESC:reason What are enzymes ? enzymes
-ENTY:other Who discovered oxygen ? oxygen
-NUM:money What is bangers and mash ? bangers
-HUM:ind What is the name given to the Tiger at Louisiana State University ? name
-HUM:desc Where are the British crown jewels kept ? None
-DESC:def Who was the first person to reach the North Pole ? person
-HUM:ind What is an ulcer ? ulcer
-LOC:mount What is vertigo ? vertigo
-LOC:other What is the spirometer test ? test
-LOC:other When is the official first day of summer ? None
-ENTY:other What does the abbreviation SOS mean ? abbreviation
-DESC:reason What is the smallest bird in Britain ? bird
-ENTY:dismed Who invented Trivial Pursuit ? Pursuit
-NUM:count What gasses are in the troposphere ? gasses
-NUM:count Which country has the most water pollution ? country
-ABBR:exp What is the scientific name for elephant ? name
-DESC:def Who is the actress known for her role in the movie `` Gypsy '' ? actress
-ENTY:cremat What breed of hunting dog did the Beverly Hillbillies own ? breed
-ENTY:sport What is the rainiest place on Earth ? place
-DESC:manner Who was the first African American to win the Nobel Prize in literature ? African
+NUM:date When was the first kidney transplant ? None
+LOC:other What are Canada 's two territories ? territories
+ENTY:veh What was the name of the plane Lindbergh flew solo across the Atlantic ? plane
+DESC:def What is genocide ? genocide
+LOC:other What continent is Argentina on ? continent
+ENTY:other What monastery was raided by Vikings in the late eighth century ? monastery
+DESC:def What is an earthquake ? earthquake
+LOC:other Where is the tallest roller coaster located ? None
+DESC:def What are enzymes ? enzymes
+HUM:ind Who discovered oxygen ? oxygen
+DESC:def What is bangers and mash ? mash
+ENTY:animal What is the name given to the Tiger at Louisiana State University ? name
+LOC:other Where are the British crown jewels kept ? None
+HUM:ind Who was the first person to reach the North Pole ? person
+DESC:def What is an ulcer ? ulcer
+DESC:def What is vertigo ? vertigo
+DESC:def What is the spirometer test ? test
+NUM:date When is the official first day of summer ? None
+ABBR:exp What does the abbreviation SOS mean ? SOS
+ENTY:animal What is the smallest bird in Britain ? bird
+HUM:ind Who invented Trivial Pursuit ? Pursuit
+ENTY:substance What gasses are in the troposphere ? gasses
+LOC:country Which country has the most water pollution ? country
+ENTY:animal What is the scientific name for elephant ? elephant
+HUM:ind Who is the actress known for her role in the movie `` Gypsy '' ? Gypsy
+ENTY:animal What breed of hunting dog did the Beverly Hillbillies own ? breed
+LOC:other What is the rainiest place on Earth ? place
+HUM:ind Who was the first African American to win the Nobel Prize in literature ? literature
 NUM:date When is St. Patrick 's Day ? None
-DESC:reason What was FDR 's dog 's name ? FDR
-HUM:ind What colors need to be mixed to get the color pink ? colors
-HUM:ind What is the most popular sport in Japan ? sport
-LOC:other What is the active ingredient in baking soda ? ingredient
-DESC:reason When was Thomas Jefferson born ? None
-HUM:ind How cold should a refrigerator be ? cold
-LOC:other When was the telephone invented ? None
-ENTY:word What is the most common eye color ? eye
-ENTY:instru Where was the first golf course in the United States ? None
-LOC:other What is schizophrenia ? schizophrenia
-DESC:reason What is angiotensin ? angiotensin
-HUM:ind What did Jesse Jackson organize ? Jesse
-ENTY:body What is New York 's state bird ? New
-LOC:country What is the National Park in Utah ? National
-HUM:ind What is Susan B. Anthony 's birthday ? Susan
-NUM:speed In which state would you find the Catskill Mountains ? state
-LOC:other What do you call a word that is spelled the same backwards and forwards ? word
-LOC:other What are pediatricians ? pediatricians
-ENTY:cremat What chain store is headquartered in Bentonville , Arkansas ? chain
-HUM:ind What are solar cells ? cells
-ENTY:cremat What is compounded interest ? interest
-LOC:other What are capers ? capers
-HUM:desc What is an antigen ? antigen
-ENTY:lang What currency does Luxembourg use ? currency
-HUM:ind What is the population of Venezuela ? population
-DESC:def What type of polymer is used for bulletproof vests ? type
-ENTY:cremat What currency does Argentina use ? currency
-HUM:gr What is a thermometer ? thermometer
-NUM:count What Canadian city has the largest population ? Canadian
-ENTY:food What color are crickets ? color
-ENTY:termeq Which country gave New York the Statue of Liberty ? country
-DESC:desc What was the name of the first U.S. satellite sent into space ? name
-DESC:reason What precious stone is a form of pure carbon ? stone
-NUM:date What kind of gas is in a fluorescent bulb ? kind
-HUM:ind What is rheumatoid arthritis ? arthritis
-ENTY:cremat What river runs through Rowe , Italy ? river
-ENTY:other What is cerebral palsy ? palsy
-HUM:ind What city is also known as `` The Gateway to the West '' ? city
-HUM:gr How far away is the moon ? far
-LOC:city What is the source of natural gas ? source
-HUM:ind In what spacecraft did U.S. astronaut Alan Shepard make his historic 1961 flight ? spacecraft
-ENTY:food What is pectin ? pectin
-HUM:ind What is bio-diversity ? bio-diversity
-LOC:other What 's the easiest way to remove wallpaper ? way
-NUM:count What year did the Titanic start on its journey ? year
-HUM:ind How much of an apple is water ? much
-ENTY:cremat Who was the 22nd President of the US ? President
-DESC:reason What is the money they use in Zambia ? money
-DESC:def How many feet in a mile ? many
-HUM:ind What is the birthstone of October ? birthstone
-HUM:gr What is e-coli ? e-coli
+ENTY:animal What was FDR 's dog 's name ? name
+ENTY:color What colors need to be mixed to get the color pink ? colors
+ENTY:sport What is the most popular sport in Japan ? sport
+ENTY:food What is the active ingredient in baking soda ? soda
+NUM:date When was Thomas Jefferson born ? None
+NUM:temp How cold should a refrigerator be ? cold
+NUM:date When was the telephone invented ? None
+ENTY:color What is the most common eye color ? color
+LOC:other Where was the first golf course in the United States ? None
+DESC:def What is schizophrenia ? schizophrenia
+DESC:def What is angiotensin ? angiotensin
+HUM:gr What did Jesse Jackson organize ? Jackson
+ENTY:animal What is New York 's state bird ? bird
+LOC:other What is the National Park in Utah ? Park
+NUM:date What is Susan B. Anthony 's birthday ? birthday
+LOC:state In which state would you find the Catskill Mountains ? state
+ENTY:termeq What do you call a word that is spelled the same backwards and forwards ? you
+DESC:def What are pediatricians ? pediatricians
+HUM:gr What chain store is headquartered in Bentonville , Arkansas ? store
+DESC:def What are solar cells ? cells
+DESC:def What is compounded interest ? interest
+DESC:def What are capers ? capers
+DESC:def What is an antigen ? antigen
+ENTY:currency What currency does Luxembourg use ? currency
+NUM:other What is the population of Venezuela ? population
+ENTY:other What type of polymer is used for bulletproof vests ? type
+ENTY:currency What currency does Argentina use ? currency
+DESC:def What is a thermometer ? thermometer
+LOC:city What Canadian city has the largest population ? city
+ENTY:color What color are crickets ? color
+LOC:country Which country gave New York the Statue of Liberty ? country
+ENTY:product What was the name of the first U.S. satellite sent into space ? space
+ENTY:substance What precious stone is a form of pure carbon ? stone
+ENTY:substance What kind of gas is in a fluorescent bulb ? kind
+DESC:def What is rheumatoid arthritis ? arthritis
+LOC:other What river runs through Rowe , Italy ? river
+DESC:def What is cerebral palsy ? palsy
+LOC:city What city is also known as `` The Gateway to the West '' ? city
+NUM:dist How far away is the moon ? far
+ENTY:other What is the source of natural gas ? gas
+ENTY:veh In what spacecraft did U.S. astronaut Alan Shepard make his historic 1961 flight ? spacecraft
+DESC:def What is pectin ? pectin
+DESC:def What is bio-diversity ? bio-diversity
+ENTY:techmeth What 's the easiest way to remove wallpaper ? wallpaper
+NUM:date What year did the Titanic start on its journey ? year
+NUM:count How much of an apple is water ? much
+HUM:ind Who was the 22nd President of the US ? President
+ENTY:currency What is the money they use in Zambia ? money
+NUM:count How many feet in a mile ? many
+ENTY:substance What is the birthstone of October ? birthstone
+DESC:def What is e-coli ? e-coli

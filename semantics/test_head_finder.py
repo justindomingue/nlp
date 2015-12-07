@@ -47,10 +47,21 @@ class TestSemanticHeadFinder(unittest.TestCase):
             "(S1 (SBARQ (WHNP (WP What)) (SQ (VBZ is) (NP (NN autism))) (. ?)))",
         ]
 
-        heads = ["year", "far", "country", "Galileo", "atom", "Hawaii", "Bush", "flower", "moon", "autism"]
+        heads = [
+            "year",
+            "it",
+            "county",
+            "Galileo",
+            "atom",
+            "Hawaii",
+            "Building",
+            "Bush",
+            "flower",
+            "moon",
+            "autism"]
 
         assert len(heads) == len(trees)
 
-        chf = SemanticHeadFidner
+        chf = SemanticHeadFinder()
         for i in range(len(trees)):
             self.assertEqual(heads[i], chf.determine_head(Tree(trees[i])))

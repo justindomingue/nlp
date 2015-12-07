@@ -2,15 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import codecs
-import copy
 
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import SGDClassifier, LogisticRegression, ElasticNet
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import LinearSVC, SVC, NuSVC
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score, classification_report
 
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 import numpy as np
@@ -20,9 +21,9 @@ from question import Question, Label
 
 class HeadWordExtractorPlus(BaseEstimator, TransformerMixin):
     """Extracts wh-word and head word (optionally, WordNet semantic features for head word) and prepares the data for DictVectorizer"""
-    def __init__(self, semantic_features=False, wordnet_depth=1):
+    def __init__(self, semantic_features=False, depth=1):
         self.semantic_features = semantic_features
-        self.depth = wordnet_depth
+        self.depth = depth
 
     def fit(self, x, y=None):
         return self
@@ -32,12 +33,14 @@ class HeadWordExtractorPlus(BaseEstimator, TransformerMixin):
 
         lst = []
         for q in questions:
-            dict = {}
-            dict['wh-word'] = q.type
-            dict['head-word'] = q.head_word
-            if self.semantic_features:
-                dict['hypernym'] = q.hypernym(self.depth)
+            dict = {'wh-word': q.type}
+            head = q.head_word
+            if head is not None:
+                dict['head-word'] = q.head_word
+                if self.semantic_features:
+                    dict['hypernym'] = q.hypernym(self.depth)
             lst.append(dict)
+
         return lst
 
 class WordShapeExtractor(BaseEstimator, TransformerMixin):
@@ -86,20 +89,19 @@ def load_instances(f, head_present=False):
     print "Loading data set {1} ({0} head)".format('with' if head_present else 'without', f)
 
     with codecs.open(f, 'r', encoding='ascii') as file:
-
-        for line in file:
+        for line in file.readlines():
             split_point = line.find(' ')    # find first space
             label = line[0:split_point]
             text = line[split_point+1:].rstrip('\n')
             head = None
-            #
-            # if head_present:
-            #     split_point = text.rfind(' ')
-            #     head = text[split_point+1:]     # head was extracted before, keep it
-            #     text = text[0:split_point]
+
+            if head_present:
+                split_point = text.rfind(' ')
+                text = text[0:split_point]
+                head = text[split_point+1:]     # head was extracted before, keep it
 
             labels.append(Label(label))
-            questions.append(Question(text, head))
+            questions.append(Question(text, head, head_present=True))
 
     return labels, questions
 
@@ -127,8 +129,8 @@ if __name__ == "__main__":
     dev_filename = 'data/train_5500.label'
     test_filename = 'data/TREC_10.label'
 
-    load_heads = False
-    extract_head = False    # load the question list, and extract heads with persistence
+    load_heads = True
+    extract_head = False # load the question list, and extract heads with persistence
     extract_trees = False # load the question list, and extract trees with persistence
 
     granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
@@ -154,17 +156,23 @@ if __name__ == "__main__":
         exit()
 
     parameters = {
-        'features__ngrams__vect__ngram_range': [(1,1), (1,2)],
-        # 'features__ngrams__vect__stop_words': ('english', None),
-        # 'features__ngrams__tfidf__use_idf': (True, False),
-        # 'features__ngrams__tfidf__norm': ('l1', 'l2'),
-        'features__ngrams__extractor__normalized': (True, False),
-        'features__word_shape__vect__ngram_range': [(1,1), (1,2), (1,3)],
-        # 'features__word_shape__vect__stop_words': ('english', None),
-        # 'features__word_shape__tfidf__use_idf': (True, False),
-        # 'features__word_shape__tfidf__norm': ('l1', 'l2'),
-        'clf__alpha': (1e-3, 1e-4),
-        'clf__loss': ('hinge', 'modified_huber'), #'log', 'squared_hinge', 'perceptron'),
+        # 'features__wh_head_word__selector__depth': [1,3,6],
+        # 'features__ngrams__vectorizer__ngram_range': [(1,1), (1,2), (1,3)],
+        # 'features__ngrams__vectorizer__stop_words': ('english', None),
+        # 'features__ngrams__extractor__normalized': (True, False),
+        # 'features__word_shape__vectorizer__ngram_range': [(1,3),(3,3),(1,5)],
+        # 'features__word_shape__vectorizer__stop_words': ('english', None),
+        # 'clf__alpha': (1e-4, 1e-3, 4e-4),
+        # 'clf__loss': (
+        #     'hinge',
+        #     'modified_huber',
+        #     'log',
+        #     'squared_hinge',
+        #     'perceptron'
+        # ),
+        # 'svc__C': (5.0, 2.0,10.0),
+        # 'svc__loss': ('hinge', 'squared_hinge'),
+        # 'svc__penalty': ('l1', 'l2'),
     }
 
     pipeline = Pipeline([
@@ -172,25 +180,22 @@ if __name__ == "__main__":
         ('features', FeatureUnion(
             transformer_list=[
 
-                # # WH-WORD AND HEAD WORDS
-                # ('wh+head-word', Pipeline([
-                #     ('selector', HeadWordExtractorPlus(semantic_features=False, wordnet_depth=1)),
-                #     ('vect', DictVectorizer())
-                # ])),
+                # WH-WORD AND HEAD WORDS
+                ('wh_head_word', Pipeline([
+                    ('selector', HeadWordExtractorPlus(semantic_features=True, depth=6)),
+                    ('vect', DictVectorizer(sparse=True)),
+                ])),
 
                 # WORD SHAPE
                 ('word_shape', Pipeline([
                     ('selector', WordShapeExtractor()),
-                    ('vect', CountVectorizer()),
-                    ('tfidf', TfidfTransformer(use_idf=True, norm='l2')),
-                    # ('best')  #TODO
+                    ('vectorizer', TfidfVectorizer(use_idf=True, norm="l2", ngram_range=(3,3), stop_words=None)),
                 ])),
 
                 # N-GRAMS
                 ('ngrams', Pipeline([
                     ('extractor', TextExtractor(normalized=True)),       # returns a list of strings
-                    ('vect', CountVectorizer(analyzer='word', strip_accents='ascii')),
-                    ('tfidf', TfidfTransformer(use_idf=True, norm='l2')), #TODO
+                    ('vectorizer', TfidfVectorizer(analyzer='word', strip_accents='ascii', use_idf=True, norm="l2", ngram_range=(1,2), stop_words=None)),
                 ])),
             ],
 
@@ -201,21 +206,22 @@ if __name__ == "__main__":
             },
         )),
 
-        ('clf', SGDClassifier(n_jobs=-1, verbose=0)),  # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+        # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+        # ('clf', SGDClassifier(n_jobs=-1, verbose=0, alpha=3e-4, loss='modified_huber')),
+        ('svc', LinearSVC(C=2.0))
     ])
 
-    # clf = pipeline.fit(dev['data'], dev['target'])
-    # predicted = clf.predict(test['data'])
+    clf = pipeline.fit(dev['data'], dev['target'])
 
-    clf = GridSearchCV(pipeline, parameters, n_jobs=1)
-    _ = clf.fit(dev['data'], dev['target'])
+    # clf = GridSearchCV(pipeline, parameters, n_jobs=1)
+    # _ = clf.fit(dev['data'], dev['target'])
 
     predicted = clf.predict(test['data'])
 
     print accuracy_score(test["target"], predicted)
     print classification_report(test["target"], predicted)
 
-    best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
-    for param_name in sorted(parameters.keys()):
-        print "{0}: {1}".format(param_name, best_parameters[param_name])
+    # best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
+    # for param_name in sorted(parameters.keys()):
+    #     print "{0}: {1}".format(param_name, best_parameters[param_name])
 
