@@ -54,18 +54,18 @@ class WordShapeExtractor(BaseEstimator, TransformerMixin):
 
 class TextExtractor(BaseEstimator, TransformerMixin):
     """ Extract text from each question to be used for language modelling """
-    def __init__(self, normalized=False):
-        self.normalized = normalized
+
+    def __init__(self, lower=False, lemmatize=False, punct=False, stops=False):
+        self.lower=lower
+        self.lemmatize = lemmatize
+        self.punct = punct
+        self.stops = stops
 
     def fit(self, x, y=None):
         return self
 
     def transform(self, questions):
-        print 'TextExtractor> transforming '
-        if self.normalized:
-            return [q.normalized_text for q in questions]
-        else:
-            return [q.text for q in questions]
+        return [q.normalize(q.words, lower=self.lower, lemmatize=self.lemmatize, punct=self.punct, stops=self.stops) for q in questions]
 
 
 def load_instances(f, head_present=False):
@@ -97,8 +97,8 @@ def load_instances(f, head_present=False):
 
             if head_present:
                 split_point = text.rfind(' ')
-                text = text[0:split_point]
                 head = text[split_point+1:]     # head was extracted before, keep it
+                text = text[0:split_point]
 
             labels.append(Label(label))
             questions.append(Question(text, head, head_present=True))
@@ -159,8 +159,11 @@ if __name__ == "__main__":
         # 'features__wh_head_word__selector__depth': [1,3,6],
         # 'features__ngrams__vectorizer__ngram_range': [(1,1), (1,2), (1,3)],
         # 'features__ngrams__vectorizer__stop_words': ('english', None),
-        # 'features__ngrams__extractor__normalized': (True, False),
-        # 'features__word_shape__vectorizer__ngram_range': [(1,3),(3,3),(1,5)],
+        # 'features__ngrams__extractor__lower': (True, False),
+        # 'features__ngrams__extractor__lemmatize': (True, False),
+        # 'features__ngrams__extractor__punct': (True, False),
+        # 'features__ngrams__extractor__stops': (True, False),
+        # 'features__word_shape__vectorizer__ngram_range': [(1,5),(1,6),(1,7),(1,8)],
         # 'features__word_shape__vectorizer__stop_words': ('english', None),
         # 'clf__alpha': (1e-4, 1e-3, 4e-4),
         # 'clf__loss': (
@@ -170,32 +173,30 @@ if __name__ == "__main__":
         #     'squared_hinge',
         #     'perceptron'
         # ),
-        # 'svc__C': (5.0, 2.0,10.0),
-        # 'svc__loss': ('hinge', 'squared_hinge'),
-        # 'svc__penalty': ('l1', 'l2'),
+        'svc__C': (5.0, 2.0,10.0),
     }
 
     pipeline = Pipeline([
         # Use FeatureUnion to combine the features
         ('features', FeatureUnion(
             transformer_list=[
-
+                #
                 # WH-WORD AND HEAD WORDS
                 ('wh_head_word', Pipeline([
-                    ('selector', HeadWordExtractorPlus(semantic_features=True, depth=6)),
+                    ('selector', HeadWordExtractorPlus(semantic_features=True, depth=1)),
                     ('vect', DictVectorizer(sparse=True)),
                 ])),
 
                 # WORD SHAPE
                 ('word_shape', Pipeline([
                     ('selector', WordShapeExtractor()),
-                    ('vectorizer', TfidfVectorizer(use_idf=True, norm="l2", ngram_range=(3,3), stop_words=None)),
+                    ('vectorizer', TfidfVectorizer(use_idf=True, norm="l2", ngram_range=(1,6), stop_words=None)),
                 ])),
 
                 # N-GRAMS
                 ('ngrams', Pipeline([
-                    ('extractor', TextExtractor(normalized=True)),       # returns a list of strings
-                    ('vectorizer', TfidfVectorizer(analyzer='word', strip_accents='ascii', use_idf=True, norm="l2", ngram_range=(1,2), stop_words=None)),
+                    ('extractor', TextExtractor(lemmatize=True, lower=False, punct=True, stops=False)),       # returns a list of strings
+                    ('vectorizer', TfidfVectorizer(analyzer='word', strip_accents='ascii', use_idf=True, norm="l2", ngram_range=(1,1), stop_words=None)),
                 ])),
             ],
 
@@ -207,8 +208,8 @@ if __name__ == "__main__":
         )),
 
         # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
-        # ('clf', SGDClassifier(n_jobs=-1, verbose=0, alpha=3e-4, loss='modified_huber')),
-        ('svc', LinearSVC(C=2.0))
+        # ('clf', SGDClassifier(n_jobs=-1, verbose=1, alpha=3e-4, loss='modified_huber')),
+        ('svc', LinearSVC(C=5.0))
     ])
 
     clf = pipeline.fit(dev['data'], dev['target'])
@@ -221,7 +222,6 @@ if __name__ == "__main__":
     print accuracy_score(test["target"], predicted)
     print classification_report(test["target"], predicted)
 
-    # best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
-    # for param_name in sorted(parameters.keys()):
-    #     print "{0}: {1}".format(param_name, best_parameters[param_name])
-
+    best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
+    for param_name in sorted(parameters.keys()):
+        print "{0}: {1}".format(param_name, best_parameters[param_name])

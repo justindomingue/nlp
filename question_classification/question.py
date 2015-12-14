@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import re
-from collections import defaultdict as dd
 # from bllipparser import RerankingParser, Tree, tokenize
-from bllipparser import Tree
+# from bllipparser import Tree
 from nltk.corpus import stopwords, wordnet as wn
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
@@ -12,7 +11,7 @@ from string import punctuation
 from semantics.head_finder import SemanticHeadFinder
 
 wordnet_lemmatizer = WordNetLemmatizer()
-# stop = stopwords.words('english')
+stop = stopwords.words('english')
 
 # print 'Loading BLLIP reranking parser...'
 # rrp = RerankingParser.fetch_and_load('WSJ+Gigaword-v2')
@@ -37,23 +36,23 @@ class Question:
     # Regex patterns to help question head word identification
     patterns = {
         'set1': {
-            'DESC:def_1': '^what (is|are) ((a|an|the) )?(\w+ ?){1,2}',
-            'DESC:def_2': '^what (do|does) (\w+ ?)+ mean \?$',
-            'ENTY:substance': '^what (is|are) (\w+ ?)+ ((composed|made|made out) of) \?$',
-            'DESC:desc': '^what (does) (\w+ ?)+ (do) \?$',
+            'DESC:def_1': '^what (is|are) (a |an |the )?([^\s]* ?){1,2} \?$',
+            'DESC:def_2': '^what (do|does) .* mean \?$',
+            'ENTY:substance': '^what (is|are) .* ((composed|made|made out) of) \?$',
+            'DESC:desc': '^what (does) .* (do) \?$',
             'ENTY:term': '^what do you call',
             'DESC:reason_1': '^what causes?',
-            'DESC:reason_2': '^what (is|are) (\w+ ?)+ (used for) \?$',
-            'ABBR:exp': '^what (do|does) (\w+ ?)+ (stand for) \?$'
+            'DESC:reason_2': '^what (is|are) .* (used for) \?$',
+            'ABBR:exp': '^what (do|does) .* (stand for) \?$'
         },
         'set2': {
-            'HUM:desc': '^who (is|was) [A-Z]'
+            'HUM:desc': '^[w|W]ho (is|was) [A-Z]'
         }
     }
 
     head_finder = SemanticHeadFinder()
 
-    def __init__(self, question, head=None, tree=None, head_present=True):
+    def __init__(self, question, head=None, tree=None, head_present=False):
         """
         Creates a Question
         :param question: question text. Must be ended with a ' ?'
@@ -66,19 +65,23 @@ class Question:
         wh_word = self.words[0].lower()
         self.type = wh_word if wh_word in Question.types[:-1] else Question.types[-1]
 
-        print head
         self._head = head
         self._head_present = head_present
         self._tree = tree
 
-    def normalize(self, words):
+    def normalize(self, words, lower=True, lemmatize=True, punct=True, stops=False):
         normalized = []
         for word in words:
-            word = word.lower()
-            word = wordnet_lemmatizer.lemmatize(word)
+            if lower:
+                word = word.lower()
+            if lemmatize:
+                word = wordnet_lemmatizer.lemmatize(word)
             normalized.append(word)
-        normalized = [word for word in normalized if word not in punctuation]
-        # normalized = [word for word in normalized if word not in stop]
+
+        if punct:
+            normalized = [word for word in normalized if word not in punctuation]
+        if stops:
+            normalized = [word for word in normalized if word not in stop]
 
         return ' '.join(normalized)
 
@@ -110,7 +113,7 @@ class Question:
     @property
     def tree(self):
         if self._tree is None:
-            tree = rrp.simple_parse(self.words)
+            self._tree = rrp.simple_parse(self.words)
         return Tree(self._tree)
 
     @property
@@ -125,11 +128,11 @@ class Question:
             return None
 
         if self.type == 'how':
-            return self.words[1]
+            return self.normalized_text.split(' ', 2)[1]    # return first word after type
 
         if self.type == 'what':
             for placehold, pattern in Question.patterns['set1'].iteritems():
-                if re.match(pattern, self.text):
+                if re.match(pattern, self.text, re.IGNORECASE):
                     return placehold
 
         if self.type == 'who' and re.match(Question.patterns['set2']['HUM:desc'], self.text):

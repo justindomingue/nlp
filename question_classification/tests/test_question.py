@@ -2,7 +2,6 @@
 
 import unittest
 from question_classification.question import Question
-from question_classification.question import HeadFinder
 
 
 class QuestionTests(unittest.TestCase):
@@ -24,18 +23,19 @@ class QuestionTests(unittest.TestCase):
     def test_head_word(self):
         # == FROM REGULAR EXPRESSION ==
         #should be  None
-        self.assertEqual(Question('when is ?').head_word, None)
-        self.assertEqual(Question('where is ?').head_word, None)
-        self.assertEqual(Question('why is ?').head_word, None)
-
-        #should be word following how
-        self.assertEqual(Question('how is ?').head_word, 'is')
-        self.assertEqual(Question('how long is a race ?').head_word, 'long')
-
-        #test patterns
-        #DESC:def pattern 1
+        # self.assertEqual(Question('when is ?').head_word, None)
+        # self.assertEqual(Question('where is ?').head_word, None)
+        # self.assertEqual(Question('why is ?').head_word, None)
+        #
+        # #should be word following how
+        # self.assertEqual(Question('how is ?').head_word, 'is')
+        # self.assertEqual(Question('how long is a race ?').head_word, 'long')
+        #
+        # #test patterns
+        # #DESC:def pattern 1
         self.assertEqual(Question('what is an orange ?').head_word, 'DESC:def_1')    #what+is+an+1word
         self.assertEqual(Question('what are cold brewed ?').head_word, 'DESC:def_1')  #what+are+(2 words)
+        self.assertEqual(Question('What is the oldest profession ?').head_word, 'DESC:def_1')
 
         #DESC:def pattern 2
         self.assertEqual(Question('what does this thing mean ?').head_word, 'DESC:def_2')    #what+do/does+...+mean
@@ -67,35 +67,11 @@ class QuestionTests(unittest.TestCase):
         self.assertEqual(Question('who was Carla ?').head_word, 'HUM:desc')
 
         #should be candidate head word using head finder rules
-        self.assertEqual(Question('who is john ?').head_word, None)
+        self.assertEqual(Question('who is john ?').head_word,'john')
 
         # == FROM SYNTACTIC PARSE + COLLINS RULES ==
 
-        pass
         #should be 'turkeys'
-        self.assertEqual(Question('what is a group of turkeys called ?'), 'turkeys')
-        self.assertEqual(Question('what year did the titanic sink ?'), 'year')
-        self.assertEqual(Question('what is the sales tax in Minnesota ?'), 'tax')
-
-
-class HeadFinderTests(unittest.TestCase):
-    def setUp(self):
-        pass
-
-    def test_head(self):
-
-        #What year did the Titanic sink?
-        self.assertEqual(HeadFinder('the Titanic').semantic_head(), 'Titanic')
-        self.assertEqual(HeadFinder('the Titanic sink').semantic_head(), 'Titanic')
-        self.assertEqual(HeadFinder('did the Titanic sink').semantic_head(), 'Titanic')
-        self.assertEqual(HeadFinder('what year').semantic_head(), 'year')
-        self.assertEqual(HeadFinder('what year did the Titanic sink ?').semantic_head(), 'year')
-
-        #what is the sales tax in Minnesota?
-        self.assertEqual(HeadFinder('in Minnesota').semantic_head(), 'Minnesota')
-        self.assertEqual(HeadFinder('the sales tax').semantic_head(), 'tax')
-        self.assertEqual(HeadFinder('the sales tax in Minnesota').semantic_head(), 'tax')
-        self.assertEqual(HeadFinder('is the sales tax in Minnesota').semantic_head(), 'tax')
-        # self.assertEqual(HeadFinder('What is the sales tax in Minnesota ?').semantic_head(), 'tax')
-
-        self.assertEqual(HeadFinder('What is the oldest profession ?').semantic_head(), 'profession')
+        self.assertEqual(Question('what is a group of turkeys called ?').head_word, 'turkeys')
+        self.assertEqual(Question('what year did the titanic sink ?').head_word, 'year')
+        self.assertEqual(Question('what is the sales tax in Minnesota ?').head_word, 'tax')
