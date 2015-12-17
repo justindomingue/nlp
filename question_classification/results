@@ -1,7 +1,61 @@
+0.838
+/usr/local/lib/python2.7/dist-packages/sklearn/metrics/classification.py:1074: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/usr/local/lib/python2.7/dist-packages/sklearn/metrics/classification.py:1076: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples.
+  'recall', 'true', average, warn_for)
+             precision    recall  f1-score   support
+
+   ABBR:abb       1.00      1.00      1.00         1
+   ABBR:exp       1.00      0.88      0.93         8
+   DESC:def       0.88      0.98      0.93       123
+  DESC:desc       0.50      0.86      0.63         7
+DESC:manner       0.67      1.00      0.80         2
+DESC:reason       1.00      1.00      1.00         6
+ENTY:animal       0.67      0.62      0.65        16
+  ENTY:body       1.00      0.50      0.67         2
+ ENTY:color       1.00      0.90      0.95        10
+ENTY:cremat       0.00      0.00      0.00         0
+ENTY:currency       1.00      1.00      1.00         6
+ENTY:dismed       0.33      0.50      0.40         2
+ ENTY:event       0.00      0.00      0.00         2
+  ENTY:food       0.80      1.00      0.89         4
+ENTY:instru       1.00      1.00      1.00         1
+  ENTY:lang       1.00      1.00      1.00         2
+ ENTY:other       0.43      0.50      0.46        12
+ ENTY:plant       1.00      0.80      0.89         5
+ENTY:product       1.00      0.25      0.40         4
+ ENTY:sport       0.50      1.00      0.67         1
+ENTY:substance       0.88      0.47      0.61        15
+ENTY:techmeth       1.00      1.00      1.00         1
+ENTY:termeq       0.75      0.86      0.80         7
+   ENTY:veh       1.00      0.75      0.86         4
+Traceback (most recent call last):
+   HUM:desc       1.00      1.00      1.00         3
+  File "/home/justin/Downloads/nlp/question_classification/load.py", line 229, in <module>
+     HUM:gr       1.00      0.67      0.80         6
+    print clf.grid_scores_
+AttributeError: 'Pipeline' object has no attribute 'grid_scores_'
+    HUM:ind       0.89      1.00      0.94        55
+  HUM:title       0.00      0.00      0.00         1
+   LOC:city       0.86      0.67      0.75        18
+LOC:country       1.00      1.00      1.00         3
+  LOC:mount       0.67      0.67      0.67         3
+  LOC:other       0.82      0.80      0.81        50
+  LOC:state       0.86      0.86      0.86         7
+  NUM:count       0.64      1.00      0.78         9
+   NUM:date       0.98      1.00      0.99        47
+   NUM:dist       1.00      0.56      0.72        16
+  NUM:money       0.50      0.33      0.40         3
+  NUM:other       1.00      0.42      0.59        12
+   NUM:perc       0.50      0.33      0.40         3
+ NUM:period       0.67      1.00      0.80         8
+  NUM:speed       1.00      0.50      0.67         6
+   NUM:temp       1.00      0.60      0.75         5
+ NUM:weight       1.00      0.50      0.67         4
+
+avg / total       0.86      0.84      0.83       500
+
 ALL
-
-
-
 
 WH-WORD + HEAD WORD
 

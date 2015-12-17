@@ -12,6 +12,7 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score, classification_report
 
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.preprocessing import Normalizer, StandardScaler
 from sklearn.pipeline import Pipeline, FeatureUnion
 
 import numpy as np
@@ -38,7 +39,10 @@ class HeadWordExtractorPlus(BaseEstimator, TransformerMixin):
             if head is not None:
                 dict['head-word'] = q.head_word
                 if self.semantic_features:
-                    dict['hypernym'] = q.hypernym(self.depth)
+                    hypernym = q.hypernym(self.depth)
+                    if hypernym is not None:
+                        dict['hypernym'] = hypernym
+
             lst.append(dict)
 
         return lst
@@ -133,8 +137,8 @@ if __name__ == "__main__":
     extract_head = False # load the question list, and extract heads with persistence
     extract_trees = False # load the question list, and extract trees with persistence
 
-    granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
-    # granularity = 'fine'
+    # granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
+    granularity = 'fine'
 
     # Load the data set (label, question)
     dev_labels, dev_questions = load_instances(dev_filename, head_present=load_heads)
@@ -156,14 +160,14 @@ if __name__ == "__main__":
         exit()
 
     parameters = {
-        # 'features__wh_head_word__selector__depth': [1,3,6],
+        # 'features__wh_head_word__selector__depth': [1,2,4],
         # 'features__ngrams__vectorizer__ngram_range': [(1,1), (1,2), (1,3)],
         # 'features__ngrams__vectorizer__stop_words': ('english', None),
         # 'features__ngrams__extractor__lower': (True, False),
         # 'features__ngrams__extractor__lemmatize': (True, False),
         # 'features__ngrams__extractor__punct': (True, False),
         # 'features__ngrams__extractor__stops': (True, False),
-        # 'features__word_shape__vectorizer__ngram_range': [(1,5),(1,6),(1,7),(1,8)],
+        'features__word_shape__vectorizer__ngram_range': [(1,8), (1,7), (2,8)],
         # 'features__word_shape__vectorizer__stop_words': ('english', None),
         # 'clf__alpha': (1e-4, 1e-3, 4e-4),
         # 'clf__loss': (
@@ -173,7 +177,7 @@ if __name__ == "__main__":
         #     'squared_hinge',
         #     'perceptron'
         # ),
-        'svc__C': (5.0, 2.0,10.0),
+        # 'svc__C': (5.0, 2.0,10.0),
     }
 
     pipeline = Pipeline([
@@ -190,13 +194,13 @@ if __name__ == "__main__":
                 # WORD SHAPE
                 ('word_shape', Pipeline([
                     ('selector', WordShapeExtractor()),
-                    ('vectorizer', TfidfVectorizer(use_idf=True, norm="l2", ngram_range=(1,6), stop_words=None)),
+                    ('vectorizer', TfidfVectorizer(use_idf=True, norm="l2", ngram_range=(1,7), stop_words=None)),
                 ])),
 
                 # N-GRAMS
                 ('ngrams', Pipeline([
-                    ('extractor', TextExtractor(lemmatize=True, lower=False, punct=True, stops=False)),       # returns a list of strings
-                    ('vectorizer', TfidfVectorizer(analyzer='word', strip_accents='ascii', use_idf=True, norm="l2", ngram_range=(1,1), stop_words=None)),
+                    ('extractor', TextExtractor(lemmatize=True, lower=False, punct=False, stops=False)),       # returns a list of strings
+                    ('vectorizer', TfidfVectorizer(analyzer='word', strip_accents='ascii', use_idf=True, norm="l2", ngram_range=(1,2), stop_words=None)),
                 ])),
             ],
 
@@ -214,7 +218,7 @@ if __name__ == "__main__":
 
     clf = pipeline.fit(dev['data'], dev['target'])
 
-    # clf = GridSearchCV(pipeline, parameters, n_jobs=1)
+    # clf = GridSearchCV(pipeline, parameters, n_jobs=2)
     # _ = clf.fit(dev['data'], dev['target'])
 
     predicted = clf.predict(test['data'])
@@ -222,6 +226,7 @@ if __name__ == "__main__":
     print accuracy_score(test["target"], predicted)
     print classification_report(test["target"], predicted)
 
+    print clf.grid_scores_
     best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
     for param_name in sorted(parameters.keys()):
         print "{0}: {1}".format(param_name, best_parameters[param_name])

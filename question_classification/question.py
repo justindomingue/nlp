@@ -7,6 +7,7 @@ import re
 from nltk.corpus import stopwords, wordnet as wn
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
+from nltk.wsd import lesk
 from string import punctuation
 from semantics.head_finder import SemanticHeadFinder
 
@@ -146,12 +147,17 @@ class Question:
     ### HYPERNYM
 
     def hypernym(self, level=1):
+        '''Returns the hypernym of `self._head_word` or None'''
+
+        if self._head is None:
+            return None
+
         # 1. Get POS - actually we know it's a noun because that's what we've extracted
         pos = 'n'
 
         # 2. Which sense of the word is needed to be augmented
         try:
-            sense = wn.synsets(self.head_word, pos)[0]  # get the best sense. Performance of ~55%, better than most Lesk algorithms
+            sense = wn.synsets(self._head, pos)[0]  # get the best sense. Performance of ~55%, better than most Lesk algorithms
 
             for _ in range(level):
                 hypernyms = sense.hypernyms()
@@ -160,7 +166,9 @@ class Question:
 
             return sense.name()
         except IndexError:
-            return ''
+            return None
+        except AttributeError:
+            return None
 
     ### OTHER
     def __repr__(self):
