@@ -137,8 +137,8 @@ if __name__ == "__main__":
     extract_head = False # load the question list, and extract heads with persistence
     extract_trees = False # load the question list, and extract trees with persistence
 
-    # granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
-    granularity = 'fine'
+    granularity = 'coarse'  # defines the granularity of the target classes (6 vs. 50)
+    # granularity = 'fine'
 
     # Load the data set (label, question)
     dev_labels, dev_questions = load_instances(dev_filename, head_present=load_heads)
@@ -160,23 +160,23 @@ if __name__ == "__main__":
         exit()
 
     parameters = {
-        # 'features__wh_head_word__selector__depth': [1,2,4],
+        # 'features__wh_head_word__selector__depth': [1,3,6],
         # 'features__ngrams__vectorizer__ngram_range': [(1,1), (1,2), (1,3)],
         # 'features__ngrams__vectorizer__stop_words': ('english', None),
         # 'features__ngrams__extractor__lower': (True, False),
         # 'features__ngrams__extractor__lemmatize': (True, False),
         # 'features__ngrams__extractor__punct': (True, False),
         # 'features__ngrams__extractor__stops': (True, False),
-        'features__word_shape__vectorizer__ngram_range': [(1,8), (1,7), (2,8)],
+        # 'features__word_shape__vectorizer__ngram_range': [(1,8), (1,7), (2,8)],
         # 'features__word_shape__vectorizer__stop_words': ('english', None),
-        # 'clf__alpha': (1e-4, 1e-3, 4e-4),
-        # 'clf__loss': (
-        #     'hinge',
-        #     'modified_huber',
-        #     'log',
-        #     'squared_hinge',
-        #     'perceptron'
-        # ),
+        'clf__alpha': (1e-4, 1e-3, 4e-4),
+        'clf__loss': (
+            'hinge',
+            'modified_huber',
+            # 'log',
+            'squared_hinge',
+            # 'perceptron'
+        ),
         # 'svc__C': (5.0, 2.0,10.0),
     }
 
@@ -187,7 +187,7 @@ if __name__ == "__main__":
                 #
                 # WH-WORD AND HEAD WORDS
                 ('wh_head_word', Pipeline([
-                    ('selector', HeadWordExtractorPlus(semantic_features=True, depth=1)),
+                    ('selector', HeadWordExtractorPlus(semantic_features=False, depth=3)),
                     ('vect', DictVectorizer(sparse=True)),
                 ])),
 
@@ -199,7 +199,7 @@ if __name__ == "__main__":
 
                 # N-GRAMS
                 ('ngrams', Pipeline([
-                    ('extractor', TextExtractor(lemmatize=True, lower=False, punct=False, stops=False)),       # returns a list of strings
+                    ('extractor', TextExtractor(lemmatize=True, lower=False, punct=True, stops=False)),       # returns a list of strings
                     ('vectorizer', TfidfVectorizer(analyzer='word', strip_accents='ascii', use_idf=True, norm="l2", ngram_range=(1,2), stop_words=None)),
                 ])),
             ],
@@ -213,7 +213,7 @@ if __name__ == "__main__":
 
         # TODO when writing the report, see http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
         # ('clf', SGDClassifier(n_jobs=-1, verbose=1, alpha=3e-4, loss='modified_huber')),
-        ('svc', LinearSVC(C=5.0))
+        ('svc', LinearSVC(C=10.0))
     ])
 
     clf = pipeline.fit(dev['data'], dev['target'])
@@ -224,9 +224,12 @@ if __name__ == "__main__":
     predicted = clf.predict(test['data'])
 
     print accuracy_score(test["target"], predicted)
-    print classification_report(test["target"], predicted)
+    print clf.named_steps['svc'].coef_.shape
+    for i in range(6):
+        print np.count_nonzero(clf.named_steps['svc'].coef_[i])
 
-    print clf.grid_scores_
-    best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
-    for param_name in sorted(parameters.keys()):
-        print "{0}: {1}".format(param_name, best_parameters[param_name])
+    # print classification_report(test["target"], predicted)
+
+    # best_parameters, score, _ = max(clf.grid_scores_, key=lambda x: x[1])
+    # for param_name in sorted(parameters.keys()):
+    #     print "{0}: {1}".format(param_name, best_parameters[param_name])
