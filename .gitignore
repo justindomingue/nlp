@@ -2,3 +2,8 @@
 *.pyc
 question_classification/resources
 question_classification/resources/*
+*.bbl
+*.aux
+*.blg
+*.log
+*.synctex.gz

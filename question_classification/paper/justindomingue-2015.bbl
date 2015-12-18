@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citename{Collins}2003]{collins}
+Michael Collins.
+\newblock 2003.
+\newblock Head-driven statistical models for natural language parsing.
+\newblock {\em Comput. Linguist.}, 29(4):589--637, December.
+
 \bibitem[\protect\citename{Huang \bgroup et al.\egroup }2008]{huang}
 Zhiheng Huang, Marcus Thint, and Zengchang Qin.
 \newblock 2008.
@@ -8,7 +14,7 @@ Zhiheng Huang, Marcus Thint, and Zengchang Qin.
   Language Processing}, EMNLP '08, pages 927--936, Stroudsburg, PA, USA.
   Association for Computational Linguistics.
 
-\bibitem[\protect\citename{Khoury}2011]{Khoury}
+\bibitem[\protect\citename{Khoury}2011]{khoury}
 Richard Khoury.
 \newblock 2011.
 \newblock Question type classification using a part-of-speech hierarchy.
