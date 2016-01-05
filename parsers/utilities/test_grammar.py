@@ -39,3 +39,9 @@ class GrammarTest(unittest.TestCase):
 
     def test_terminals(self):
         self.assertItemsEqual(set(['walk', 'fly', 'book', 'I', 'you', 'cows', 'book', 'the', 'a']), self.grammar.terminals)
+
+    def test_left_for_right(self):
+        self.assertItemsEqual(set(['Det']), self.grammar.left_for_right(['the']))
+        self.assertItemsEqual(set(['N', 'V']), self.grammar.left_for_right(['book']))
+        self.assertItemsEqual(set(['V']), self.grammar.left_for_right(['walk']))
+        self.assertItemsEqual(set(['NP']), self.grammar.left_for_right(['Det', 'N']))

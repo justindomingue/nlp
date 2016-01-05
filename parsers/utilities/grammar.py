@@ -77,6 +77,16 @@ class Grammar:
                             self.word_pos[w.lower()].append(l)
         return self.word_pos[word.lower()] if self.word_pos.has_key(word.lower()) else []
 
+    def left_for_right(self, right):
+        """Returns a set of left constituents spanning `right`"""
+
+        constituents = []
+        for l, r in self.grammar.iteritems():
+            if right in r:
+                constituents.append(l)
+
+        return constituents if len(constituents)>0 else None
+
     @property
     def terminals(self):
         if not hasattr(self, '_terminals'):
